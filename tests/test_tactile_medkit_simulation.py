@@ -1,4 +1,6 @@
 import json
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -27,6 +29,28 @@ class TactileMedKitSimulationTests(unittest.TestCase):
             self.assertEqual(summary["runs"], 4)
             self.assertGreaterEqual(summary["success_rate"], 0.75)
             self.assertTrue((Path(tmp) / "stress_eval.json").exists())
+
+    def test_run_demo_script_executes_from_repository_root(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            completed = subprocess.run(
+                [
+                    sys.executable,
+                    "submissions/tactile_medkit_benchmark/run_demo.py",
+                    "--no-video",
+                    "--seed",
+                    "5",
+                    "--output-dir",
+                    tmp,
+                ],
+                cwd=Path(__file__).resolve().parents[1],
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+
+            self.assertEqual(completed.returncode, 0, completed.stderr)
+            self.assertIn("SUCCESS=True", completed.stdout)
+            self.assertTrue((Path(tmp) / "summary.json").exists())
 
 
 if __name__ == "__main__":

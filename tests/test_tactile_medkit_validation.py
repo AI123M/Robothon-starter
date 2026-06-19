@@ -1,4 +1,6 @@
 import tempfile
+import subprocess
+import sys
 import unittest
 from pathlib import Path
 
@@ -19,6 +21,29 @@ class TactileMedKitValidationTests(unittest.TestCase):
             self.assertEqual(report["uuid"], "f74c5b50-5ef8-467b-a141-a28ea9c34333")
             self.assertEqual(report["project_name"], "Tactile MedKit Manipulation Benchmark")
             self.assertGreaterEqual(report["metrics"]["cap_rotation_deg"], 220)
+
+    def test_validate_submission_script_executes_from_repository_root(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            output_dir = Path(tmp) / "outputs"
+            run_benchmark(seed=13, output_dir=output_dir, render_video=False)
+            run_stress_eval(seeds=3, output_dir=output_dir)
+
+            completed = subprocess.run(
+                [
+                    sys.executable,
+                    "submissions/tactile_medkit_benchmark/validate_submission.py",
+                    "--no-video",
+                    "--output-dir",
+                    str(output_dir),
+                ],
+                cwd=Path(__file__).resolve().parents[1],
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+
+            self.assertEqual(completed.returncode, 0, completed.stderr)
+            self.assertIn("VALID", completed.stdout)
 
 
 if __name__ == "__main__":

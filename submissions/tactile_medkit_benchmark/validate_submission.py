@@ -1,9 +1,18 @@
 import argparse
 import json
+import sys
 from pathlib import Path
 from typing import Dict, List, Optional
 
-from .task_model import OUTPUTS_DIR, PACKAGE_DIR, PROJECT_NAME, REGISTRATION_UUID
+if __package__ in {None, ""}:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from submissions.tactile_medkit_benchmark.task_model import (
+    OUTPUTS_DIR,
+    PACKAGE_DIR,
+    PROJECT_NAME,
+    REGISTRATION_UUID,
+)
 
 REQUIRED_ROOT_FILES = [
     "registration.json",
