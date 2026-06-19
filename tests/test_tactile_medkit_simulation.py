@@ -5,6 +5,9 @@ import tempfile
 import unittest
 from pathlib import Path
 
+import numpy as np
+
+from submissions.tactile_medkit_benchmark.simulation import _render_video
 from submissions.tactile_medkit_benchmark.simulation import run_benchmark, run_stress_eval
 
 
@@ -51,6 +54,17 @@ class TactileMedKitSimulationTests(unittest.TestCase):
             self.assertEqual(completed.returncode, 0, completed.stderr)
             self.assertIn("SUCCESS=True", completed.stdout)
             self.assertTrue((Path(tmp) / "summary.json").exists())
+
+    def test_render_video_reports_portable_filename(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            video_path = Path(tmp) / "demo.mp4"
+            frame = np.zeros((16, 16, 3), dtype=np.uint8)
+
+            status = _render_video(None, [frame, frame], video_path, fps=2)
+
+            self.assertTrue(status["rendered"])
+            self.assertEqual(status["path"], "demo.mp4")
+            self.assertTrue(video_path.exists())
 
 
 if __name__ == "__main__":

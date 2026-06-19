@@ -191,7 +191,7 @@ def _render_video(model: mujoco.MjModel, frames: List[np.ndarray], video_path: P
         tmp_path = video_path.with_suffix(".tmp.mp4")
         imageio.mimsave(tmp_path, frames, fps=fps, macro_block_size=8)
         tmp_path.replace(video_path)
-        return {"rendered": True, "path": str(video_path), "frames": len(frames), "fps": fps}
+        return {"rendered": True, "path": video_path.name, "frames": len(frames), "fps": fps}
     except Exception as exc:  # Rendering is best-effort; validation can run without video.
         return {"rendered": False, "reason": f"{type(exc).__name__}: {exc}"}
 
@@ -212,7 +212,7 @@ def run_benchmark(seed: int = 42, output_dir: Optional[Path] = None, render_vide
 
     if render_video:
         try:
-            renderer = mujoco.Renderer(model, width=960, height=540)
+            renderer = mujoco.Renderer(model, width=960, height=544)
         except Exception:
             renderer = None
 

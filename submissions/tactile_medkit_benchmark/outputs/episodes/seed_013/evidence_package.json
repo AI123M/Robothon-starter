@@ -1,0 +1,80 @@
+{
+  "metrics": {
+    "cap_rotation_deg": 226.0,
+    "completed_phases": 5,
+    "contacts_per_phase": {
+      "cap_rotation": {
+        "fingers": [
+          "index",
+          "little",
+          "middle",
+          "ring",
+          "thumb"
+        ],
+        "first_time": 0.44,
+        "last_time": 0.87,
+        "samples": 44
+      },
+      "confirmation_button": {
+        "fingers": [
+          "index"
+        ],
+        "first_time": 1.76,
+        "last_time": 2.19,
+        "samples": 44
+      },
+      "kit_assembly": {
+        "fingers": [
+          "index",
+          "middle",
+          "ring",
+          "thumb"
+        ],
+        "first_time": 1.32,
+        "last_time": 1.75,
+        "samples": 44
+      },
+      "perturb_recovery": {
+        "fingers": [
+          "index",
+          "little",
+          "middle",
+          "ring",
+          "thumb"
+        ],
+        "first_time": 0.88,
+        "last_time": 1.31,
+        "samples": 44
+      },
+      "vial_grasp": {
+        "fingers": [
+          "index",
+          "little",
+          "middle",
+          "ring",
+          "thumb"
+        ],
+        "first_time": 0.0,
+        "last_time": 0.43,
+        "samples": 44
+      }
+    },
+    "dexterity_score": 90.2,
+    "max_placement_error_mm": 8.0,
+    "max_slip_mm": 0.34,
+    "phase_count": 5,
+    "seed": 13,
+    "success": true
+  },
+  "project_name": "Tactile MedKit Manipulation Benchmark",
+  "registration_uuid": "f74c5b50-5ef8-467b-a141-a28ea9c34333",
+  "rubric_evidence": {
+    "control": "Phase controller uses smooth targets plus contact/slip-aware recovery metrics.",
+    "dexterity": "Thumb opposition and five coordinated fingers are required in the high-contact phases.",
+    "innovation": "Combines medkit assembly, triage-style manipulation, stress metrics, and data export.",
+    "mujoco_depth": "MJCF scene includes articulated hand joints, actuators, contacts, sensors, cameras, and task objects.",
+    "presentation": "Video path renders the same evidence trajectory shown in JSON outputs.",
+    "reproducibility": "One-command Python runner writes deterministic JSON evidence.",
+    "task_design": "Emergency-kit assembly combines grasping, cap rotation, recovery, placement, and confirmation."
+  }
+}

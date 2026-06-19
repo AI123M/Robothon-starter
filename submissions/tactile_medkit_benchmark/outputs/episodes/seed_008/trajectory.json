@@ -1,0 +1,2617 @@
+{
+  "samples": [
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 0.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle"
+      ],
+      "hand_pos": [
+        -0.22139,
+        -0.02107,
+        0.13891
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "vial_grasp",
+      "phase_label": "Five-finger vial grasp",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 0.0
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 0.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle"
+      ],
+      "hand_pos": [
+        -0.20303,
+        -0.02363,
+        0.13687
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "vial_grasp",
+      "phase_label": "Five-finger vial grasp",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 0.04
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 0.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle"
+      ],
+      "hand_pos": [
+        -0.18754,
+        -0.02987,
+        0.13467
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "vial_grasp",
+      "phase_label": "Five-finger vial grasp",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 0.08
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 0.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle"
+      ],
+      "hand_pos": [
+        -0.16992,
+        -0.0352,
+        0.13021
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "vial_grasp",
+      "phase_label": "Five-finger vial grasp",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 0.12
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 0.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle"
+      ],
+      "hand_pos": [
+        -0.15563,
+        -0.03947,
+        0.12867
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "vial_grasp",
+      "phase_label": "Five-finger vial grasp",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 0.16
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 0.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle"
+      ],
+      "hand_pos": [
+        -0.13856,
+        -0.04478,
+        0.12785
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "vial_grasp",
+      "phase_label": "Five-finger vial grasp",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 0.2
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 0.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle"
+      ],
+      "hand_pos": [
+        -0.12209,
+        -0.04747,
+        0.12418
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "vial_grasp",
+      "phase_label": "Five-finger vial grasp",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 0.24
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 0.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle"
+      ],
+      "hand_pos": [
+        -0.10459,
+        -0.05344,
+        0.12181
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "vial_grasp",
+      "phase_label": "Five-finger vial grasp",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 0.28
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 0.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.08924,
+        -0.05894,
+        0.11867
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "vial_grasp",
+      "phase_label": "Five-finger vial grasp",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 0.32
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 0.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.07335,
+        -0.06461,
+        0.11584
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "vial_grasp",
+      "phase_label": "Five-finger vial grasp",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 0.36
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 0.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.05746,
+        -0.06736,
+        0.1131
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "vial_grasp",
+      "phase_label": "Five-finger vial grasp",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 0.4
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 0.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.04573,
+        -0.07229,
+        0.11204
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.18,
+      "time": 0.44
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 21.023,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.04579,
+        -0.07189,
+        0.1109
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.192,
+      "time": 0.48
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 42.047,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.04604,
+        -0.07142,
+        0.11095
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.202,
+      "time": 0.52
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 63.07,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.04411,
+        -0.0707,
+        0.11261
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.211,
+      "time": 0.56
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 84.093,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.04503,
+        -0.07192,
+        0.11246
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.217,
+      "time": 0.6
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 105.116,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.04348,
+        -0.07081,
+        0.11163
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.22,
+      "time": 0.64
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 126.14,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.04601,
+        -0.07302,
+        0.11174
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.219,
+      "time": 0.68
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 147.163,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.04419,
+        -0.07174,
+        0.11113
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.216,
+      "time": 0.72
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 168.186,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.04572,
+        -0.07241,
+        0.11339
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.209,
+      "time": 0.76
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 189.209,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.04467,
+        -0.0708,
+        0.11225
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.2,
+      "time": 0.8
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 210.233,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.04473,
+        -0.07164,
+        0.11252
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.189,
+      "time": 0.84
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.04546,
+        -0.07256,
+        0.11187
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.34,
+      "time": 0.88
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.04481,
+        -0.07,
+        0.11169
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.335,
+      "time": 0.92
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.04521,
+        -0.06995,
+        0.11332
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.329,
+      "time": 0.96
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.04555,
+        -0.06806,
+        0.11056
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.322,
+      "time": 1.0
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.04539,
+        -0.06812,
+        0.11124
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.314,
+      "time": 1.04
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.04467,
+        -0.06927,
+        0.11175
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.304,
+      "time": 1.08
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.04426,
+        -0.06721,
+        0.11242
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.293,
+      "time": 1.12
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.04386,
+        -0.06862,
+        0.11216
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.28,
+      "time": 1.16
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.04622,
+        -0.06873,
+        0.11226
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.265,
+      "time": 1.2
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.0447,
+        -0.06958,
+        0.11267
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.249,
+      "time": 1.24
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "little"
+      ],
+      "hand_pos": [
+        -0.04476,
+        -0.07126,
+        0.11155
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.233,
+      "time": 1.28
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring"
+      ],
+      "hand_pos": [
+        -0.04422,
+        -0.0723,
+        0.1127
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.02,
+          -0.08,
+          0.122
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.02,
+          -0.08,
+          0.06
+        ]
+      },
+      "phase": "kit_assembly",
+      "phase_label": "Emergency-kit assembly",
+      "placement_error_mm": 8.0,
+      "slip_mm": 0.28,
+      "time": 1.32
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring"
+      ],
+      "hand_pos": [
+        -0.03248,
+        -0.0674,
+        0.11545
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.01084,
+          0.08027,
+          0.03827
+        ],
+        "cap": [
+          -0.00928,
+          -0.07226,
+          0.12152
+        ],
+        "capsule": [
+          -0.07837,
+          0.06798,
+          0.03538
+        ],
+        "tool_token": [
+          0.06323,
+          0.08647,
+          0.03571
+        ],
+        "vial": [
+          -0.00995,
+          -0.07274,
+          0.05944
+        ]
+      },
+      "phase": "kit_assembly",
+      "phase_label": "Emergency-kit assembly",
+      "placement_error_mm": 7.86,
+      "slip_mm": 0.28,
+      "time": 1.36
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring"
+      ],
+      "hand_pos": [
+        -0.0212,
+        -0.06288,
+        0.11649
+      ],
+      "object_positions": {
+        "bandage": [
+          0.02332,
+          0.06553,
+          0.03854
+        ],
+        "cap": [
+          0.00143,
+          -0.06452,
+          0.12105
+        ],
+        "capsule": [
+          -0.04674,
+          0.05596,
+          0.03576
+        ],
+        "tool_token": [
+          0.09646,
+          0.08293,
+          0.03641
+        ],
+        "vial": [
+          9e-05,
+          -0.06549,
+          0.05888
+        ]
+      },
+      "phase": "kit_assembly",
+      "phase_label": "Emergency-kit assembly",
+      "placement_error_mm": 7.721,
+      "slip_mm": 0.28,
+      "time": 1.4
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring"
+      ],
+      "hand_pos": [
+        -0.01002,
+        -0.05777,
+        0.11754
+      ],
+      "object_positions": {
+        "bandage": [
+          0.05747,
+          0.0508,
+          0.0388
+        ],
+        "cap": [
+          0.01215,
+          -0.05678,
+          0.12057
+        ],
+        "capsule": [
+          -0.01512,
+          0.04394,
+          0.03614
+        ],
+        "tool_token": [
+          0.12968,
+          0.0794,
+          0.03712
+        ],
+        "vial": [
+          0.01014,
+          -0.05823,
+          0.05833
+        ]
+      },
+      "phase": "kit_assembly",
+      "phase_label": "Emergency-kit assembly",
+      "placement_error_mm": 7.581,
+      "slip_mm": 0.28,
+      "time": 1.44
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring"
+      ],
+      "hand_pos": [
+        0.00159,
+        -0.05221,
+        0.12037
+      ],
+      "object_positions": {
+        "bandage": [
+          0.09163,
+          0.03606,
+          0.03907
+        ],
+        "cap": [
+          0.02287,
+          -0.04904,
+          0.12009
+        ],
+        "capsule": [
+          0.01651,
+          0.03193,
+          0.03652
+        ],
+        "tool_token": [
+          0.16291,
+          0.07586,
+          0.03783
+        ],
+        "vial": [
+          0.02019,
+          -0.05098,
+          0.05777
+        ]
+      },
+      "phase": "kit_assembly",
+      "phase_label": "Emergency-kit assembly",
+      "placement_error_mm": 7.442,
+      "slip_mm": 0.28,
+      "time": 1.48
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring"
+      ],
+      "hand_pos": [
+        0.01252,
+        -0.04762,
+        0.11972
+      ],
+      "object_positions": {
+        "bandage": [
+          0.12579,
+          0.02133,
+          0.03934
+        ],
+        "cap": [
+          0.03358,
+          -0.0413,
+          0.11962
+        ],
+        "capsule": [
+          0.04814,
+          0.01991,
+          0.0369
+        ],
+        "tool_token": [
+          0.19614,
+          0.07233,
+          0.03853
+        ],
+        "vial": [
+          0.03023,
+          -0.04372,
+          0.05721
+        ]
+      },
+      "phase": "kit_assembly",
+      "phase_label": "Emergency-kit assembly",
+      "placement_error_mm": 7.302,
+      "slip_mm": 0.28,
+      "time": 1.52
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring"
+      ],
+      "hand_pos": [
+        0.02349,
+        -0.04174,
+        0.12268
+      ],
+      "object_positions": {
+        "bandage": [
+          0.15995,
+          0.00659,
+          0.03961
+        ],
+        "cap": [
+          0.0443,
+          -0.03356,
+          0.11914
+        ],
+        "capsule": [
+          0.07977,
+          0.00789,
+          0.03728
+        ],
+        "tool_token": [
+          0.22937,
+          0.06879,
+          0.03924
+        ],
+        "vial": [
+          0.04028,
+          -0.03647,
+          0.05665
+        ]
+      },
+      "phase": "kit_assembly",
+      "phase_label": "Emergency-kit assembly",
+      "placement_error_mm": 7.163,
+      "slip_mm": 0.28,
+      "time": 1.56
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring"
+      ],
+      "hand_pos": [
+        0.03674,
+        -0.03722,
+        0.12358
+      ],
+      "object_positions": {
+        "bandage": [
+          0.19411,
+          -0.00814,
+          0.03988
+        ],
+        "cap": [
+          0.05501,
+          -0.02582,
+          0.11867
+        ],
+        "capsule": [
+          0.1114,
+          -0.00413,
+          0.03766
+        ],
+        "tool_token": [
+          0.2626,
+          0.06526,
+          0.03995
+        ],
+        "vial": [
+          0.05033,
+          -0.02921,
+          0.05609
+        ]
+      },
+      "phase": "kit_assembly",
+      "phase_label": "Emergency-kit assembly",
+      "placement_error_mm": 7.023,
+      "slip_mm": 0.28,
+      "time": 1.6
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring"
+      ],
+      "hand_pos": [
+        0.0472,
+        -0.03231,
+        0.12494
+      ],
+      "object_positions": {
+        "bandage": [
+          0.21,
+          -0.015,
+          0.04
+        ],
+        "cap": [
+          0.06573,
+          -0.01808,
+          0.11819
+        ],
+        "capsule": [
+          0.14,
+          -0.015,
+          0.038
+        ],
+        "tool_token": [
+          0.265,
+          0.065,
+          0.04
+        ],
+        "vial": [
+          0.06037,
+          -0.02195,
+          0.05553
+        ]
+      },
+      "phase": "kit_assembly",
+      "phase_label": "Emergency-kit assembly",
+      "placement_error_mm": 6.884,
+      "slip_mm": 0.28,
+      "time": 1.64
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring"
+      ],
+      "hand_pos": [
+        0.05906,
+        -0.02968,
+        0.12684
+      ],
+      "object_positions": {
+        "bandage": [
+          0.21,
+          -0.015,
+          0.04
+        ],
+        "cap": [
+          0.07,
+          -0.015,
+          0.118
+        ],
+        "capsule": [
+          0.14,
+          -0.015,
+          0.038
+        ],
+        "tool_token": [
+          0.265,
+          0.065,
+          0.04
+        ],
+        "vial": [
+          0.07,
+          -0.015,
+          0.055
+        ]
+      },
+      "phase": "kit_assembly",
+      "phase_label": "Emergency-kit assembly",
+      "placement_error_mm": 6.744,
+      "slip_mm": 0.28,
+      "time": 1.68
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "thumb",
+        "index",
+        "middle",
+        "ring"
+      ],
+      "hand_pos": [
+        0.07227,
+        -0.02373,
+        0.12893
+      ],
+      "object_positions": {
+        "bandage": [
+          0.21,
+          -0.015,
+          0.04
+        ],
+        "cap": [
+          0.07,
+          -0.015,
+          0.118
+        ],
+        "capsule": [
+          0.14,
+          -0.015,
+          0.038
+        ],
+        "tool_token": [
+          0.265,
+          0.065,
+          0.04
+        ],
+        "vial": [
+          0.07,
+          -0.015,
+          0.055
+        ]
+      },
+      "phase": "kit_assembly",
+      "phase_label": "Emergency-kit assembly",
+      "placement_error_mm": 6.605,
+      "slip_mm": 0.28,
+      "time": 1.72
+    },
+    {
+      "button_depth_mm": 0.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "index"
+      ],
+      "hand_pos": [
+        0.08155,
+        -0.01998,
+        0.1302
+      ],
+      "object_positions": {
+        "bandage": [
+          0.21,
+          -0.015,
+          0.04
+        ],
+        "cap": [
+          0.07,
+          -0.015,
+          0.118
+        ],
+        "capsule": [
+          0.14,
+          -0.015,
+          0.038
+        ],
+        "tool_token": [
+          0.265,
+          0.065,
+          0.04
+        ],
+        "vial": [
+          0.07,
+          -0.015,
+          0.055
+        ]
+      },
+      "phase": "confirmation_button",
+      "phase_label": "Final confirmation",
+      "placement_error_mm": 6.0,
+      "slip_mm": 0.2,
+      "time": 1.76
+    },
+    {
+      "button_depth_mm": 0.837,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "index"
+      ],
+      "hand_pos": [
+        0.09791,
+        -0.01084,
+        0.13011
+      ],
+      "object_positions": {
+        "bandage": [
+          0.21,
+          -0.015,
+          0.04
+        ],
+        "cap": [
+          0.07,
+          -0.015,
+          0.118
+        ],
+        "capsule": [
+          0.14,
+          -0.015,
+          0.038
+        ],
+        "tool_token": [
+          0.265,
+          0.065,
+          0.04
+        ],
+        "vial": [
+          0.07,
+          -0.015,
+          0.055
+        ]
+      },
+      "phase": "confirmation_button",
+      "phase_label": "Final confirmation",
+      "placement_error_mm": 6.0,
+      "slip_mm": 0.2,
+      "time": 1.8
+    },
+    {
+      "button_depth_mm": 1.674,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "index"
+      ],
+      "hand_pos": [
+        0.11781,
+        -0.00397,
+        0.12863
+      ],
+      "object_positions": {
+        "bandage": [
+          0.21,
+          -0.015,
+          0.04
+        ],
+        "cap": [
+          0.07,
+          -0.015,
+          0.118
+        ],
+        "capsule": [
+          0.14,
+          -0.015,
+          0.038
+        ],
+        "tool_token": [
+          0.265,
+          0.065,
+          0.04
+        ],
+        "vial": [
+          0.07,
+          -0.015,
+          0.055
+        ]
+      },
+      "phase": "confirmation_button",
+      "phase_label": "Final confirmation",
+      "placement_error_mm": 6.0,
+      "slip_mm": 0.2,
+      "time": 1.84
+    },
+    {
+      "button_depth_mm": 2.512,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "index"
+      ],
+      "hand_pos": [
+        0.13612,
+        0.00497,
+        0.12581
+      ],
+      "object_positions": {
+        "bandage": [
+          0.21,
+          -0.015,
+          0.04
+        ],
+        "cap": [
+          0.07,
+          -0.015,
+          0.118
+        ],
+        "capsule": [
+          0.14,
+          -0.015,
+          0.038
+        ],
+        "tool_token": [
+          0.265,
+          0.065,
+          0.04
+        ],
+        "vial": [
+          0.07,
+          -0.015,
+          0.055
+        ]
+      },
+      "phase": "confirmation_button",
+      "phase_label": "Final confirmation",
+      "placement_error_mm": 6.0,
+      "slip_mm": 0.2,
+      "time": 1.88
+    },
+    {
+      "button_depth_mm": 3.349,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "index"
+      ],
+      "hand_pos": [
+        0.15692,
+        0.01317,
+        0.12594
+      ],
+      "object_positions": {
+        "bandage": [
+          0.21,
+          -0.015,
+          0.04
+        ],
+        "cap": [
+          0.07,
+          -0.015,
+          0.118
+        ],
+        "capsule": [
+          0.14,
+          -0.015,
+          0.038
+        ],
+        "tool_token": [
+          0.265,
+          0.065,
+          0.04
+        ],
+        "vial": [
+          0.07,
+          -0.015,
+          0.055
+        ]
+      },
+      "phase": "confirmation_button",
+      "phase_label": "Final confirmation",
+      "placement_error_mm": 6.0,
+      "slip_mm": 0.2,
+      "time": 1.92
+    },
+    {
+      "button_depth_mm": 4.186,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "index"
+      ],
+      "hand_pos": [
+        0.17519,
+        0.02199,
+        0.12599
+      ],
+      "object_positions": {
+        "bandage": [
+          0.21,
+          -0.015,
+          0.04
+        ],
+        "cap": [
+          0.07,
+          -0.015,
+          0.118
+        ],
+        "capsule": [
+          0.14,
+          -0.015,
+          0.038
+        ],
+        "tool_token": [
+          0.265,
+          0.065,
+          0.04
+        ],
+        "vial": [
+          0.07,
+          -0.015,
+          0.055
+        ]
+      },
+      "phase": "confirmation_button",
+      "phase_label": "Final confirmation",
+      "placement_error_mm": 6.0,
+      "slip_mm": 0.2,
+      "time": 1.96
+    },
+    {
+      "button_depth_mm": 5.023,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "index"
+      ],
+      "hand_pos": [
+        0.19395,
+        0.03017,
+        0.12397
+      ],
+      "object_positions": {
+        "bandage": [
+          0.21,
+          -0.015,
+          0.04
+        ],
+        "cap": [
+          0.07,
+          -0.015,
+          0.118
+        ],
+        "capsule": [
+          0.14,
+          -0.015,
+          0.038
+        ],
+        "tool_token": [
+          0.265,
+          0.065,
+          0.04
+        ],
+        "vial": [
+          0.07,
+          -0.015,
+          0.055
+        ]
+      },
+      "phase": "confirmation_button",
+      "phase_label": "Final confirmation",
+      "placement_error_mm": 6.0,
+      "slip_mm": 0.2,
+      "time": 2.0
+    },
+    {
+      "button_depth_mm": 5.86,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "index"
+      ],
+      "hand_pos": [
+        0.2127,
+        0.03965,
+        0.12305
+      ],
+      "object_positions": {
+        "bandage": [
+          0.21,
+          -0.015,
+          0.04
+        ],
+        "cap": [
+          0.07,
+          -0.015,
+          0.118
+        ],
+        "capsule": [
+          0.14,
+          -0.015,
+          0.038
+        ],
+        "tool_token": [
+          0.265,
+          0.065,
+          0.04
+        ],
+        "vial": [
+          0.07,
+          -0.015,
+          0.055
+        ]
+      },
+      "phase": "confirmation_button",
+      "phase_label": "Final confirmation",
+      "placement_error_mm": 6.0,
+      "slip_mm": 0.2,
+      "time": 2.04
+    },
+    {
+      "button_depth_mm": 6.698,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "index"
+      ],
+      "hand_pos": [
+        0.23216,
+        0.04594,
+        0.12168
+      ],
+      "object_positions": {
+        "bandage": [
+          0.21,
+          -0.015,
+          0.04
+        ],
+        "cap": [
+          0.07,
+          -0.015,
+          0.118
+        ],
+        "capsule": [
+          0.14,
+          -0.015,
+          0.038
+        ],
+        "tool_token": [
+          0.265,
+          0.065,
+          0.04
+        ],
+        "vial": [
+          0.07,
+          -0.015,
+          0.055
+        ]
+      },
+      "phase": "confirmation_button",
+      "phase_label": "Final confirmation",
+      "placement_error_mm": 6.0,
+      "slip_mm": 0.2,
+      "time": 2.08
+    },
+    {
+      "button_depth_mm": 7.535,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "index"
+      ],
+      "hand_pos": [
+        0.25076,
+        0.05545,
+        0.12266
+      ],
+      "object_positions": {
+        "bandage": [
+          0.21,
+          -0.015,
+          0.04
+        ],
+        "cap": [
+          0.07,
+          -0.015,
+          0.118
+        ],
+        "capsule": [
+          0.14,
+          -0.015,
+          0.038
+        ],
+        "tool_token": [
+          0.265,
+          0.065,
+          0.04
+        ],
+        "vial": [
+          0.07,
+          -0.015,
+          0.055
+        ]
+      },
+      "phase": "confirmation_button",
+      "phase_label": "Final confirmation",
+      "placement_error_mm": 6.0,
+      "slip_mm": 0.2,
+      "time": 2.12
+    },
+    {
+      "button_depth_mm": 8.372,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "index"
+      ],
+      "hand_pos": [
+        0.27028,
+        0.0652,
+        0.12002
+      ],
+      "object_positions": {
+        "bandage": [
+          0.21,
+          -0.015,
+          0.04
+        ],
+        "cap": [
+          0.07,
+          -0.015,
+          0.118
+        ],
+        "capsule": [
+          0.14,
+          -0.015,
+          0.038
+        ],
+        "tool_token": [
+          0.265,
+          0.065,
+          0.04
+        ],
+        "vial": [
+          0.07,
+          -0.015,
+          0.055
+        ]
+      },
+      "phase": "confirmation_button",
+      "phase_label": "Final confirmation",
+      "placement_error_mm": 6.0,
+      "slip_mm": 0.2,
+      "time": 2.16
+    },
+    {
+      "button_depth_mm": 9.0,
+      "cap_rotation_deg": 226.0,
+      "contacts": [
+        "index"
+      ],
+      "hand_pos": [
+        0.28483,
+        0.06944,
+        0.11925
+      ],
+      "object_positions": {
+        "bandage": [
+          0.21,
+          -0.015,
+          0.04
+        ],
+        "cap": [
+          0.07,
+          -0.015,
+          0.118
+        ],
+        "capsule": [
+          0.14,
+          -0.015,
+          0.038
+        ],
+        "tool_token": [
+          0.265,
+          0.065,
+          0.04
+        ],
+        "vial": [
+          0.07,
+          -0.015,
+          0.055
+        ]
+      },
+      "phase": "confirmation_button",
+      "phase_label": "Final confirmation",
+      "placement_error_mm": 6.0,
+      "slip_mm": 0.2,
+      "time": 2.19
+    }
+  ]
+}

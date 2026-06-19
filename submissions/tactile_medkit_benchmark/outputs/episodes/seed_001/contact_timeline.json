@@ -1,0 +1,57 @@
+{
+  "cap_rotation": {
+    "fingers": [
+      "index",
+      "little",
+      "middle",
+      "ring",
+      "thumb"
+    ],
+    "first_time": 0.44,
+    "last_time": 0.87,
+    "samples": 44
+  },
+  "confirmation_button": {
+    "fingers": [
+      "index"
+    ],
+    "first_time": 1.76,
+    "last_time": 2.19,
+    "samples": 44
+  },
+  "kit_assembly": {
+    "fingers": [
+      "index",
+      "middle",
+      "ring",
+      "thumb"
+    ],
+    "first_time": 1.32,
+    "last_time": 1.75,
+    "samples": 44
+  },
+  "perturb_recovery": {
+    "fingers": [
+      "index",
+      "little",
+      "middle",
+      "ring",
+      "thumb"
+    ],
+    "first_time": 0.88,
+    "last_time": 1.31,
+    "samples": 44
+  },
+  "vial_grasp": {
+    "fingers": [
+      "index",
+      "little",
+      "middle",
+      "ring",
+      "thumb"
+    ],
+    "first_time": 0.0,
+    "last_time": 0.43,
+    "samples": 44
+  }
+}
