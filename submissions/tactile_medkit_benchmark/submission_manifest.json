@@ -1,0 +1,25 @@
+{
+  "project_name": "Tactile MedKit Manipulation Benchmark",
+  "registration_uuid": "f74c5b50-5ef8-467b-a141-a28ea9c34333",
+  "main_commands": [
+    "python3 submissions/tactile_medkit_benchmark/run_demo.py --no-video --seed 42",
+    "python3 submissions/tactile_medkit_benchmark/run_stress_eval.py --seeds 16",
+    "python3 submissions/tactile_medkit_benchmark/validate_submission.py --no-video"
+  ],
+  "optional_video_command": "python3 submissions/tactile_medkit_benchmark/run_demo.py --seed 42",
+  "required_outputs": [
+    "summary.json",
+    "trajectory.json",
+    "contact_timeline.json",
+    "evidence_package.json",
+    "stress_eval.json",
+    "video_status.json",
+    "final_report.txt"
+  ],
+  "score_targets": {
+    "cap_rotation_deg": 220.0,
+    "max_slip_mm": 0.5,
+    "max_placement_error_mm": 10.0,
+    "stress_success_rate": 0.875
+  }
+}

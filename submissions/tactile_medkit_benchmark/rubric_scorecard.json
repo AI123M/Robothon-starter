@@ -1,0 +1,39 @@
+{
+  "project_name": "Tactile MedKit Manipulation Benchmark",
+  "registration_uuid": "f74c5b50-5ef8-467b-a141-a28ea9c34333",
+  "target_internal_average": 90.0,
+  "rubric": {
+    "reproducibility": {
+      "target": 92,
+      "evidence": "Deterministic CLI commands, validation script, JSON artifacts, no hidden external services."
+    },
+    "mujoco_depth": {
+      "target": 89,
+      "evidence": "MJCF articulated hand, actuators, sensors, free objects, contacts, camera, and materials."
+    },
+    "task_design": {
+      "target": 91,
+      "evidence": "Emergency-kit assembly combines vial, cap, capsule, bandage, tool token, tray slots, and confirmation button."
+    },
+    "control": {
+      "target": 88,
+      "evidence": "Smooth multi-phase controller with perturbation recovery and slip/contact metrics."
+    },
+    "dexterity": {
+      "target": 92,
+      "evidence": "Five-finger contact, thumb opposition, cap rotation, object placement, and button press."
+    },
+    "engineering_quality": {
+      "target": 91,
+      "evidence": "Focused Python modules, manifest, generated metrics, and explicit validation."
+    },
+    "presentation": {
+      "target": 88,
+      "evidence": "Optional MP4 render, trajectory, final report, and judge brief."
+    },
+    "innovation": {
+      "target": 90,
+      "evidence": "Medkit manipulation benchmark combines emergency triage, recovery, assembly, and data export."
+    }
+  }
+}
