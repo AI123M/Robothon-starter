@@ -1,6 +1,11 @@
 {
-  "cap_rotation_deg": 226.0,
+  "cap_rotation_deg": 230.604,
+  "collision_enabled_geoms": 11,
   "completed_phases": 5,
+  "contact_sources": [
+    "site_distance",
+    "solver_contact"
+  ],
   "contacts_per_phase": {
     "cap_rotation": {
       "fingers": [
@@ -10,30 +15,22 @@
         "ring",
         "thumb"
       ],
-      "first_time": 0.44,
-      "last_time": 0.87,
-      "samples": 44
+      "first_time": 1.96,
+      "last_time": 3.84,
+      "samples": 48
     },
     "confirmation_button": {
       "fingers": [
-        "index"
+        "index",
+        "little",
+        "middle",
+        "ring"
       ],
-      "first_time": 1.76,
-      "last_time": 2.19,
-      "samples": 44
+      "first_time": 7.72,
+      "last_time": 9.6,
+      "samples": 48
     },
     "kit_assembly": {
-      "fingers": [
-        "index",
-        "middle",
-        "ring",
-        "thumb"
-      ],
-      "first_time": 1.32,
-      "last_time": 1.75,
-      "samples": 44
-    },
-    "perturb_recovery": {
       "fingers": [
         "index",
         "little",
@@ -41,9 +38,20 @@
         "ring",
         "thumb"
       ],
-      "first_time": 0.88,
-      "last_time": 1.31,
-      "samples": 44
+      "first_time": 5.8,
+      "last_time": 7.68,
+      "samples": 48
+    },
+    "perturb_recovery": {
+      "fingers": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "first_time": 3.88,
+      "last_time": 5.76,
+      "samples": 48
     },
     "vial_grasp": {
       "fingers": [
@@ -53,15 +61,21 @@
         "ring",
         "thumb"
       ],
-      "first_time": 0.0,
-      "last_time": 0.43,
-      "samples": 44
+      "first_time": 0.04,
+      "last_time": 1.92,
+      "samples": 48
     }
   },
-  "dexterity_score": 90.2,
-  "max_placement_error_mm": 8.0,
-  "max_slip_mm": 0.34,
+  "control_mode": "actuator_position_mj_step",
+  "dexterity_score": 92.4,
+  "max_placement_error_mm": 5.818,
+  "max_slip_mm": 0.295,
+  "max_solver_contact_distance_mm": -0.024,
+  "measured_contact_phases": 5,
   "phase_count": 5,
+  "physics_steps": 960,
   "seed": 10,
+  "solver_contact_pairs": 951,
+  "solver_contact_phases": 5,
   "success": true
 }

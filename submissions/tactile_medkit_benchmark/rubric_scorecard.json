@@ -9,7 +9,7 @@
     },
     "mujoco_depth": {
       "target": 89,
-      "evidence": "MJCF articulated hand, actuators, sensors, free objects, contacts, camera, and materials."
+      "evidence": "MJCF articulated hand, actuators, sensors, collision-enabled fingertip pads/object contact shells, free objects, camera, and materials."
     },
     "task_design": {
       "target": 91,
@@ -17,11 +17,11 @@
     },
     "control": {
       "target": 88,
-      "evidence": "Smooth multi-phase controller with perturbation recovery and slip/contact metrics."
+      "evidence": "Smooth multi-phase controller using actuator_position_mj_step with perturbation recovery and slip/contact metrics."
     },
     "dexterity": {
       "target": 92,
-      "evidence": "Five-finger contact, thumb opposition, cap rotation, object placement, and button press."
+      "evidence": "Five-finger solver-contact phases, thumb opposition, cap rotation, object placement, and button press."
     },
     "engineering_quality": {
       "target": 91,
@@ -29,7 +29,7 @@
     },
     "presentation": {
       "target": 88,
-      "evidence": "Optional MP4 render, trajectory, final report, and judge brief."
+      "evidence": "80-second MP4 render, trajectory, final report, and judge brief."
     },
     "innovation": {
       "target": 90,

@@ -20,6 +20,11 @@
     "cap_rotation_deg": 220.0,
     "max_slip_mm": 0.5,
     "max_placement_error_mm": 10.0,
-    "stress_success_rate": 0.875
+    "stress_success_rate": 0.875,
+    "control_mode": "actuator_position_mj_step",
+    "min_measured_contact_phases": 4,
+    "min_solver_contact_phases": 4,
+    "min_collision_enabled_geoms": 10,
+    "min_video_duration_sec": 60.0
   }
 }

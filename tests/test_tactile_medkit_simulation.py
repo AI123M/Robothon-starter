@@ -24,6 +24,15 @@ class TactileMedKitSimulationTests(unittest.TestCase):
             summary = json.loads((Path(tmp) / "summary.json").read_text())
             self.assertGreaterEqual(summary["cap_rotation_deg"], 220)
             self.assertLessEqual(summary["max_slip_mm"], 0.5)
+            self.assertEqual(summary["control_mode"], "actuator_position_mj_step")
+            self.assertGreater(summary["physics_steps"], 0)
+            self.assertGreaterEqual(summary["measured_contact_phases"], 4)
+            self.assertIn("site_distance", summary["contact_sources"])
+            self.assertIn("solver_contact", summary["contact_sources"])
+            self.assertGreaterEqual(summary["solver_contact_phases"], 4)
+            self.assertGreater(summary["solver_contact_pairs"], 0)
+            self.assertGreaterEqual(summary["collision_enabled_geoms"], 10)
+            self.assertIn("index", summary["contacts_per_phase"]["confirmation_button"]["fingers"])
 
     def test_run_stress_eval_writes_aggregate(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -31,6 +40,8 @@ class TactileMedKitSimulationTests(unittest.TestCase):
 
             self.assertEqual(summary["runs"], 4)
             self.assertGreaterEqual(summary["success_rate"], 0.75)
+            self.assertGreater(summary["metric_variance"]["cap_rotation_deg"], 0.0)
+            self.assertGreater(summary["metric_variance"]["max_slip_mm"], 0.0)
             self.assertTrue((Path(tmp) / "stress_eval.json").exists())
 
     def test_run_demo_script_executes_from_repository_root(self):

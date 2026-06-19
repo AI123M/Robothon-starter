@@ -47,6 +47,14 @@ def compute_run_metrics(samples: List[Dict], seed: int) -> Dict:
             "max_placement_error_mm": 999.0,
             "dexterity_score": 0.0,
             "contacts_per_phase": {},
+            "control_mode": "unknown",
+            "physics_steps": 0,
+            "measured_contact_phases": 0,
+            "contact_sources": [],
+            "solver_contact_phases": 0,
+            "solver_contact_pairs": 0,
+            "max_solver_contact_distance_mm": None,
+            "collision_enabled_geoms": 0,
         }
 
     expected_phases = {phase["id"] for phase in PHASES}
@@ -56,6 +64,29 @@ def compute_run_metrics(samples: List[Dict], seed: int) -> Dict:
     max_slip_mm = max(_number(sample, "slip_mm") for sample in samples)
     max_placement_error_mm = max(_number(sample, "placement_error_mm") for sample in samples)
     completed_phases = len(expected_phases & seen_phases)
+    measured_contact_phases = sum(1 for data in contacts_per_phase.values() if data["fingers"])
+    contact_sources = sorted(
+        {
+            source
+            for sample in samples
+            for source in sample.get("contact_sources", [])
+        }
+    )
+    physics_steps = sum(int(sample.get("physics_steps", 0)) for sample in samples)
+    control_modes = sorted({sample.get("control_mode", "unknown") for sample in samples})
+    solver_contact_phases = {
+        sample.get("phase")
+        for sample in samples
+        if any(pair.get("source") == "solver_contact" for pair in sample.get("contact_pairs", []))
+    }
+    solver_distances = [
+        float(pair["distance_mm"])
+        for sample in samples
+        for pair in sample.get("contact_pairs", [])
+        if pair.get("source") == "solver_contact" and pair.get("distance_mm") is not None
+    ]
+    solver_contact_pairs = len(solver_distances)
+    collision_enabled_geoms = max((int(sample.get("collision_enabled_geoms", 0)) for sample in samples), default=0)
 
     rotation_score = min(cap_rotation_deg / 220.0, 1.0) * 25.0
     slip_score = max(0.0, 1.0 - max_slip_mm / 2.0) * 20.0
@@ -82,6 +113,14 @@ def compute_run_metrics(samples: List[Dict], seed: int) -> Dict:
         "max_placement_error_mm": round(max_placement_error_mm, 3),
         "dexterity_score": dexterity_score,
         "contacts_per_phase": contacts_per_phase,
+        "control_mode": control_modes[0] if len(control_modes) == 1 else ",".join(control_modes),
+        "physics_steps": physics_steps,
+        "measured_contact_phases": measured_contact_phases,
+        "contact_sources": contact_sources,
+        "solver_contact_phases": len(solver_contact_phases),
+        "solver_contact_pairs": solver_contact_pairs,
+        "max_solver_contact_distance_mm": round(max(solver_distances), 3) if solver_distances else None,
+        "collision_enabled_geoms": collision_enabled_geoms,
     }
 
 
@@ -91,6 +130,12 @@ def summarize_stress_runs(runs: List[Dict]) -> Dict:
     worst_slip = max((_number(run, "max_slip_mm") for run in runs), default=0.0)
     worst_error = max((_number(run, "max_placement_error_mm") for run in runs), default=0.0)
     average_score = sum(_number(run, "dexterity_score") for run in runs) / total if total else 0.0
+    def variance(key: str) -> float:
+        if total < 2:
+            return 0.0
+        values = [_number(run, key) for run in runs]
+        mean = sum(values) / total
+        return sum((value - mean) ** 2 for value in values) / total
 
     return {
         "runs": total,
@@ -99,4 +144,10 @@ def summarize_stress_runs(runs: List[Dict]) -> Dict:
         "worst_slip_mm": round(worst_slip, 3),
         "worst_placement_error_mm": round(worst_error, 3),
         "average_dexterity_score": round(average_score, 2),
+        "metric_variance": {
+            "cap_rotation_deg": round(variance("cap_rotation_deg"), 6),
+            "max_slip_mm": round(variance("max_slip_mm"), 6),
+            "max_placement_error_mm": round(variance("max_placement_error_mm"), 6),
+            "dexterity_score": round(variance("dexterity_score"), 6),
+        },
     }

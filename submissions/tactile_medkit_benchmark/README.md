@@ -33,7 +33,7 @@ Assemble a compact emergency medkit using dexterous manipulation:
 
 The simulator loads `scene.xml`, runs a deterministic multi-phase controller, evaluates the MuJoCo scene at each frame, records telemetry, computes metrics, and optionally renders `outputs/demo.mp4`.
 
-The controller is intentionally deterministic for reproducibility. It uses smooth phase targets and reports contact/slip evidence instead of presenting the run as real-hardware deployment.
+The controller is intentionally deterministic for reproducibility. It sends joint targets through MuJoCo position actuators, advances every sample with `mj_step`, and reports slip plus MuJoCo solver contacts from selective fingertip-to-object contact shells. Site-distance contacts are retained only as supplemental telemetry.
 
 ## Core Features
 
@@ -43,7 +43,9 @@ The controller is intentionally deterministic for reproducibility. It uses smoot
 - Cap rotation metric above 220 degrees
 - Slip-recovery metric below 0.5 mm
 - Placement error metric below 10 mm
-- Multi-seed stress evaluation
+- Multi-seed stress evaluation with nonzero metric variance
+- Solver-contact evidence across all five phases
+- 80-second MP4 evidence render at 3 fps when rendering is enabled
 - JSON outputs for reproducible judging
 
 ## Rubric Alignment
@@ -51,12 +53,12 @@ The controller is intentionally deterministic for reproducibility. It uses smoot
 | Criterion | Evidence |
 |---|---|
 | Reproducibility | `run_demo.py`, `run_stress_eval.py`, deterministic seeds, `validate_submission.py` |
-| MuJoCo depth | MJCF joints, actuators, sensors, contacts, free bodies, camera, and object geoms |
+| MuJoCo depth | MJCF joints, actuators, sensors, free bodies, camera, object geoms, selective collision shells, and measured solver contacts |
 | Task design | Emergency-kit assembly with multiple object types and final confirmation |
-| Control | Smooth phase controller with contact/slip evidence and perturbation recovery |
+| Control | Smooth phase controller with actuator targets, `mj_step` physics steps, contact/slip evidence, and perturbation recovery |
 | Dexterity | Thumb opposition, five-finger contact, cap rotation, placement, button press |
 | Engineering quality | Focused modules, generated evidence package, validation script |
-| Presentation | Optional MP4 demo plus structured final report and trajectory |
+| Presentation | 80-second MP4 demo plus structured final report and trajectory |
 | Innovation | Medkit assembly plus manipulation benchmark and data export |
 
 ## How to Run
@@ -108,6 +110,7 @@ Generated under `submissions/tactile_medkit_benchmark/outputs/`:
 
 - The controller is deterministic and benchmark-oriented, not a learned RL policy.
 - The run uses simulation-native state and metric instrumentation, not camera perception.
+- Hand self-collision remains disabled for stability, but fingertip pads and task-object contact shells are collision-enabled and validated through MuJoCo solver contacts.
 - The scene is not claimed as real-hardware validated.
 
 ## Future Improvements

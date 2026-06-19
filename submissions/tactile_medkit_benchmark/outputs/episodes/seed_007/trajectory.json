@@ -1,17 +1,17 @@
 {
   "samples": [
     {
-      "button_depth_mm": 0.0,
+      "button_depth_mm": 7.84,
       "cap_rotation_deg": 0.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle"
-      ],
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [],
+      "contact_sources": [],
+      "contacts": [],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        -0.22,
-        -0.01976,
-        0.13978
+        -0.22039,
+        -0.0205,
+        0.14039
       ],
       "object_positions": {
         "bandage": [
@@ -20,9 +20,9 @@
           0.038
         ],
         "cap": [
-          -0.02,
-          -0.08,
-          0.122
+          -0.055,
+          -0.075,
+          0.105
         ],
         "capsule": [
           -0.11,
@@ -35,75 +35,68 @@
           0.035
         ],
         "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "vial_grasp",
-      "phase_label": "Five-finger vial grasp",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.0,
-      "time": 0.0
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 0.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle"
-      ],
-      "hand_pos": [
-        -0.20364,
-        -0.02558,
-        0.13737
-      ],
-      "object_positions": {
-        "bandage": [
+          -0.14,
           -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
+          0.09
         ]
       },
       "phase": "vial_grasp",
       "phase_label": "Five-finger vial grasp",
+      "physics_steps": 4,
       "placement_error_mm": 0.0,
       "slip_mm": 0.0,
       "time": 0.04
     },
     {
-      "button_depth_mm": 0.0,
+      "button_depth_mm": 10.396,
       "cap_rotation_deg": 0.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle"
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -12.04,
+          "finger": "thumb",
+          "geoms": [
+            "thumb_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -0.158,
+          "finger": "thumb",
+          "geoms": [
+            "thumb_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 78.54,
+          "finger": "thumb",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 88.338,
+          "finger": "thumb",
+          "object": "cap",
+          "source": "site_distance"
+        }
       ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "thumb"
+      ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        -0.18732,
-        -0.02982,
-        0.13278
+        -0.20658,
+        -0.02461,
+        0.1366
       ],
       "object_positions": {
         "bandage": [
@@ -112,9 +105,9 @@
           0.038
         ],
         "cap": [
-          -0.02,
-          -0.08,
-          0.122
+          -0.055,
+          -0.075,
+          0.105
         ],
         "capsule": [
           -0.11,
@@ -127,167 +120,68 @@
           0.035
         ],
         "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "vial_grasp",
-      "phase_label": "Five-finger vial grasp",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.0,
-      "time": 0.08
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 0.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle"
-      ],
-      "hand_pos": [
-        -0.17119,
-        -0.0338,
-        0.13172
-      ],
-      "object_positions": {
-        "bandage": [
+          -0.14,
           -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
+          0.09
         ]
       },
       "phase": "vial_grasp",
       "phase_label": "Five-finger vial grasp",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.0,
-      "time": 0.12
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 0.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle"
-      ],
-      "hand_pos": [
-        -0.1554,
-        -0.03775,
-        0.13019
-      ],
-      "object_positions": {
-        "bandage": [
-          -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "vial_grasp",
-      "phase_label": "Five-finger vial grasp",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.0,
-      "time": 0.16
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 0.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle"
-      ],
-      "hand_pos": [
-        -0.13844,
-        -0.04456,
-        0.12708
-      ],
-      "object_positions": {
-        "bandage": [
-          -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "vial_grasp",
-      "phase_label": "Five-finger vial grasp",
+      "physics_steps": 4,
       "placement_error_mm": 0.0,
       "slip_mm": 0.0,
       "time": 0.2
     },
     {
-      "button_depth_mm": 0.0,
+      "button_depth_mm": 10.366,
       "cap_rotation_deg": 0.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle"
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -13.423,
+          "finger": "thumb",
+          "geoms": [
+            "thumb_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -19.321,
+          "finger": "thumb",
+          "geoms": [
+            "thumb_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 77.363,
+          "finger": "thumb",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 69.074,
+          "finger": "thumb",
+          "object": "cap",
+          "source": "site_distance"
+        }
       ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "thumb"
+      ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        -0.1227,
-        -0.0491,
-        0.12538
+        -0.191,
+        -0.0295,
+        0.13608
       ],
       "object_positions": {
         "bandage": [
@@ -296,9 +190,9 @@
           0.038
         ],
         "cap": [
-          -0.02,
-          -0.08,
-          0.122
+          -0.055,
+          -0.075,
+          0.105
         ],
         "capsule": [
           -0.11,
@@ -311,173 +205,68 @@
           0.035
         ],
         "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "vial_grasp",
-      "phase_label": "Five-finger vial grasp",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.0,
-      "time": 0.24
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 0.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle"
-      ],
-      "hand_pos": [
-        -0.1062,
-        -0.05475,
-        0.12176
-      ],
-      "object_positions": {
-        "bandage": [
+          -0.14,
           -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
+          0.09
         ]
       },
       "phase": "vial_grasp",
       "phase_label": "Five-finger vial grasp",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.0,
-      "time": 0.28
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 0.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
-      ],
-      "hand_pos": [
-        -0.0908,
-        -0.05842,
-        0.11781
-      ],
-      "object_positions": {
-        "bandage": [
-          -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "vial_grasp",
-      "phase_label": "Five-finger vial grasp",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.0,
-      "time": 0.32
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 0.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
-      ],
-      "hand_pos": [
-        -0.07363,
-        -0.0637,
-        0.11712
-      ],
-      "object_positions": {
-        "bandage": [
-          -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "vial_grasp",
-      "phase_label": "Five-finger vial grasp",
+      "physics_steps": 4,
       "placement_error_mm": 0.0,
       "slip_mm": 0.0,
       "time": 0.36
     },
     {
-      "button_depth_mm": 0.0,
+      "button_depth_mm": 10.366,
       "cap_rotation_deg": 0.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -9.841,
+          "finger": "thumb",
+          "geoms": [
+            "thumb_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -37.653,
+          "finger": "thumb",
+          "geoms": [
+            "thumb_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 81.18,
+          "finger": "thumb",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 50.789,
+          "finger": "thumb",
+          "object": "cap",
+          "source": "site_distance"
+        }
       ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "thumb"
+      ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        -0.05714,
-        -0.06884,
-        0.11386
+        -0.17423,
+        -0.03451,
+        0.13354
       ],
       "object_positions": {
         "bandage": [
@@ -486,9 +275,9 @@
           0.038
         ],
         "cap": [
-          -0.02,
-          -0.08,
-          0.122
+          -0.055,
+          -0.075,
+          0.105
         ],
         "capsule": [
           -0.11,
@@ -501,175 +290,68 @@
           0.035
         ],
         "vial": [
-          -0.02,
-          -0.08,
-          0.06
+          -0.14,
+          -0.045,
+          0.09
         ]
       },
       "phase": "vial_grasp",
       "phase_label": "Five-finger vial grasp",
+      "physics_steps": 4,
       "placement_error_mm": 0.0,
       "slip_mm": 0.0,
-      "time": 0.4
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 0.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
-      ],
-      "hand_pos": [
-        -0.0449,
-        -0.07323,
-        0.113
-      ],
-      "object_positions": {
-        "bandage": [
-          -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "cap_rotation",
-      "phase_label": "Cap rotation",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.18,
-      "time": 0.44
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 21.023,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
-      ],
-      "hand_pos": [
-        -0.0455,
-        -0.07302,
-        0.11301
-      ],
-      "object_positions": {
-        "bandage": [
-          -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "cap_rotation",
-      "phase_label": "Cap rotation",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.192,
-      "time": 0.48
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 42.047,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
-      ],
-      "hand_pos": [
-        -0.0461,
-        -0.07265,
-        0.11332
-      ],
-      "object_positions": {
-        "bandage": [
-          -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "cap_rotation",
-      "phase_label": "Cap rotation",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.202,
       "time": 0.52
     },
     {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 63.07,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 0.0,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -5.535,
+          "finger": "thumb",
+          "geoms": [
+            "thumb_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -51.95,
+          "finger": "thumb",
+          "geoms": [
+            "thumb_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 85.623,
+          "finger": "thumb",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 36.676,
+          "finger": "thumb",
+          "object": "cap",
+          "source": "site_distance"
+        }
       ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "thumb"
+      ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        -0.04502,
-        -0.07194,
-        0.1114
+        -0.16048,
+        -0.03717,
+        0.13162
       ],
       "object_positions": {
         "bandage": [
@@ -678,9 +360,9 @@
           0.038
         ],
         "cap": [
-          -0.02,
-          -0.08,
-          0.122
+          -0.055,
+          -0.075,
+          0.105
         ],
         "capsule": [
           -0.11,
@@ -693,175 +375,59 @@
           0.035
         ],
         "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "cap_rotation",
-      "phase_label": "Cap rotation",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.211,
-      "time": 0.56
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 84.093,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
-      ],
-      "hand_pos": [
-        -0.04535,
-        -0.07241,
-        0.1125
-      ],
-      "object_positions": {
-        "bandage": [
+          -0.14,
           -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
+          0.09
         ]
       },
-      "phase": "cap_rotation",
-      "phase_label": "Cap rotation",
+      "phase": "vial_grasp",
+      "phase_label": "Five-finger vial grasp",
+      "physics_steps": 4,
       "placement_error_mm": 0.0,
-      "slip_mm": 0.217,
-      "time": 0.6
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 105.116,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
-      ],
-      "hand_pos": [
-        -0.04423,
-        -0.07211,
-        0.11243
-      ],
-      "object_positions": {
-        "bandage": [
-          -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "cap_rotation",
-      "phase_label": "Cap rotation",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.22,
-      "time": 0.64
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 126.14,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
-      ],
-      "hand_pos": [
-        -0.0435,
-        -0.07081,
-        0.11108
-      ],
-      "object_positions": {
-        "bandage": [
-          -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "cap_rotation",
-      "phase_label": "Cap rotation",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.219,
+      "slip_mm": 0.0,
       "time": 0.68
     },
     {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 147.163,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 0.0,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -63.334,
+          "finger": "thumb",
+          "geoms": [
+            "thumb_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 25.803,
+          "finger": "thumb",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 87.507,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        }
       ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "little",
+        "thumb"
+      ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        -0.0452,
-        -0.07197,
-        0.11131
+        -0.14659,
+        -0.04276,
+        0.1286
       ],
       "object_positions": {
         "bandage": [
@@ -870,9 +436,9 @@
           0.038
         ],
         "cap": [
-          -0.02,
-          -0.08,
-          0.122
+          -0.055,
+          -0.075,
+          0.105
         ],
         "capsule": [
           -0.11,
@@ -885,175 +451,69 @@
           0.035
         ],
         "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "cap_rotation",
-      "phase_label": "Cap rotation",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.216,
-      "time": 0.72
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 168.186,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
-      ],
-      "hand_pos": [
-        -0.0458,
-        -0.07271,
-        0.11216
-      ],
-      "object_positions": {
-        "bandage": [
+          -0.14,
           -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
+          0.09
         ]
       },
-      "phase": "cap_rotation",
-      "phase_label": "Cap rotation",
+      "phase": "vial_grasp",
+      "phase_label": "Five-finger vial grasp",
+      "physics_steps": 4,
       "placement_error_mm": 0.0,
-      "slip_mm": 0.209,
-      "time": 0.76
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 189.209,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
-      ],
-      "hand_pos": [
-        -0.04537,
-        -0.07141,
-        0.11193
-      ],
-      "object_positions": {
-        "bandage": [
-          -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "cap_rotation",
-      "phase_label": "Cap rotation",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.2,
-      "time": 0.8
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 210.233,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
-      ],
-      "hand_pos": [
-        -0.04393,
-        -0.07196,
-        0.11106
-      ],
-      "object_positions": {
-        "bandage": [
-          -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "cap_rotation",
-      "phase_label": "Cap rotation",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.189,
+      "slip_mm": 0.0,
       "time": 0.84
     },
     {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 0.0,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -68.368,
+          "finger": "thumb",
+          "geoms": [
+            "thumb_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -15.448,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 21.898,
+          "finger": "thumb",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 71.139,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        }
       ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "little",
+        "thumb"
+      ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        -0.04583,
-        -0.07159,
-        0.11145
+        -0.13098,
+        -0.0468,
+        0.12598
       ],
       "object_positions": {
         "bandage": [
@@ -1062,9 +522,9 @@
           0.038
         ],
         "cap": [
-          -0.02,
-          -0.08,
-          0.122
+          -0.055,
+          -0.075,
+          0.105
         ],
         "capsule": [
           -0.11,
@@ -1077,175 +537,86 @@
           0.035
         ],
         "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "perturb_recovery",
-      "phase_label": "Slip recovery",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.34,
-      "time": 0.88
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
-      ],
-      "hand_pos": [
-        -0.0447,
-        -0.07294,
-        0.1122
-      ],
-      "object_positions": {
-        "bandage": [
+          -0.14,
           -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
+          0.09
         ]
       },
-      "phase": "perturb_recovery",
-      "phase_label": "Slip recovery",
+      "phase": "vial_grasp",
+      "phase_label": "Five-finger vial grasp",
+      "physics_steps": 4,
       "placement_error_mm": 0.0,
-      "slip_mm": 0.335,
-      "time": 0.92
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
-      ],
-      "hand_pos": [
-        -0.04544,
-        -0.0701,
-        0.11055
-      ],
-      "object_positions": {
-        "bandage": [
-          -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "perturb_recovery",
-      "phase_label": "Slip recovery",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.329,
-      "time": 0.96
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
-      ],
-      "hand_pos": [
-        -0.04379,
-        -0.06848,
-        0.11195
-      ],
-      "object_positions": {
-        "bandage": [
-          -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "perturb_recovery",
-      "phase_label": "Slip recovery",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.322,
+      "slip_mm": 0.0,
       "time": 1.0
     },
     {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 0.0,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -63.086,
+          "finger": "thumb",
+          "geoms": [
+            "thumb_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -5.466,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -27.741,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 27.965,
+          "finger": "thumb",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 82.14,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 58.459,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        }
       ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "little",
+        "ring",
+        "thumb"
+      ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        -0.04531,
-        -0.0685,
-        0.11182
+        -0.11602,
+        -0.05014,
+        0.12331
       ],
       "object_positions": {
         "bandage": [
@@ -1254,9 +625,9 @@
           0.038
         ],
         "cap": [
-          -0.02,
-          -0.08,
-          0.122
+          -0.055,
+          -0.075,
+          0.105
         ],
         "capsule": [
           -0.11,
@@ -1269,30 +640,2385 @@
           0.035
         ],
         "vial": [
-          -0.02,
-          -0.08,
-          0.06
+          -0.14,
+          -0.045,
+          0.09
         ]
       },
-      "phase": "perturb_recovery",
-      "phase_label": "Slip recovery",
+      "phase": "vial_grasp",
+      "phase_label": "Five-finger vial grasp",
+      "physics_steps": 4,
       "placement_error_mm": 0.0,
-      "slip_mm": 0.314,
-      "time": 1.04
+      "slip_mm": 0.0,
+      "time": 1.16
     },
     {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 0.0,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -52.359,
+          "finger": "thumb",
+          "geoms": [
+            "thumb_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -23.207,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -41.16,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 38.9,
+          "finger": "thumb",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 64.114,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 44.517,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts": [
-        "thumb",
+        "little",
+        "ring",
+        "thumb"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.10152,
+        -0.0559,
+        0.1211
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.055,
+          -0.075,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.045,
+          0.09
+        ]
+      },
+      "phase": "vial_grasp",
+      "phase_label": "Five-finger vial grasp",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 1.32
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 0.0,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -40.355,
+          "finger": "thumb",
+          "geoms": [
+            "thumb_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -5.104,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -14.768,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -37.983,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -50.207,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 51.008,
+          "finger": "thumb",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 83.771,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 73.784,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 48.922,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 34.791,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
         "index",
+        "little",
         "middle",
         "ring",
-        "little"
+        "thumb"
       ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        -0.04548,
-        -0.06787,
+        -0.08575,
+        -0.06052,
+        0.11933
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.055,
+          -0.075,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.045,
+          0.09
+        ]
+      },
+      "phase": "vial_grasp",
+      "phase_label": "Five-finger vial grasp",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 1.48
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 0.0,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -17.548,
+          "finger": "thumb",
+          "geoms": [
+            "thumb_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -20.604,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -29.874,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -53.256,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -41.147,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 73.812,
+          "finger": "thumb",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 68.149,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 58.468,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 33.054,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 43.424,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 86.841,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring",
+        "thumb"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.07246,
+        -0.06365,
+        0.11549
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.055,
+          -0.075,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.045,
+          0.09
+        ]
+      },
+      "phase": "vial_grasp",
+      "phase_label": "Five-finger vial grasp",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 1.64
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 0.0,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -1.012,
+          "finger": "thumb",
+          "geoms": [
+            "thumb_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -38.911,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -50.946,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -56.981,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -10.272,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -31.457,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -14.352,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 49.68,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 36.997,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 29.074,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 77.078,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 52.779,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 72.204,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring",
+        "thumb"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.05529,
+        -0.06912,
+        0.11375
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.055,
+          -0.075,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.045,
+          0.09
+        ]
+      },
+      "phase": "vial_grasp",
+      "phase_label": "Five-finger vial grasp",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 1.8
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 0.0,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -38.633,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -60.822,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -39.643,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -36.74,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -26.259,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -29.477,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 49.727,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 26.814,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 47.852,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 50.567,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 57.953,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 56.625,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.04545,
+        -0.07199,
+        0.1117
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.055,
+          -0.075,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.045,
+          0.09
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 1.96
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 19.372,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -15.958,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -24.347,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -21.854,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -45.077,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -14.555,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -15.392,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 72.534,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 63.412,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 66.32,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 42.648,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 69.578,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 70.791,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.04517,
+        -0.07251,
+        0.11059
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.054,
+          -0.075,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.045,
+          0.09
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 2.12
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 38.745,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -8.208,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -8.526,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -23.447,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -42.31,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -4.354,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -5.513,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 80.307,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 79.38,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 64.593,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 45.494,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 79.993,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 80.895,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.04393,
+        -0.07241,
+        0.11223
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.05312,
+          -0.075,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.045,
+          0.09
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 2.28
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 58.117,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -5.627,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -5.767,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -28.296,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -37.651,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -8.431,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -7.841,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 82.934,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 82.198,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 59.656,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 50.202,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 75.849,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 78.561,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.04469,
+        -0.07245,
+        0.11089
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.05245,
+          -0.075,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.045,
+          0.09
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 2.44
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 77.49,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -1.246,
+          "finger": "thumb",
+          "geoms": [
+            "thumb_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -5.041,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -5.33,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -29.285,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -36.079,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -10.49,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -7.901,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 83.531,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 82.654,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 58.661,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 51.713,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 73.777,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 78.501,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring",
+        "thumb"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.046,
+        -0.07131,
+        0.1124
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.05207,
+          -0.075,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.045,
+          0.09
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 2.6
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 96.862,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -0.414,
+          "finger": "thumb",
+          "geoms": [
+            "thumb_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -6.41,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -6.447,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -27.858,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -35.444,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -11.152,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -9.076,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 82.189,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 81.563,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 60.149,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 52.432,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 73.119,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 77.374,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring",
+        "thumb"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.04632,
+        -0.07369,
+        0.11221
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.05202,
+          -0.075,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.045,
+          0.09
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 2.76
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 116.234,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -0.554,
+          "finger": "thumb",
+          "geoms": [
+            "thumb_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -5.333,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -5.364,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -27.684,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -38.376,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -8.837,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -7.367,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 83.227,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 82.608,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 60.291,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 49.426,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 75.446,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 79.04,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring",
+        "thumb"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.04505,
+        -0.07167,
+        0.11121
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.05231,
+          -0.075,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.045,
+          0.09
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 2.92
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 135.607,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -6.081,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -6.204,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -26.815,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -39.375,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -8.779,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -8.672,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 82.451,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 81.738,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 61.146,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 48.448,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 75.486,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 77.695,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.04429,
+        -0.07207,
+        0.11199
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.0529,
+          -0.075,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.045,
+          0.09
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 3.08
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 154.979,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -6.468,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -6.499,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -27.366,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -39.05,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -9.405,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -8.447,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 82.125,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 81.501,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 60.667,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 48.839,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 74.882,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 77.969,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.04555,
+        -0.07358,
+        0.1094
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.05373,
+          -0.075,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.045,
+          0.09
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 3.24
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 174.352,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -5.804,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -5.897,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -26.631,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -41.336,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -7.364,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -7.028,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 82.734,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 82.055,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 61.35,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 46.457,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 76.946,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 79.327,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.04497,
+        -0.07136,
+        0.11244
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.0547,
+          -0.075,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.045,
+          0.09
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 3.4
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 193.724,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -5.562,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -5.638,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -26.385,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -43.778,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -5.253,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -6.443,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 82.945,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 82.279,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 61.562,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 44.017,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 79.064,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 79.863,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.04362,
+        -0.07083,
+        0.11163
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.05571,
+          -0.075,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.045,
+          0.09
+        ]
+      },
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 3.56
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 213.097,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -6.279,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -6.282,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -25.566,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -44.376,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -4.653,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -6.193,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 82.237,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 81.645,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 62.418,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 43.457,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 79.692,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 80.128,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.04405,
+        -0.07173,
         0.112
       ],
       "object_positions": {
@@ -1302,9 +3028,9 @@
           0.038
         ],
         "cap": [
-          -0.02,
-          -0.08,
-          0.122
+          -0.05664,
+          -0.075,
+          0.105
         ],
         "capsule": [
           -0.11,
@@ -1317,270 +3043,135 @@
           0.035
         ],
         "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "perturb_recovery",
-      "phase_label": "Slip recovery",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.304,
-      "time": 1.08
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
-      ],
-      "hand_pos": [
-        -0.04398,
-        -0.06879,
-        0.11287
-      ],
-      "object_positions": {
-        "bandage": [
+          -0.14,
           -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
+          0.09
         ]
       },
-      "phase": "perturb_recovery",
-      "phase_label": "Slip recovery",
+      "phase": "cap_rotation",
+      "phase_label": "Cap rotation",
+      "physics_steps": 4,
       "placement_error_mm": 0.0,
-      "slip_mm": 0.293,
-      "time": 1.12
+      "slip_mm": 0.0,
+      "time": 3.72
     },
     {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -8.03,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -8.113,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -25.141,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -44.71,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -5.9,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -7.126,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 80.481,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 79.803,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 62.886,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 43.135,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 78.428,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 79.179,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts": [
-        "thumb",
         "index",
-        "middle",
-        "ring",
-        "little"
-      ],
-      "hand_pos": [
-        -0.04423,
-        -0.0692,
-        0.11132
-      ],
-      "object_positions": {
-        "bandage": [
-          -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "perturb_recovery",
-      "phase_label": "Slip recovery",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.28,
-      "time": 1.16
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
-      ],
-      "hand_pos": [
-        -0.0446,
-        -0.06762,
-        0.11247
-      ],
-      "object_positions": {
-        "bandage": [
-          -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "perturb_recovery",
-      "phase_label": "Slip recovery",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.265,
-      "time": 1.2
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
-      ],
-      "hand_pos": [
-        -0.0453,
-        -0.07059,
-        0.11251
-      ],
-      "object_positions": {
-        "bandage": [
-          -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "perturb_recovery",
-      "phase_label": "Slip recovery",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.249,
-      "time": 1.24
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring",
-        "little"
-      ],
-      "hand_pos": [
-        -0.04411,
-        -0.07028,
-        0.11287
-      ],
-      "object_positions": {
-        "bandage": [
-          -0.045,
-          0.095,
-          0.038
-        ],
-        "cap": [
-          -0.02,
-          -0.08,
-          0.122
-        ],
-        "capsule": [
-          -0.11,
-          0.08,
-          0.035
-        ],
-        "tool_token": [
-          0.03,
-          0.09,
-          0.035
-        ],
-        "vial": [
-          -0.02,
-          -0.08,
-          0.06
-        ]
-      },
-      "phase": "perturb_recovery",
-      "phase_label": "Slip recovery",
-      "placement_error_mm": 0.0,
-      "slip_mm": 0.233,
-      "time": 1.28
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "thumb",
-        "index",
+        "little",
         "middle",
         "ring"
       ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
         -0.04483,
-        -0.0712,
-        0.11061
+        -0.0722,
+        0.11184
       ],
       "object_positions": {
         "bandage": [
@@ -1589,9 +3180,9 @@
           0.038
         ],
         "cap": [
-          -0.02,
-          -0.08,
-          0.122
+          -0.05722,
+          -0.075,
+          0.105
         ],
         "capsule": [
           -0.11,
@@ -1604,1014 +3195,3807 @@
           0.035
         ],
         "vial": [
-          -0.02,
-          -0.08,
-          0.06
+          -0.14,
+          -0.045,
+          0.09
         ]
       },
-      "phase": "kit_assembly",
-      "phase_label": "Emergency-kit assembly",
-      "placement_error_mm": 8.0,
-      "slip_mm": 0.28,
-      "time": 1.32
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.0,
+      "time": 3.88
     },
     {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -10.502,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -10.559,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -22.797,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -45.92,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -4.099,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -5.651,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 77.991,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 77.324,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 65.308,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 41.934,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 80.273,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 80.691,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts": [
-        "thumb",
         "index",
+        "little",
         "middle",
         "ring"
       ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        -0.033,
-        -0.06868,
-        0.11475
+        -0.04528,
+        -0.07283,
+        0.11195
       ],
       "object_positions": {
         "bandage": [
-          -0.01084,
-          0.08027,
-          0.03827
+          -0.045,
+          0.095,
+          0.038
         ],
         "cap": [
-          -0.00928,
-          -0.07226,
-          0.12152
+          -0.05722,
+          -0.07489,
+          0.105
         ],
         "capsule": [
-          -0.07837,
-          0.06798,
-          0.03538
+          -0.11,
+          0.08,
+          0.035
         ],
         "tool_token": [
-          0.06323,
-          0.08647,
-          0.03571
+          0.03,
+          0.09,
+          0.035
         ],
         "vial": [
-          -0.00995,
-          -0.07274,
-          0.05944
+          -0.14,
+          -0.04489,
+          0.09
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.109,
+      "time": 4.04
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -8.821,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -8.923,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -24.05,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -45.137,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -2.475,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -3.564,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 79.674,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 78.964,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 64.009,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 42.66,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 81.936,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 82.786,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.04562,
+        -0.07142,
+        0.11322
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.05722,
+          -0.07479,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.04479,
+          0.09
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.21,
+      "time": 4.2
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -9.435,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -9.566,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -24.199,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -45.765,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -2.062,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -2.836,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 79.075,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 78.328,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 63.897,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 42.046,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 82.367,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 83.54,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.04584,
+        -0.07158,
+        0.111
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.05722,
+          -0.0747,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.0447,
+          0.09
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.297,
+      "time": 4.36
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -10.33,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -10.426,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -23.344,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -45.061,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -4.121,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -5.779,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 78.174,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 77.461,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 64.753,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 42.81,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 80.25,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 80.562,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.04547,
+        -0.07288,
+        0.11203
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.05722,
+          -0.07464,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.04464,
+          0.09
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.362,
+      "time": 4.52
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -9.399,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -9.457,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -23.784,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -45.55,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -2.603,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -4.186,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 79.095,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 78.422,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 64.287,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 42.28,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 81.794,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 82.157,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.04524,
+        -0.07181,
+        0.11217
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.05722,
+          -0.0746,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.0446,
+          0.09
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.401,
+      "time": 4.68
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -8.968,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -9.023,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -23.617,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -46.617,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -0.282,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -2.684,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 79.502,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 78.832,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 64.429,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 41.201,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 84.143,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 83.655,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.04432,
+        -0.07121,
+        0.11188
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.05722,
+          -0.07459,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.04459,
+          0.09
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.412,
+      "time": 4.84
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -9.991,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -9.964,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -23.009,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -45.547,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -2.553,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -4.604,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 78.506,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 77.917,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 65.082,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 42.323,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 81.848,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 81.752,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.04514,
+        -0.0727,
+        0.11209
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.05722,
+          -0.07461,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.04461,
+          0.09
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.394,
+      "time": 5.0
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -10.136,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -10.149,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -23.015,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -44.78,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -2.861,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -4.197,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 78.381,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 77.753,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 65.099,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 43.083,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 81.561,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 82.191,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.04604,
+        -0.07296,
+        0.11264
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.05722,
+          -0.07465,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.04465,
+          0.09
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.348,
+      "time": 5.16
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -10.323,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -10.274,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -22.948,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -46.081,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -1.436,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -3.753,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 78.167,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 77.597,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 65.147,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 41.795,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 82.987,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 82.618,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.04483,
+        -0.07282,
+        0.11126
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.05722,
+          -0.07472,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.04472,
+          0.09
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.277,
+      "time": 5.32
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -10.829,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -10.815,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -20.745,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -48.448,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -3.426,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 77.583,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 76.979,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 67.316,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 39.394,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 85.118,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 82.888,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.04297,
+        -0.07204,
+        0.11327
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.05722,
+          -0.07481,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.04481,
+          0.09
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.186,
+      "time": 5.48
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -9.336,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -9.459,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -23.971,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -45.25,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -2.624,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -4.164,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 79.167,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 78.429,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 64.104,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 42.59,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 81.776,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 82.184,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.0454,
+        -0.07232,
+        0.11196
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.05722,
+          -0.07492,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.04492,
+          0.09
+        ]
+      },
+      "phase": "perturb_recovery",
+      "phase_label": "Slip recovery",
+      "physics_steps": 4,
+      "placement_error_mm": 0.0,
+      "slip_mm": 0.082,
+      "time": 5.64
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -3.362,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -3.28,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -27.421,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -39.481,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -1.639,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -2.263,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 85.25,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 84.737,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 60.554,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 48.39,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 82.832,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 84.22,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.04552,
+        -0.07278,
+        0.11268
+      ],
+      "object_positions": {
+        "bandage": [
+          -0.045,
+          0.095,
+          0.038
+        ],
+        "cap": [
+          -0.055,
+          -0.075,
+          0.105
+        ],
+        "capsule": [
+          -0.11,
+          0.08,
+          0.035
+        ],
+        "tool_token": [
+          0.03,
+          0.09,
+          0.035
+        ],
+        "vial": [
+          -0.14,
+          -0.045,
+          0.09
         ]
       },
       "phase": "kit_assembly",
       "phase_label": "Emergency-kit assembly",
-      "placement_error_mm": 7.86,
-      "slip_mm": 0.28,
-      "time": 1.36
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 5.8
     },
     {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -35.793,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -33.918,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -5.218,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -1.308,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 89.836,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 52.242,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 54.034,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 79.553,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 85.379,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts": [
-        "thumb",
-        "index",
+        "little",
         "middle",
         "ring"
       ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        -0.02161,
-        -0.06366,
-        0.11504
+        -0.0344,
+        -0.06844,
+        0.11345
       ],
       "object_positions": {
         "bandage": [
-          0.02332,
-          0.06553,
-          0.03854
+          -0.01379,
+          0.08143,
+          0.03825
         ],
         "cap": [
-          0.00143,
-          -0.06452,
-          0.12105
+          -0.04141,
+          -0.06852,
+          0.10642
         ],
         "capsule": [
-          -0.04674,
-          0.05596,
-          0.03576
+          -0.0811,
+          0.06893,
+          0.03535
         ],
         "tool_token": [
-          0.09646,
-          0.08293,
+          0.06035,
+          0.08666,
+          0.03565
+        ],
+        "vial": [
+          -0.11857,
+          -0.04198,
+          0.08643
+        ]
+      },
+      "phase": "kit_assembly",
+      "phase_label": "Emergency-kit assembly",
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 5.96
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -40.09,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -29.464,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -2.474,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 89.729,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 88.675,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 48.032,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 58.569,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 82.705,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 88.788,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 85.859,
+          "finger": "little",
+          "object": "capsule",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.02284,
+        -0.06437,
+        0.11419
+      ],
+      "object_positions": {
+        "bandage": [
+          0.01742,
+          0.06787,
+          0.0385
+        ],
+        "cap": [
+          -0.02782,
+          -0.06204,
+          0.10784
+        ],
+        "capsule": [
+          -0.05219,
+          0.05787,
+          0.0357
+        ],
+        "tool_token": [
+          0.09071,
+          0.08333,
+          0.03631
+        ],
+        "vial": [
+          -0.09715,
+          -0.03896,
+          0.08286
+        ]
+      },
+      "phase": "kit_assembly",
+      "phase_label": "Emergency-kit assembly",
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 6.12
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -1.919,
+          "finger": "thumb",
+          "geoms": [
+            "thumb_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -2.081,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -3.631,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -44.739,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -14.327,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -1.401,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "capsule_contact_shell"
+          ],
+          "object": "capsule",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 89.362,
+          "finger": "thumb",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 86.901,
+          "finger": "index",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 85.008,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 43.093,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 73.754,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 86.758,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 84.855,
+          "finger": "little",
+          "object": "capsule",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring",
+        "thumb"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.01405,
+        -0.06019,
+        0.11808
+      ],
+      "object_positions": {
+        "bandage": [
+          0.04863,
+          0.0543,
+          0.03875
+        ],
+        "cap": [
+          -0.01423,
+          -0.05556,
+          0.10926
+        ],
+        "capsule": [
+          -0.02329,
+          0.0468,
+          0.03605
+        ],
+        "tool_token": [
+          0.12106,
+          0.07999,
+          0.03696
+        ],
+        "vial": [
+          -0.07572,
+          -0.03594,
+          0.07928
+        ]
+      },
+      "phase": "kit_assembly",
+      "phase_label": "Emergency-kit assembly",
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 6.28
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -2.861,
+          "finger": "thumb",
+          "geoms": [
+            "thumb_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -2.333,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -35.603,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -2.846,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -12.925,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -3.521,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 88.355,
+          "finger": "thumb",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 86.369,
+          "finger": "middle",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 51.884,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 85.209,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 72.746,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 83.502,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "little",
+        "middle",
+        "ring",
+        "thumb"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        -0.00351,
+        -0.0537,
+        0.11878
+      ],
+      "object_positions": {
+        "bandage": [
+          0.07985,
+          0.04073,
+          0.039
+        ],
+        "cap": [
+          -0.00063,
+          -0.04908,
+          0.11068
+        ],
+        "capsule": [
+          0.00562,
+          0.03574,
           0.03641
         ],
+        "tool_token": [
+          0.15141,
+          0.07665,
+          0.03761
+        ],
         "vial": [
-          9e-05,
-          -0.06549,
-          0.05888
+          -0.05429,
+          -0.03291,
+          0.07571
         ]
       },
       "phase": "kit_assembly",
       "phase_label": "Emergency-kit assembly",
-      "placement_error_mm": 7.721,
-      "slip_mm": 0.28,
-      "time": 1.4
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 6.44
     },
     {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -24.893,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -20.516,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -11.564,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 62.632,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 88.566,
+          "finger": "ring",
+          "object": "cap",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 65.382,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 75.536,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts": [
-        "thumb",
-        "index",
-        "middle",
+        "little",
         "ring"
       ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        -0.01078,
-        -0.05773,
-        0.1162
+        0.00796,
+        -0.05108,
+        0.11888
       ],
       "object_positions": {
         "bandage": [
-          0.05747,
-          0.0508,
-          0.0388
+          0.11106,
+          0.02717,
+          0.03925
         ],
         "cap": [
-          0.01215,
-          -0.05678,
-          0.12057
+          0.01296,
+          -0.0426,
+          0.1121
         ],
         "capsule": [
-          -0.01512,
-          0.04394,
-          0.03614
+          0.03452,
+          0.02467,
+          0.03676
         ],
         "tool_token": [
-          0.12968,
-          0.0794,
-          0.03712
+          0.18176,
+          0.07331,
+          0.03827
         ],
         "vial": [
-          0.01014,
-          -0.05823,
-          0.05833
+          -0.03286,
+          -0.02989,
+          0.07214
         ]
       },
       "phase": "kit_assembly",
       "phase_label": "Emergency-kit assembly",
-      "placement_error_mm": 7.581,
-      "slip_mm": 0.28,
-      "time": 1.44
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 6.6
     },
     {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -10.675,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -16.874,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -12.298,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 76.93,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 69.363,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 74.896,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts": [
-        "thumb",
-        "index",
-        "middle",
+        "little",
         "ring"
       ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        0.00271,
-        -0.05328,
-        0.11901
+        0.01793,
+        -0.0455,
+        0.12116
       ],
       "object_positions": {
         "bandage": [
-          0.09163,
-          0.03606,
-          0.03907
+          0.14227,
+          0.0136,
+          0.0395
         ],
         "cap": [
-          0.02287,
-          -0.04904,
-          0.12009
+          0.02655,
+          -0.03612,
+          0.11352
         ],
         "capsule": [
-          0.01651,
-          0.03193,
-          0.03652
+          0.06342,
+          0.0136,
+          0.03711
         ],
         "tool_token": [
-          0.16291,
-          0.07586,
-          0.03783
+          0.21212,
+          0.06998,
+          0.03892
         ],
         "vial": [
-          0.02019,
-          -0.05098,
-          0.05777
+          -0.01144,
+          -0.02687,
+          0.06857
         ]
       },
       "phase": "kit_assembly",
       "phase_label": "Emergency-kit assembly",
-      "placement_error_mm": 7.442,
-      "slip_mm": 0.28,
-      "time": 1.48
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 6.76
     },
     {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -10.902,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -13.689,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 88.822,
+          "finger": "ring",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 75.558,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 73.569,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts": [
-        "thumb",
-        "index",
-        "middle",
+        "little",
         "ring"
       ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        0.01391,
-        -0.04854,
-        0.12034
+        0.02995,
+        -0.0411,
+        0.12292
       ],
       "object_positions": {
         "bandage": [
-          0.12579,
-          0.02133,
-          0.03934
+          0.17348,
+          3e-05,
+          0.03975
         ],
         "cap": [
-          0.03358,
-          -0.0413,
-          0.11962
+          0.04014,
+          -0.02964,
+          0.11494
         ],
         "capsule": [
-          0.04814,
-          0.01991,
-          0.0369
+          0.09233,
+          0.00254,
+          0.03746
         ],
         "tool_token": [
-          0.19614,
-          0.07233,
-          0.03853
+          0.24247,
+          0.06664,
+          0.03957
         ],
         "vial": [
-          0.03023,
-          -0.04372,
-          0.05721
+          0.00999,
+          -0.02385,
+          0.065
         ]
       },
       "phase": "kit_assembly",
       "phase_label": "Emergency-kit assembly",
-      "placement_error_mm": 7.302,
-      "slip_mm": 0.28,
-      "time": 1.52
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 6.92
     },
     {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring"
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -1.928,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "vial_contact_shell"
+          ],
+          "object": "vial",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -11.511,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 84.78,
+          "finger": "little",
+          "object": "vial",
+          "source": "site_distance"
+        },
+        {
+          "distance_mm": 75.858,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
       ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "little"
+      ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        0.02386,
-        -0.04267,
-        0.1214
+        0.03903,
+        -0.03709,
+        0.12402
       ],
       "object_positions": {
         "bandage": [
-          0.15995,
-          0.00659,
-          0.03961
-        ],
-        "cap": [
-          0.0443,
-          -0.03356,
-          0.11914
-        ],
-        "capsule": [
-          0.07977,
-          0.00789,
-          0.03728
-        ],
-        "tool_token": [
-          0.22937,
-          0.06879,
-          0.03924
-        ],
-        "vial": [
-          0.04028,
-          -0.03647,
-          0.05665
-        ]
-      },
-      "phase": "kit_assembly",
-      "phase_label": "Emergency-kit assembly",
-      "placement_error_mm": 7.163,
-      "slip_mm": 0.28,
-      "time": 1.56
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring"
-      ],
-      "hand_pos": [
-        0.03659,
-        -0.03816,
-        0.12385
-      ],
-      "object_positions": {
-        "bandage": [
-          0.19411,
-          -0.00814,
-          0.03988
-        ],
-        "cap": [
-          0.05501,
-          -0.02582,
-          0.11867
-        ],
-        "capsule": [
-          0.1114,
-          -0.00413,
-          0.03766
-        ],
-        "tool_token": [
-          0.2626,
-          0.06526,
-          0.03995
-        ],
-        "vial": [
-          0.05033,
-          -0.02921,
-          0.05609
-        ]
-      },
-      "phase": "kit_assembly",
-      "phase_label": "Emergency-kit assembly",
-      "placement_error_mm": 7.023,
-      "slip_mm": 0.28,
-      "time": 1.6
-    },
-    {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring"
-      ],
-      "hand_pos": [
-        0.04691,
-        -0.03359,
-        0.12651
-      ],
-      "object_positions": {
-        "bandage": [
-          0.21,
-          -0.015,
+          0.20469,
+          -0.01354,
           0.04
         ],
         "cap": [
-          0.06573,
-          -0.01808,
-          0.11819
+          0.05373,
+          -0.02316,
+          0.11636
         ],
         "capsule": [
-          0.14,
-          -0.015,
-          0.038
+          0.12123,
+          -0.00853,
+          0.03781
         ],
         "tool_token": [
-          0.265,
-          0.065,
-          0.04
+          0.26463,
+          0.0642,
+          0.04005
         ],
         "vial": [
-          0.06037,
-          -0.02195,
-          0.05553
+          0.03142,
+          -0.02083,
+          0.06142
         ]
       },
       "phase": "kit_assembly",
       "phase_label": "Emergency-kit assembly",
-      "placement_error_mm": 6.884,
-      "slip_mm": 0.28,
-      "time": 1.64
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 7.08
     },
     {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring"
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -11.444,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 75.987,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
       ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "little"
+      ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        0.06031,
-        -0.02879,
-        0.12637
+        0.05082,
+        -0.03313,
+        0.12598
       ],
       "object_positions": {
         "bandage": [
-          0.21,
-          -0.015,
-          0.04
+          0.20968,
+          -0.0157,
+          0.04004
         ],
         "cap": [
-          0.07,
-          -0.015,
-          0.118
+          0.06732,
+          -0.01668,
+          0.11778
         ],
         "capsule": [
-          0.14,
-          -0.015,
-          0.038
+          0.13972,
+          -0.01561,
+          0.03804
         ],
         "tool_token": [
-          0.265,
-          0.065,
-          0.04
+          0.26463,
+          0.0642,
+          0.04005
         ],
         "vial": [
-          0.07,
-          -0.015,
-          0.055
+          0.05285,
+          -0.01781,
+          0.05785
         ]
       },
       "phase": "kit_assembly",
       "phase_label": "Emergency-kit assembly",
-      "placement_error_mm": 6.744,
-      "slip_mm": 0.28,
-      "time": 1.68
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 7.24
     },
     {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "thumb",
-        "index",
-        "middle",
-        "ring"
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -14.754,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 72.522,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
       ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "little"
+      ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        0.07277,
-        -0.02374,
-        0.12813
+        0.06086,
+        -0.02795,
+        0.12783
       ],
       "object_positions": {
         "bandage": [
-          0.21,
-          -0.015,
-          0.04
+          0.20968,
+          -0.0157,
+          0.04004
         ],
         "cap": [
-          0.07,
-          -0.015,
-          0.118
+          0.06977,
+          -0.01551,
+          0.11803
         ],
         "capsule": [
-          0.14,
-          -0.015,
-          0.038
+          0.13972,
+          -0.01561,
+          0.03804
         ],
         "tool_token": [
-          0.265,
-          0.065,
-          0.04
+          0.26463,
+          0.0642,
+          0.04005
         ],
         "vial": [
-          0.07,
-          -0.015,
-          0.055
+          0.06981,
+          -0.01542,
+          0.05503
         ]
       },
       "phase": "kit_assembly",
       "phase_label": "Emergency-kit assembly",
-      "placement_error_mm": 6.605,
-      "slip_mm": 0.28,
-      "time": 1.72
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 7.4
     },
     {
-      "button_depth_mm": 0.0,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "index"
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -20.842,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "cap_contact_shell"
+          ],
+          "object": "cap",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 66.201,
+          "finger": "little",
+          "object": "cap",
+          "source": "site_distance"
+        }
       ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "little"
+      ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        0.07942,
-        -0.02076,
-        0.12981
+        0.0719,
+        -0.02535,
+        0.12915
       ],
       "object_positions": {
         "bandage": [
-          0.21,
-          -0.015,
-          0.04
+          0.20968,
+          -0.0157,
+          0.04004
         ],
         "cap": [
-          0.07,
-          -0.015,
-          0.118
+          0.06977,
+          -0.01551,
+          0.11803
         ],
         "capsule": [
-          0.14,
-          -0.015,
-          0.038
+          0.13972,
+          -0.01561,
+          0.03804
         ],
         "tool_token": [
-          0.265,
-          0.065,
-          0.04
+          0.26463,
+          0.0642,
+          0.04005
         ],
         "vial": [
-          0.07,
-          -0.015,
-          0.055
+          0.06981,
+          -0.01542,
+          0.05503
+        ]
+      },
+      "phase": "kit_assembly",
+      "phase_label": "Emergency-kit assembly",
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 7.56
+    },
+    {
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [],
+      "contact_sources": [],
+      "contacts": [],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        0.07981,
+        -0.02101,
+        0.12944
+      ],
+      "object_positions": {
+        "bandage": [
+          0.20968,
+          -0.0157,
+          0.04004
+        ],
+        "cap": [
+          0.06977,
+          -0.01551,
+          0.11803
+        ],
+        "capsule": [
+          0.13972,
+          -0.01561,
+          0.03804
+        ],
+        "tool_token": [
+          0.26463,
+          0.0642,
+          0.04005
+        ],
+        "vial": [
+          0.06981,
+          -0.01542,
+          0.05503
         ]
       },
       "phase": "confirmation_button",
       "phase_label": "Final confirmation",
-      "placement_error_mm": 6.0,
-      "slip_mm": 0.2,
-      "time": 1.76
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 7.72
     },
     {
-      "button_depth_mm": 0.837,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "index"
-      ],
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [],
+      "contact_sources": [],
+      "contacts": [],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        0.09914,
-        -0.01151,
-        0.12894
+        0.10415,
+        -0.02025,
+        0.12944
       ],
       "object_positions": {
         "bandage": [
-          0.21,
-          -0.015,
-          0.04
+          0.20968,
+          -0.0157,
+          0.04004
         ],
         "cap": [
-          0.07,
-          -0.015,
-          0.118
+          0.06977,
+          -0.01551,
+          0.11803
         ],
         "capsule": [
-          0.14,
-          -0.015,
-          0.038
+          0.13972,
+          -0.01561,
+          0.03804
         ],
         "tool_token": [
-          0.265,
-          0.065,
-          0.04
+          0.26463,
+          0.0642,
+          0.04005
         ],
         "vial": [
-          0.07,
-          -0.015,
-          0.055
+          0.06981,
+          -0.01542,
+          0.05503
         ]
       },
       "phase": "confirmation_button",
       "phase_label": "Final confirmation",
-      "placement_error_mm": 6.0,
-      "slip_mm": 0.2,
-      "time": 1.8
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 7.88
     },
     {
-      "button_depth_mm": 1.674,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "index"
-      ],
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [],
+      "contact_sources": [],
+      "contacts": [],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        0.11803,
-        -0.00361,
-        0.12858
+        0.12586,
+        -0.02027,
+        0.12902
       ],
       "object_positions": {
         "bandage": [
-          0.21,
-          -0.015,
-          0.04
+          0.20968,
+          -0.0157,
+          0.04004
         ],
         "cap": [
-          0.07,
-          -0.015,
-          0.118
+          0.06977,
+          -0.01551,
+          0.11803
         ],
         "capsule": [
-          0.14,
-          -0.015,
-          0.038
+          0.13972,
+          -0.01561,
+          0.03804
         ],
         "tool_token": [
-          0.265,
-          0.065,
-          0.04
+          0.26463,
+          0.0642,
+          0.04005
         ],
         "vial": [
-          0.07,
-          -0.015,
-          0.055
+          0.06981,
+          -0.01542,
+          0.05503
         ]
       },
       "phase": "confirmation_button",
       "phase_label": "Final confirmation",
-      "placement_error_mm": 6.0,
-      "slip_mm": 0.2,
-      "time": 1.84
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 8.04
     },
     {
-      "button_depth_mm": 2.512,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "index"
-      ],
+      "button_depth_mm": 10.366,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [],
+      "contact_sources": [],
+      "contacts": [],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        0.13737,
-        0.0039,
-        0.12764
+        0.1524,
+        -0.01975,
+        0.12769
       ],
       "object_positions": {
         "bandage": [
-          0.21,
-          -0.015,
-          0.04
+          0.20968,
+          -0.0157,
+          0.04004
         ],
         "cap": [
-          0.07,
-          -0.015,
-          0.118
+          0.06977,
+          -0.01551,
+          0.11803
         ],
         "capsule": [
-          0.14,
-          -0.015,
-          0.038
+          0.13972,
+          -0.01561,
+          0.03804
         ],
         "tool_token": [
-          0.265,
-          0.065,
-          0.04
+          0.26463,
+          0.0642,
+          0.04005
         ],
         "vial": [
-          0.07,
-          -0.015,
-          0.055
+          0.06981,
+          -0.01542,
+          0.05503
         ]
       },
       "phase": "confirmation_button",
       "phase_label": "Final confirmation",
-      "placement_error_mm": 6.0,
-      "slip_mm": 0.2,
-      "time": 1.88
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 8.2
     },
     {
-      "button_depth_mm": 3.349,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "index"
-      ],
+      "button_depth_mm": 10.367,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [],
+      "contact_sources": [],
+      "contacts": [],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        0.15524,
-        0.01298,
-        0.1273
+        0.17529,
+        -0.01882,
+        0.12582
       ],
       "object_positions": {
         "bandage": [
-          0.21,
-          -0.015,
-          0.04
+          0.20968,
+          -0.0157,
+          0.04004
         ],
         "cap": [
-          0.07,
-          -0.015,
-          0.118
+          0.06977,
+          -0.01551,
+          0.11803
         ],
         "capsule": [
-          0.14,
-          -0.015,
-          0.038
+          0.13972,
+          -0.01561,
+          0.03804
         ],
         "tool_token": [
-          0.265,
-          0.065,
-          0.04
+          0.26463,
+          0.0642,
+          0.04005
         ],
         "vial": [
-          0.07,
-          -0.015,
-          0.055
+          0.06981,
+          -0.01542,
+          0.05503
         ]
       },
       "phase": "confirmation_button",
       "phase_label": "Final confirmation",
-      "placement_error_mm": 6.0,
-      "slip_mm": 0.2,
-      "time": 1.92
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 8.36
     },
     {
-      "button_depth_mm": 4.186,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "index"
-      ],
+      "button_depth_mm": 10.367,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [],
+      "contact_sources": [],
+      "contacts": [],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        0.17567,
-        0.02195,
+        0.19998,
+        -0.0196,
         0.12614
       ],
       "object_positions": {
         "bandage": [
-          0.21,
-          -0.015,
-          0.04
+          0.20968,
+          -0.0157,
+          0.04004
         ],
         "cap": [
-          0.07,
-          -0.015,
-          0.118
+          0.06977,
+          -0.01551,
+          0.11803
         ],
         "capsule": [
-          0.14,
-          -0.015,
-          0.038
+          0.13972,
+          -0.01561,
+          0.03804
         ],
         "tool_token": [
-          0.265,
-          0.065,
-          0.04
+          0.26463,
+          0.0642,
+          0.04005
         ],
         "vial": [
-          0.07,
-          -0.015,
-          0.055
+          0.06981,
+          -0.01542,
+          0.05503
         ]
       },
       "phase": "confirmation_button",
       "phase_label": "Final confirmation",
-      "placement_error_mm": 6.0,
-      "slip_mm": 0.2,
-      "time": 1.96
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 8.52
     },
     {
-      "button_depth_mm": 5.023,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "index"
-      ],
+      "button_depth_mm": 10.367,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [],
+      "contact_sources": [],
+      "contacts": [],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        0.19311,
-        0.0307,
-        0.12437
+        0.22319,
+        -0.02074,
+        0.12495
       ],
       "object_positions": {
         "bandage": [
-          0.21,
-          -0.015,
-          0.04
+          0.20968,
+          -0.0157,
+          0.04004
         ],
         "cap": [
-          0.07,
-          -0.015,
-          0.118
+          0.06977,
+          -0.01551,
+          0.11803
         ],
         "capsule": [
-          0.14,
-          -0.015,
-          0.038
+          0.13972,
+          -0.01561,
+          0.03804
         ],
         "tool_token": [
-          0.265,
-          0.065,
-          0.04
+          0.26463,
+          0.0642,
+          0.04005
         ],
         "vial": [
-          0.07,
-          -0.015,
-          0.055
+          0.06981,
+          -0.01542,
+          0.05503
         ]
       },
       "phase": "confirmation_button",
       "phase_label": "Final confirmation",
-      "placement_error_mm": 6.0,
-      "slip_mm": 0.2,
-      "time": 2.0
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 8.68
     },
     {
-      "button_depth_mm": 5.86,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "index"
+      "button_depth_mm": 10.382,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -6.747,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "button_contact_shell"
+          ],
+          "object": "button",
+          "source": "solver_contact"
+        }
       ],
+      "contact_sources": [
+        "solver_contact"
+      ],
+      "contacts": [
+        "little"
+      ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        0.21301,
-        0.03859,
-        0.12409
+        0.24804,
+        -0.0201,
+        0.12326
       ],
       "object_positions": {
         "bandage": [
-          0.21,
-          -0.015,
-          0.04
+          0.20968,
+          -0.0157,
+          0.04004
         ],
         "cap": [
-          0.07,
-          -0.015,
-          0.118
+          0.06977,
+          -0.01551,
+          0.11803
         ],
         "capsule": [
-          0.14,
-          -0.015,
-          0.038
+          0.13972,
+          -0.01561,
+          0.03804
         ],
         "tool_token": [
-          0.265,
-          0.065,
-          0.04
+          0.26463,
+          0.0642,
+          0.04005
         ],
         "vial": [
-          0.07,
-          -0.015,
-          0.055
+          0.06981,
+          -0.01542,
+          0.05503
         ]
       },
       "phase": "confirmation_button",
       "phase_label": "Final confirmation",
-      "placement_error_mm": 6.0,
-      "slip_mm": 0.2,
-      "time": 2.04
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 8.84
     },
     {
-      "button_depth_mm": 6.698,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "index"
+      "button_depth_mm": 10.389,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -14.984,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "button_contact_shell"
+          ],
+          "object": "button",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -26.426,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "button_contact_shell"
+          ],
+          "object": "button",
+          "source": "solver_contact"
+        }
       ],
+      "contact_sources": [
+        "solver_contact"
+      ],
+      "contacts": [
+        "little",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        0.23213,
-        0.04694,
-        0.12328
+        0.27113,
+        -0.02027,
+        0.12359
       ],
       "object_positions": {
         "bandage": [
-          0.21,
-          -0.015,
-          0.04
+          0.20968,
+          -0.0157,
+          0.04004
         ],
         "cap": [
-          0.07,
-          -0.015,
-          0.118
+          0.06977,
+          -0.01551,
+          0.11803
         ],
         "capsule": [
-          0.14,
-          -0.015,
-          0.038
+          0.13972,
+          -0.01561,
+          0.03804
         ],
         "tool_token": [
-          0.265,
-          0.065,
-          0.04
+          0.26463,
+          0.0642,
+          0.04005
         ],
         "vial": [
-          0.07,
-          -0.015,
-          0.055
+          0.06981,
+          -0.01542,
+          0.05503
         ]
       },
       "phase": "confirmation_button",
       "phase_label": "Final confirmation",
-      "placement_error_mm": 6.0,
-      "slip_mm": 0.2,
-      "time": 2.08
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 9.0
     },
     {
-      "button_depth_mm": 7.535,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "index"
+      "button_depth_mm": 10.388,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -4.867,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "button_contact_shell"
+          ],
+          "object": "button",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -13.144,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "button_contact_shell"
+          ],
+          "object": "button",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -38.114,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "button_contact_shell"
+          ],
+          "object": "button",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -42.293,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "button_contact_shell"
+          ],
+          "object": "button",
+          "source": "solver_contact"
+        }
       ],
+      "contact_sources": [
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        0.25147,
-        0.05598,
-        0.12246
+        0.29319,
+        -0.02083,
+        0.12204
       ],
       "object_positions": {
         "bandage": [
-          0.21,
-          -0.015,
-          0.04
+          0.20968,
+          -0.0157,
+          0.04004
         ],
         "cap": [
-          0.07,
-          -0.015,
-          0.118
+          0.06977,
+          -0.01551,
+          0.11803
         ],
         "capsule": [
-          0.14,
-          -0.015,
-          0.038
+          0.13972,
+          -0.01561,
+          0.03804
         ],
         "tool_token": [
-          0.265,
-          0.065,
-          0.04
+          0.26463,
+          0.0642,
+          0.04005
         ],
         "vial": [
-          0.07,
-          -0.015,
-          0.055
+          0.06981,
+          -0.01542,
+          0.05503
         ]
       },
       "phase": "confirmation_button",
       "phase_label": "Final confirmation",
-      "placement_error_mm": 6.0,
-      "slip_mm": 0.2,
-      "time": 2.12
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 9.16
     },
     {
-      "button_depth_mm": 8.372,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "index"
+      "button_depth_mm": 10.399,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -30.174,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "button_contact_shell"
+          ],
+          "object": "button",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -38.983,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "button_contact_shell"
+          ],
+          "object": "button",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -66.544,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "button_contact_shell"
+          ],
+          "object": "button",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -48.23,
+          "finger": "little",
+          "geoms": [
+            "little_pad",
+            "button_contact_shell"
+          ],
+          "object": "button",
+          "source": "solver_contact"
+        }
       ],
+      "contact_sources": [
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "little",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        0.27152,
-        0.06353,
-        0.12157
+        0.31883,
+        -0.02041,
+        0.12303
       ],
       "object_positions": {
         "bandage": [
-          0.21,
-          -0.015,
-          0.04
+          0.20968,
+          -0.0157,
+          0.04004
         ],
         "cap": [
-          0.07,
-          -0.015,
-          0.118
+          0.06977,
+          -0.01551,
+          0.11803
         ],
         "capsule": [
-          0.14,
-          -0.015,
-          0.038
+          0.13972,
+          -0.01561,
+          0.03804
         ],
         "tool_token": [
-          0.265,
-          0.065,
-          0.04
+          0.26463,
+          0.0642,
+          0.04005
         ],
         "vial": [
-          0.07,
-          -0.015,
-          0.055
+          0.06981,
+          -0.01542,
+          0.05503
         ]
       },
       "phase": "confirmation_button",
       "phase_label": "Final confirmation",
-      "placement_error_mm": 6.0,
-      "slip_mm": 0.2,
-      "time": 2.16
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 9.32
     },
     {
-      "button_depth_mm": 9.0,
-      "cap_rotation_deg": 226.0,
-      "contacts": [
-        "index"
+      "button_depth_mm": 10.424,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -49.147,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "button_contact_shell"
+          ],
+          "object": "button",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -61.206,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "button_contact_shell"
+          ],
+          "object": "button",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -55.0,
+          "finger": "ring",
+          "geoms": [
+            "ring_pad",
+            "button_contact_shell"
+          ],
+          "object": "button",
+          "source": "solver_contact"
+        }
       ],
+      "contact_sources": [
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "middle",
+        "ring"
+      ],
+      "control_mode": "actuator_position_mj_step",
       "hand_pos": [
-        0.28426,
-        0.07006,
-        0.11972
+        0.34078,
+        -0.01971,
+        0.12005
       ],
       "object_positions": {
         "bandage": [
-          0.21,
-          -0.015,
-          0.04
+          0.20968,
+          -0.0157,
+          0.04004
         ],
         "cap": [
-          0.07,
-          -0.015,
-          0.118
+          0.06977,
+          -0.01551,
+          0.11803
         ],
         "capsule": [
-          0.14,
-          -0.015,
-          0.038
+          0.13972,
+          -0.01561,
+          0.03804
         ],
         "tool_token": [
-          0.265,
-          0.065,
-          0.04
+          0.26463,
+          0.0642,
+          0.04005
         ],
         "vial": [
-          0.07,
-          -0.015,
-          0.055
+          0.06981,
+          -0.01542,
+          0.05503
         ]
       },
       "phase": "confirmation_button",
       "phase_label": "Final confirmation",
-      "placement_error_mm": 6.0,
-      "slip_mm": 0.2,
-      "time": 2.19
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 9.48
+    },
+    {
+      "button_depth_mm": 10.41,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
+      "contact_pairs": [
+        {
+          "distance_mm": -40.192,
+          "finger": "index",
+          "geoms": [
+            "index_pad",
+            "button_contact_shell"
+          ],
+          "object": "button",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": -70.575,
+          "finger": "middle",
+          "geoms": [
+            "middle_pad",
+            "button_contact_shell"
+          ],
+          "object": "button",
+          "source": "solver_contact"
+        },
+        {
+          "distance_mm": 88.402,
+          "finger": "middle",
+          "object": "button",
+          "source": "site_distance"
+        }
+      ],
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
+      "contacts": [
+        "index",
+        "middle"
+      ],
+      "control_mode": "actuator_position_mj_step",
+      "hand_pos": [
+        0.36089,
+        -0.01842,
+        0.12002
+      ],
+      "object_positions": {
+        "bandage": [
+          0.20968,
+          -0.0157,
+          0.04004
+        ],
+        "cap": [
+          0.06977,
+          -0.01551,
+          0.11803
+        ],
+        "capsule": [
+          0.13972,
+          -0.01561,
+          0.03804
+        ],
+        "tool_token": [
+          0.26463,
+          0.0642,
+          0.04005
+        ],
+        "vial": [
+          0.06981,
+          -0.01542,
+          0.05503
+        ]
+      },
+      "phase": "confirmation_button",
+      "phase_label": "Final confirmation",
+      "physics_steps": 4,
+      "placement_error_mm": 6.031,
+      "slip_mm": 0.21,
+      "time": 9.6
     }
   ]
 }

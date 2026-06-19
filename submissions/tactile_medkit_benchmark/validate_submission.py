@@ -35,6 +35,12 @@ REQUIRED_OUTPUT_FILES = [
     "final_report.txt",
 ]
 
+EXPECTED_CONTROL_MODE = "actuator_position_mj_step"
+MIN_MEASURED_CONTACT_PHASES = 4
+MIN_SOLVER_CONTACT_PHASES = 4
+MIN_COLLISION_ENABLED_GEOMS = 10
+MIN_VIDEO_DURATION_SEC = 60.0
+
 
 def _read_json(path: Path) -> Dict:
     return json.loads(path.read_text(encoding="utf-8"))
@@ -62,6 +68,7 @@ def validate_submission(output_dir: Optional[Path] = None, require_video: bool =
     manifest = {}
     summary = {}
     stress = {}
+    video_status = {}
     if (PACKAGE_DIR / "registration.json").exists():
         registration = _read_json(PACKAGE_DIR / "registration.json")
     if (PACKAGE_DIR / "submission_manifest.json").exists():
@@ -70,6 +77,8 @@ def validate_submission(output_dir: Optional[Path] = None, require_video: bool =
         summary = _read_json(output_dir / "summary.json")
     if (output_dir / "stress_eval.json").exists():
         stress = _read_json(output_dir / "stress_eval.json")
+    if (output_dir / "video_status.json").exists():
+        video_status = _read_json(output_dir / "video_status.json")
 
     uuid = registration.get("uuid")
     project_name = registration.get("project_name")
@@ -92,11 +101,45 @@ def validate_submission(output_dir: Optional[Path] = None, require_video: bool =
             errors.append("placement error exceeds target")
         if not summary.get("success"):
             errors.append("summary success flag is false")
+        if summary.get("control_mode") != EXPECTED_CONTROL_MODE:
+            errors.append("control mode does not use actuator_position_mj_step")
+        if int(summary.get("physics_steps", 0)) <= 0:
+            errors.append("physics_steps must be positive")
+        if int(summary.get("measured_contact_phases", 0)) < MIN_MEASURED_CONTACT_PHASES:
+            errors.append("measured contact phases below target")
+        if "site_distance" not in summary.get("contact_sources", []):
+            errors.append("site-distance contact evidence is missing")
+        if "solver_contact" not in summary.get("contact_sources", []):
+            errors.append("solver contact evidence is missing")
+        if int(summary.get("solver_contact_phases", 0)) < targets.get("min_solver_contact_phases", MIN_SOLVER_CONTACT_PHASES):
+            errors.append("solver contact phases below target")
+        if int(summary.get("solver_contact_pairs", 0)) <= 0:
+            errors.append("solver contact pair count is zero")
+        if int(summary.get("collision_enabled_geoms", 0)) < targets.get("min_collision_enabled_geoms", MIN_COLLISION_ENABLED_GEOMS):
+            errors.append("collision-enabled geom count below target")
+        confirmation_contacts = (
+            summary.get("contacts_per_phase", {})
+            .get("confirmation_button", {})
+            .get("fingers", [])
+        )
+        if "index" not in confirmation_contacts:
+            errors.append("index button contact evidence is missing")
 
     stress_summary = stress.get("summary", {}) if stress else {}
     if stress_summary:
         if stress_summary.get("success_rate", 0.0) < targets.get("stress_success_rate", 0.875):
             errors.append("stress success rate below target")
+        variance = stress_summary.get("metric_variance", {})
+        if variance.get("cap_rotation_deg", 0.0) <= 0.0:
+            errors.append("stress cap_rotation_deg variance is missing")
+        if variance.get("max_slip_mm", 0.0) <= 0.0:
+            errors.append("stress max_slip_mm variance is missing")
+
+    if require_video:
+        if not video_status.get("rendered"):
+            errors.append("video_status rendered flag is false")
+        if float(video_status.get("duration_sec", 0.0)) < MIN_VIDEO_DURATION_SEC:
+            errors.append("video duration below 60 seconds")
 
     return {
         "valid": not errors,

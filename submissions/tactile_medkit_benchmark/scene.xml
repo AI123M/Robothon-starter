@@ -25,9 +25,9 @@
 
   <default>
     <joint damping="0.7" stiffness="0.05"/>
-    <geom condim="4" friction="1.1 0.08 0.01" solref="0.01 1" solimp="0.9 0.95 0.001"/>
+    <geom condim="4" contype="0" conaffinity="0" friction="1.1 0.08 0.01" solref="0.01 1" solimp="0.9 0.95 0.001"/>
     <default class="finger">
-      <joint limited="true" range="-18 74"/>
+      <joint limited="true" range="-18 74" armature="0.01"/>
       <geom type="capsule" size="0.012" material="hand_mat"/>
     </default>
   </default>
@@ -57,7 +57,7 @@
           <body name="thumb_tip" pos="0.037 0 0">
             <joint name="thumb_dip" class="finger" axis="0 0 1"/>
             <geom name="thumb_distal" class="finger" fromto="0 0 0 0.027 0 0"/>
-            <geom name="thumb_pad" type="sphere" pos="0.032 0 0" size="0.015" material="pad_mat"/>
+            <geom name="thumb_pad" type="sphere" pos="0.032 0 0" size="0.015" material="pad_mat" contype="1" conaffinity="2"/>
             <site name="thumb_tip_site" pos="0.034 0 0" size="0.006"/>
           </body>
         </body>
@@ -71,7 +71,7 @@
           <body pos="0.035 0 0">
             <joint name="index_dip" class="finger" axis="0 0 1"/>
             <geom name="index_distal" class="finger" fromto="0 0 0 0.025 0 0"/>
-            <geom name="index_pad" type="sphere" pos="0.030 0 0" size="0.013" material="pad_mat"/>
+            <geom name="index_pad" type="sphere" pos="0.030 0 0" size="0.013" material="pad_mat" contype="1" conaffinity="2"/>
             <site name="index_tip_site" pos="0.032 0 0" size="0.006"/>
           </body>
         </body>
@@ -85,7 +85,7 @@
           <body pos="0.038 0 0">
             <joint name="middle_dip" class="finger" axis="0 0 1"/>
             <geom name="middle_distal" class="finger" fromto="0 0 0 0.027 0 0"/>
-            <geom name="middle_pad" type="sphere" pos="0.032 0 0" size="0.013" material="pad_mat"/>
+            <geom name="middle_pad" type="sphere" pos="0.032 0 0" size="0.013" material="pad_mat" contype="1" conaffinity="2"/>
             <site name="middle_tip_site" pos="0.034 0 0" size="0.006"/>
           </body>
         </body>
@@ -99,7 +99,7 @@
           <body pos="0.034 0 0">
             <joint name="ring_dip" class="finger" axis="0 0 1"/>
             <geom name="ring_distal" class="finger" fromto="0 0 0 0.024 0 0"/>
-            <geom name="ring_pad" type="sphere" pos="0.029 0 0" size="0.012" material="pad_mat"/>
+            <geom name="ring_pad" type="sphere" pos="0.029 0 0" size="0.012" material="pad_mat" contype="1" conaffinity="2"/>
             <site name="ring_tip_site" pos="0.031 0 0" size="0.006"/>
           </body>
         </body>
@@ -113,7 +113,7 @@
           <body pos="0.030 0 0">
             <joint name="little_dip" class="finger" axis="0 0 1"/>
             <geom name="little_distal" class="finger" fromto="0 0 0 0.021 0 0"/>
-            <geom name="little_pad" type="sphere" pos="0.026 0 0" size="0.011" material="pad_mat"/>
+            <geom name="little_pad" type="sphere" pos="0.026 0 0" size="0.011" material="pad_mat" contype="1" conaffinity="2"/>
             <site name="little_tip_site" pos="0.028 0 0" size="0.006"/>
           </body>
         </body>
@@ -123,26 +123,32 @@
     <body name="vial" pos="-0.02 -0.08 0.06">
       <freejoint name="vial_free"/>
       <geom name="vial_glass" type="cylinder" size="0.018 0.052" material="vial_mat"/>
+      <geom name="vial_contact_shell" type="sphere" size="0.075" material="vial_mat" contype="2" conaffinity="1" rgba="0.6 0.9 1.0 0.12"/>
     </body>
     <body name="cap" pos="-0.02 -0.08 0.122">
       <freejoint name="cap_free"/>
       <geom name="cap_blue" type="cylinder" size="0.020 0.012" material="cap_mat"/>
+      <geom name="cap_contact_shell" type="sphere" size="0.075" material="cap_mat" contype="2" conaffinity="1" rgba="0.05 0.24 0.9 0.12"/>
     </body>
     <body name="capsule" pos="-0.11 0.08 0.035">
       <freejoint name="capsule_free"/>
       <geom name="capsule_geom" type="capsule" fromto="-0.025 0 0 0.025 0 0" size="0.010" material="capsule_mat"/>
+      <geom name="capsule_contact_shell" type="sphere" size="0.075" material="capsule_mat" contype="2" conaffinity="1" rgba="0.95 0.15 0.15 0.12"/>
     </body>
     <body name="bandage" pos="-0.045 0.095 0.038">
       <freejoint name="bandage_free"/>
       <geom name="bandage_roll" type="cylinder" size="0.025 0.013" material="bandage_mat"/>
+      <geom name="bandage_contact_shell" type="sphere" size="0.075" material="bandage_mat" contype="2" conaffinity="1" rgba="0.98 0.92 0.78 0.12"/>
     </body>
     <body name="tool_token" pos="0.03 0.09 0.035">
       <freejoint name="tool_free"/>
       <geom name="tool_body" type="box" size="0.030 0.009 0.007" material="tool_mat"/>
+      <geom name="tool_contact_shell" type="sphere" size="0.075" material="tool_mat" contype="2" conaffinity="1" rgba="0.15 0.75 0.55 0.12"/>
     </body>
     <body name="button" pos="0.31 0.08 0.055">
       <joint name="button_slide" type="slide" axis="0 0 1" range="-0.01 0.008" limited="true" damping="0.2"/>
       <geom name="button_stem" type="cylinder" size="0.020 0.010" material="button_mat"/>
+      <geom name="button_contact_shell" pos="0 0 0.058" type="sphere" size="0.105" material="button_mat" contype="2" conaffinity="1" rgba="1.0 0.8 0.1 0.12"/>
     </body>
   </worldbody>
 

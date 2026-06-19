@@ -2,8 +2,13 @@ Tactile MedKit Manipulation Benchmark
 UUID: f74c5b50-5ef8-467b-a141-a28ea9c34333
 Seed: 42
 Success: True
-Cap rotation: 226.0 deg
-Peak slip: 0.34 mm
-Placement error: 8.0 mm
-Dexterity score: 90.2/100
-Video: {'rendered': True, 'path': 'demo.mp4', 'frames': 110, 'fps': 30}
+Cap rotation: 228.966 deg
+Peak slip: 0.334 mm
+Placement error: 7.353 mm
+Dexterity score: 90.8/100
+Control mode: actuator_position_mj_step
+Physics steps: 960
+Measured contact phases: 5
+Solver contact phases: 5
+Solver contact pairs: 949
+Video: {'rendered': True, 'path': 'demo.mp4', 'frames': 240, 'fps': 3, 'duration_sec': 80.0}

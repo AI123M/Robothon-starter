@@ -1,8 +1,13 @@
 {
   "runs": [
     {
-      "cap_rotation_deg": 226.0,
+      "cap_rotation_deg": 227.733,
+      "collision_enabled_geoms": 11,
       "completed_phases": 5,
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts_per_phase": {
         "cap_rotation": {
           "fingers": [
@@ -12,30 +17,22 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.44,
-          "last_time": 0.87,
-          "samples": 44
+          "first_time": 1.96,
+          "last_time": 3.84,
+          "samples": 48
         },
         "confirmation_button": {
           "fingers": [
-            "index"
+            "index",
+            "little",
+            "middle",
+            "ring"
           ],
-          "first_time": 1.76,
-          "last_time": 2.19,
-          "samples": 44
+          "first_time": 7.72,
+          "last_time": 9.6,
+          "samples": 48
         },
         "kit_assembly": {
-          "fingers": [
-            "index",
-            "middle",
-            "ring",
-            "thumb"
-          ],
-          "first_time": 1.32,
-          "last_time": 1.75,
-          "samples": 44
-        },
-        "perturb_recovery": {
           "fingers": [
             "index",
             "little",
@@ -43,9 +40,20 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.88,
-          "last_time": 1.31,
-          "samples": 44
+          "first_time": 5.8,
+          "last_time": 7.68,
+          "samples": 48
+        },
+        "perturb_recovery": {
+          "fingers": [
+            "index",
+            "little",
+            "middle",
+            "ring"
+          ],
+          "first_time": 3.88,
+          "last_time": 5.76,
+          "samples": 48
         },
         "vial_grasp": {
           "fingers": [
@@ -55,21 +63,32 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.0,
-          "last_time": 0.43,
-          "samples": 44
+          "first_time": 0.04,
+          "last_time": 1.92,
+          "samples": 48
         }
       },
-      "dexterity_score": 90.2,
-      "max_placement_error_mm": 8.0,
-      "max_slip_mm": 0.34,
+      "control_mode": "actuator_position_mj_step",
+      "dexterity_score": 92.6,
+      "max_placement_error_mm": 5.446,
+      "max_slip_mm": 0.306,
+      "max_solver_contact_distance_mm": -0.009,
+      "measured_contact_phases": 5,
       "phase_count": 5,
+      "physics_steps": 960,
       "seed": 0,
+      "solver_contact_pairs": 956,
+      "solver_contact_phases": 5,
       "success": true
     },
     {
-      "cap_rotation_deg": 226.0,
+      "cap_rotation_deg": 226.606,
+      "collision_enabled_geoms": 11,
       "completed_phases": 5,
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts_per_phase": {
         "cap_rotation": {
           "fingers": [
@@ -79,30 +98,22 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.44,
-          "last_time": 0.87,
-          "samples": 44
+          "first_time": 1.96,
+          "last_time": 3.84,
+          "samples": 48
         },
         "confirmation_button": {
           "fingers": [
-            "index"
+            "index",
+            "little",
+            "middle",
+            "ring"
           ],
-          "first_time": 1.76,
-          "last_time": 2.19,
-          "samples": 44
+          "first_time": 7.72,
+          "last_time": 9.6,
+          "samples": 48
         },
         "kit_assembly": {
-          "fingers": [
-            "index",
-            "middle",
-            "ring",
-            "thumb"
-          ],
-          "first_time": 1.32,
-          "last_time": 1.75,
-          "samples": 44
-        },
-        "perturb_recovery": {
           "fingers": [
             "index",
             "little",
@@ -110,9 +121,20 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.88,
-          "last_time": 1.31,
-          "samples": 44
+          "first_time": 5.8,
+          "last_time": 7.68,
+          "samples": 48
+        },
+        "perturb_recovery": {
+          "fingers": [
+            "index",
+            "little",
+            "middle",
+            "ring"
+          ],
+          "first_time": 3.88,
+          "last_time": 5.76,
+          "samples": 48
         },
         "vial_grasp": {
           "fingers": [
@@ -122,21 +144,32 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.0,
-          "last_time": 0.43,
-          "samples": 44
+          "first_time": 0.04,
+          "last_time": 1.92,
+          "samples": 48
         }
       },
-      "dexterity_score": 90.2,
-      "max_placement_error_mm": 8.0,
-      "max_slip_mm": 0.34,
+      "control_mode": "actuator_position_mj_step",
+      "dexterity_score": 89.3,
+      "max_placement_error_mm": 8.056,
+      "max_slip_mm": 0.421,
+      "max_solver_contact_distance_mm": -0.051,
+      "measured_contact_phases": 5,
       "phase_count": 5,
+      "physics_steps": 960,
       "seed": 1,
+      "solver_contact_pairs": 945,
+      "solver_contact_phases": 5,
       "success": true
     },
     {
-      "cap_rotation_deg": 226.0,
+      "cap_rotation_deg": 224.355,
+      "collision_enabled_geoms": 11,
       "completed_phases": 5,
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts_per_phase": {
         "cap_rotation": {
           "fingers": [
@@ -146,30 +179,22 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.44,
-          "last_time": 0.87,
-          "samples": 44
+          "first_time": 1.96,
+          "last_time": 3.84,
+          "samples": 48
         },
         "confirmation_button": {
           "fingers": [
-            "index"
+            "index",
+            "little",
+            "middle",
+            "ring"
           ],
-          "first_time": 1.76,
-          "last_time": 2.19,
-          "samples": 44
+          "first_time": 7.72,
+          "last_time": 9.6,
+          "samples": 48
         },
         "kit_assembly": {
-          "fingers": [
-            "index",
-            "middle",
-            "ring",
-            "thumb"
-          ],
-          "first_time": 1.32,
-          "last_time": 1.75,
-          "samples": 44
-        },
-        "perturb_recovery": {
           "fingers": [
             "index",
             "little",
@@ -177,9 +202,20 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.88,
-          "last_time": 1.31,
-          "samples": 44
+          "first_time": 5.8,
+          "last_time": 7.68,
+          "samples": 48
+        },
+        "perturb_recovery": {
+          "fingers": [
+            "index",
+            "little",
+            "middle",
+            "ring"
+          ],
+          "first_time": 3.88,
+          "last_time": 5.76,
+          "samples": 48
         },
         "vial_grasp": {
           "fingers": [
@@ -189,21 +225,32 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.0,
-          "last_time": 0.43,
-          "samples": 44
+          "first_time": 0.04,
+          "last_time": 1.92,
+          "samples": 48
         }
       },
-      "dexterity_score": 90.2,
-      "max_placement_error_mm": 8.0,
-      "max_slip_mm": 0.34,
+      "control_mode": "actuator_position_mj_step",
+      "dexterity_score": 92.4,
+      "max_placement_error_mm": 5.657,
+      "max_slip_mm": 0.311,
+      "max_solver_contact_distance_mm": -0.05,
+      "measured_contact_phases": 5,
       "phase_count": 5,
+      "physics_steps": 960,
       "seed": 2,
+      "solver_contact_pairs": 944,
+      "solver_contact_phases": 5,
       "success": true
     },
     {
-      "cap_rotation_deg": 226.0,
+      "cap_rotation_deg": 222.771,
+      "collision_enabled_geoms": 11,
       "completed_phases": 5,
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts_per_phase": {
         "cap_rotation": {
           "fingers": [
@@ -213,30 +260,22 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.44,
-          "last_time": 0.87,
-          "samples": 44
+          "first_time": 1.96,
+          "last_time": 3.84,
+          "samples": 48
         },
         "confirmation_button": {
           "fingers": [
-            "index"
+            "index",
+            "little",
+            "middle",
+            "ring"
           ],
-          "first_time": 1.76,
-          "last_time": 2.19,
-          "samples": 44
+          "first_time": 7.72,
+          "last_time": 9.6,
+          "samples": 48
         },
         "kit_assembly": {
-          "fingers": [
-            "index",
-            "middle",
-            "ring",
-            "thumb"
-          ],
-          "first_time": 1.32,
-          "last_time": 1.75,
-          "samples": 44
-        },
-        "perturb_recovery": {
           "fingers": [
             "index",
             "little",
@@ -244,9 +283,20 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.88,
-          "last_time": 1.31,
-          "samples": 44
+          "first_time": 5.8,
+          "last_time": 7.68,
+          "samples": 48
+        },
+        "perturb_recovery": {
+          "fingers": [
+            "index",
+            "little",
+            "middle",
+            "ring"
+          ],
+          "first_time": 3.88,
+          "last_time": 5.76,
+          "samples": 48
         },
         "vial_grasp": {
           "fingers": [
@@ -256,21 +306,32 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.0,
-          "last_time": 0.43,
-          "samples": 44
+          "first_time": 0.04,
+          "last_time": 1.92,
+          "samples": 48
         }
       },
-      "dexterity_score": 90.2,
-      "max_placement_error_mm": 8.0,
-      "max_slip_mm": 0.34,
+      "control_mode": "actuator_position_mj_step",
+      "dexterity_score": 91.4,
+      "max_placement_error_mm": 7.03,
+      "max_slip_mm": 0.3,
+      "max_solver_contact_distance_mm": -0.002,
+      "measured_contact_phases": 5,
       "phase_count": 5,
+      "physics_steps": 960,
       "seed": 3,
+      "solver_contact_pairs": 950,
+      "solver_contact_phases": 5,
       "success": true
     },
     {
-      "cap_rotation_deg": 226.0,
+      "cap_rotation_deg": 230.488,
+      "collision_enabled_geoms": 11,
       "completed_phases": 5,
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts_per_phase": {
         "cap_rotation": {
           "fingers": [
@@ -280,30 +341,22 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.44,
-          "last_time": 0.87,
-          "samples": 44
+          "first_time": 1.96,
+          "last_time": 3.84,
+          "samples": 48
         },
         "confirmation_button": {
           "fingers": [
-            "index"
+            "index",
+            "little",
+            "middle",
+            "ring"
           ],
-          "first_time": 1.76,
-          "last_time": 2.19,
-          "samples": 44
+          "first_time": 7.72,
+          "last_time": 9.6,
+          "samples": 48
         },
         "kit_assembly": {
-          "fingers": [
-            "index",
-            "middle",
-            "ring",
-            "thumb"
-          ],
-          "first_time": 1.32,
-          "last_time": 1.75,
-          "samples": 44
-        },
-        "perturb_recovery": {
           "fingers": [
             "index",
             "little",
@@ -311,9 +364,20 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.88,
-          "last_time": 1.31,
-          "samples": 44
+          "first_time": 5.8,
+          "last_time": 7.68,
+          "samples": 48
+        },
+        "perturb_recovery": {
+          "fingers": [
+            "index",
+            "little",
+            "middle",
+            "ring"
+          ],
+          "first_time": 3.88,
+          "last_time": 5.76,
+          "samples": 48
         },
         "vial_grasp": {
           "fingers": [
@@ -323,21 +387,32 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.0,
-          "last_time": 0.43,
-          "samples": 44
+          "first_time": 0.04,
+          "last_time": 1.92,
+          "samples": 48
         }
       },
-      "dexterity_score": 90.2,
-      "max_placement_error_mm": 8.0,
-      "max_slip_mm": 0.34,
+      "control_mode": "actuator_position_mj_step",
+      "dexterity_score": 92.0,
+      "max_placement_error_mm": 5.626,
+      "max_slip_mm": 0.347,
+      "max_solver_contact_distance_mm": -0.022,
+      "measured_contact_phases": 5,
       "phase_count": 5,
+      "physics_steps": 960,
       "seed": 4,
+      "solver_contact_pairs": 946,
+      "solver_contact_phases": 5,
       "success": true
     },
     {
-      "cap_rotation_deg": 226.0,
+      "cap_rotation_deg": 229.245,
+      "collision_enabled_geoms": 11,
       "completed_phases": 5,
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts_per_phase": {
         "cap_rotation": {
           "fingers": [
@@ -347,30 +422,22 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.44,
-          "last_time": 0.87,
-          "samples": 44
+          "first_time": 1.96,
+          "last_time": 3.84,
+          "samples": 48
         },
         "confirmation_button": {
           "fingers": [
-            "index"
+            "index",
+            "little",
+            "middle",
+            "ring"
           ],
-          "first_time": 1.76,
-          "last_time": 2.19,
-          "samples": 44
+          "first_time": 7.72,
+          "last_time": 9.6,
+          "samples": 48
         },
         "kit_assembly": {
-          "fingers": [
-            "index",
-            "middle",
-            "ring",
-            "thumb"
-          ],
-          "first_time": 1.32,
-          "last_time": 1.75,
-          "samples": 44
-        },
-        "perturb_recovery": {
           "fingers": [
             "index",
             "little",
@@ -378,9 +445,20 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.88,
-          "last_time": 1.31,
-          "samples": 44
+          "first_time": 5.8,
+          "last_time": 7.68,
+          "samples": 48
+        },
+        "perturb_recovery": {
+          "fingers": [
+            "index",
+            "little",
+            "middle",
+            "ring"
+          ],
+          "first_time": 3.88,
+          "last_time": 5.76,
+          "samples": 48
         },
         "vial_grasp": {
           "fingers": [
@@ -390,21 +468,32 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.0,
-          "last_time": 0.43,
-          "samples": 44
+          "first_time": 0.04,
+          "last_time": 1.92,
+          "samples": 48
         }
       },
-      "dexterity_score": 90.2,
-      "max_placement_error_mm": 8.0,
-      "max_slip_mm": 0.34,
+      "control_mode": "actuator_position_mj_step",
+      "dexterity_score": 91.1,
+      "max_placement_error_mm": 6.2,
+      "max_slip_mm": 0.397,
+      "max_solver_contact_distance_mm": -0.008,
+      "measured_contact_phases": 5,
       "phase_count": 5,
+      "physics_steps": 960,
       "seed": 5,
+      "solver_contact_pairs": 946,
+      "solver_contact_phases": 5,
       "success": true
     },
     {
-      "cap_rotation_deg": 226.0,
+      "cap_rotation_deg": 226.843,
+      "collision_enabled_geoms": 11,
       "completed_phases": 5,
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts_per_phase": {
         "cap_rotation": {
           "fingers": [
@@ -414,30 +503,22 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.44,
-          "last_time": 0.87,
-          "samples": 44
+          "first_time": 1.96,
+          "last_time": 3.84,
+          "samples": 48
         },
         "confirmation_button": {
           "fingers": [
-            "index"
+            "index",
+            "little",
+            "middle",
+            "ring"
           ],
-          "first_time": 1.76,
-          "last_time": 2.19,
-          "samples": 44
+          "first_time": 7.72,
+          "last_time": 9.6,
+          "samples": 48
         },
         "kit_assembly": {
-          "fingers": [
-            "index",
-            "middle",
-            "ring",
-            "thumb"
-          ],
-          "first_time": 1.32,
-          "last_time": 1.75,
-          "samples": 44
-        },
-        "perturb_recovery": {
           "fingers": [
             "index",
             "little",
@@ -445,9 +526,20 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.88,
-          "last_time": 1.31,
-          "samples": 44
+          "first_time": 5.8,
+          "last_time": 7.68,
+          "samples": 48
+        },
+        "perturb_recovery": {
+          "fingers": [
+            "index",
+            "little",
+            "middle",
+            "ring"
+          ],
+          "first_time": 3.88,
+          "last_time": 5.76,
+          "samples": 48
         },
         "vial_grasp": {
           "fingers": [
@@ -457,21 +549,32 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.0,
-          "last_time": 0.43,
-          "samples": 44
+          "first_time": 0.04,
+          "last_time": 1.92,
+          "samples": 48
         }
       },
-      "dexterity_score": 90.2,
-      "max_placement_error_mm": 8.0,
-      "max_slip_mm": 0.34,
+      "control_mode": "actuator_position_mj_step",
+      "dexterity_score": 91.7,
+      "max_placement_error_mm": 6.449,
+      "max_slip_mm": 0.318,
+      "max_solver_contact_distance_mm": -0.009,
+      "measured_contact_phases": 5,
       "phase_count": 5,
+      "physics_steps": 960,
       "seed": 6,
+      "solver_contact_pairs": 942,
+      "solver_contact_phases": 5,
       "success": true
     },
     {
-      "cap_rotation_deg": 226.0,
+      "cap_rotation_deg": 227.626,
+      "collision_enabled_geoms": 11,
       "completed_phases": 5,
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts_per_phase": {
         "cap_rotation": {
           "fingers": [
@@ -481,30 +584,22 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.44,
-          "last_time": 0.87,
-          "samples": 44
+          "first_time": 1.96,
+          "last_time": 3.84,
+          "samples": 48
         },
         "confirmation_button": {
           "fingers": [
-            "index"
+            "index",
+            "little",
+            "middle",
+            "ring"
           ],
-          "first_time": 1.76,
-          "last_time": 2.19,
-          "samples": 44
+          "first_time": 7.72,
+          "last_time": 9.6,
+          "samples": 48
         },
         "kit_assembly": {
-          "fingers": [
-            "index",
-            "middle",
-            "ring",
-            "thumb"
-          ],
-          "first_time": 1.32,
-          "last_time": 1.75,
-          "samples": 44
-        },
-        "perturb_recovery": {
           "fingers": [
             "index",
             "little",
@@ -512,9 +607,20 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.88,
-          "last_time": 1.31,
-          "samples": 44
+          "first_time": 5.8,
+          "last_time": 7.68,
+          "samples": 48
+        },
+        "perturb_recovery": {
+          "fingers": [
+            "index",
+            "little",
+            "middle",
+            "ring"
+          ],
+          "first_time": 3.88,
+          "last_time": 5.76,
+          "samples": 48
         },
         "vial_grasp": {
           "fingers": [
@@ -524,21 +630,32 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.0,
-          "last_time": 0.43,
-          "samples": 44
+          "first_time": 0.04,
+          "last_time": 1.92,
+          "samples": 48
         }
       },
-      "dexterity_score": 90.2,
-      "max_placement_error_mm": 8.0,
-      "max_slip_mm": 0.34,
+      "control_mode": "actuator_position_mj_step",
+      "dexterity_score": 91.1,
+      "max_placement_error_mm": 6.031,
+      "max_slip_mm": 0.412,
+      "max_solver_contact_distance_mm": -0.001,
+      "measured_contact_phases": 5,
       "phase_count": 5,
+      "physics_steps": 960,
       "seed": 7,
+      "solver_contact_pairs": 946,
+      "solver_contact_phases": 5,
       "success": true
     },
     {
-      "cap_rotation_deg": 226.0,
+      "cap_rotation_deg": 224.943,
+      "collision_enabled_geoms": 11,
       "completed_phases": 5,
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts_per_phase": {
         "cap_rotation": {
           "fingers": [
@@ -548,30 +665,22 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.44,
-          "last_time": 0.87,
-          "samples": 44
+          "first_time": 1.96,
+          "last_time": 3.84,
+          "samples": 48
         },
         "confirmation_button": {
           "fingers": [
-            "index"
+            "index",
+            "little",
+            "middle",
+            "ring"
           ],
-          "first_time": 1.76,
-          "last_time": 2.19,
-          "samples": 44
+          "first_time": 7.72,
+          "last_time": 9.6,
+          "samples": 48
         },
         "kit_assembly": {
-          "fingers": [
-            "index",
-            "middle",
-            "ring",
-            "thumb"
-          ],
-          "first_time": 1.32,
-          "last_time": 1.75,
-          "samples": 44
-        },
-        "perturb_recovery": {
           "fingers": [
             "index",
             "little",
@@ -579,9 +688,20 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.88,
-          "last_time": 1.31,
-          "samples": 44
+          "first_time": 5.8,
+          "last_time": 7.68,
+          "samples": 48
+        },
+        "perturb_recovery": {
+          "fingers": [
+            "index",
+            "little",
+            "middle",
+            "ring"
+          ],
+          "first_time": 3.88,
+          "last_time": 5.76,
+          "samples": 48
         },
         "vial_grasp": {
           "fingers": [
@@ -591,21 +711,32 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.0,
-          "last_time": 0.43,
-          "samples": 44
+          "first_time": 0.04,
+          "last_time": 1.92,
+          "samples": 48
         }
       },
-      "dexterity_score": 90.2,
-      "max_placement_error_mm": 8.0,
-      "max_slip_mm": 0.34,
+      "control_mode": "actuator_position_mj_step",
+      "dexterity_score": 89.6,
+      "max_placement_error_mm": 7.608,
+      "max_slip_mm": 0.428,
+      "max_solver_contact_distance_mm": -0.013,
+      "measured_contact_phases": 5,
       "phase_count": 5,
+      "physics_steps": 960,
       "seed": 8,
+      "solver_contact_pairs": 948,
+      "solver_contact_phases": 5,
       "success": true
     },
     {
-      "cap_rotation_deg": 226.0,
+      "cap_rotation_deg": 229.832,
+      "collision_enabled_geoms": 11,
       "completed_phases": 5,
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts_per_phase": {
         "cap_rotation": {
           "fingers": [
@@ -615,30 +746,22 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.44,
-          "last_time": 0.87,
-          "samples": 44
+          "first_time": 1.96,
+          "last_time": 3.84,
+          "samples": 48
         },
         "confirmation_button": {
           "fingers": [
-            "index"
+            "index",
+            "little",
+            "middle",
+            "ring"
           ],
-          "first_time": 1.76,
-          "last_time": 2.19,
-          "samples": 44
+          "first_time": 7.72,
+          "last_time": 9.6,
+          "samples": 48
         },
         "kit_assembly": {
-          "fingers": [
-            "index",
-            "middle",
-            "ring",
-            "thumb"
-          ],
-          "first_time": 1.32,
-          "last_time": 1.75,
-          "samples": 44
-        },
-        "perturb_recovery": {
           "fingers": [
             "index",
             "little",
@@ -646,9 +769,20 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.88,
-          "last_time": 1.31,
-          "samples": 44
+          "first_time": 5.8,
+          "last_time": 7.68,
+          "samples": 48
+        },
+        "perturb_recovery": {
+          "fingers": [
+            "index",
+            "little",
+            "middle",
+            "ring"
+          ],
+          "first_time": 3.88,
+          "last_time": 5.76,
+          "samples": 48
         },
         "vial_grasp": {
           "fingers": [
@@ -658,21 +792,32 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.0,
-          "last_time": 0.43,
-          "samples": 44
+          "first_time": 0.04,
+          "last_time": 1.92,
+          "samples": 48
         }
       },
-      "dexterity_score": 90.2,
-      "max_placement_error_mm": 8.0,
-      "max_slip_mm": 0.34,
+      "control_mode": "actuator_position_mj_step",
+      "dexterity_score": 90.8,
+      "max_placement_error_mm": 7.577,
+      "max_slip_mm": 0.309,
+      "max_solver_contact_distance_mm": -0.009,
+      "measured_contact_phases": 5,
       "phase_count": 5,
+      "physics_steps": 960,
       "seed": 9,
+      "solver_contact_pairs": 947,
+      "solver_contact_phases": 5,
       "success": true
     },
     {
-      "cap_rotation_deg": 226.0,
+      "cap_rotation_deg": 230.604,
+      "collision_enabled_geoms": 11,
       "completed_phases": 5,
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts_per_phase": {
         "cap_rotation": {
           "fingers": [
@@ -682,30 +827,22 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.44,
-          "last_time": 0.87,
-          "samples": 44
+          "first_time": 1.96,
+          "last_time": 3.84,
+          "samples": 48
         },
         "confirmation_button": {
           "fingers": [
-            "index"
+            "index",
+            "little",
+            "middle",
+            "ring"
           ],
-          "first_time": 1.76,
-          "last_time": 2.19,
-          "samples": 44
+          "first_time": 7.72,
+          "last_time": 9.6,
+          "samples": 48
         },
         "kit_assembly": {
-          "fingers": [
-            "index",
-            "middle",
-            "ring",
-            "thumb"
-          ],
-          "first_time": 1.32,
-          "last_time": 1.75,
-          "samples": 44
-        },
-        "perturb_recovery": {
           "fingers": [
             "index",
             "little",
@@ -713,9 +850,20 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.88,
-          "last_time": 1.31,
-          "samples": 44
+          "first_time": 5.8,
+          "last_time": 7.68,
+          "samples": 48
+        },
+        "perturb_recovery": {
+          "fingers": [
+            "index",
+            "little",
+            "middle",
+            "ring"
+          ],
+          "first_time": 3.88,
+          "last_time": 5.76,
+          "samples": 48
         },
         "vial_grasp": {
           "fingers": [
@@ -725,21 +873,32 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.0,
-          "last_time": 0.43,
-          "samples": 44
+          "first_time": 0.04,
+          "last_time": 1.92,
+          "samples": 48
         }
       },
-      "dexterity_score": 90.2,
-      "max_placement_error_mm": 8.0,
-      "max_slip_mm": 0.34,
+      "control_mode": "actuator_position_mj_step",
+      "dexterity_score": 92.4,
+      "max_placement_error_mm": 5.818,
+      "max_slip_mm": 0.295,
+      "max_solver_contact_distance_mm": -0.024,
+      "measured_contact_phases": 5,
       "phase_count": 5,
+      "physics_steps": 960,
       "seed": 10,
+      "solver_contact_pairs": 951,
+      "solver_contact_phases": 5,
       "success": true
     },
     {
-      "cap_rotation_deg": 226.0,
+      "cap_rotation_deg": 223.157,
+      "collision_enabled_geoms": 11,
       "completed_phases": 5,
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts_per_phase": {
         "cap_rotation": {
           "fingers": [
@@ -749,30 +908,22 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.44,
-          "last_time": 0.87,
-          "samples": 44
+          "first_time": 1.96,
+          "last_time": 3.84,
+          "samples": 48
         },
         "confirmation_button": {
           "fingers": [
-            "index"
+            "index",
+            "little",
+            "middle",
+            "ring"
           ],
-          "first_time": 1.76,
-          "last_time": 2.19,
-          "samples": 44
+          "first_time": 7.72,
+          "last_time": 9.6,
+          "samples": 48
         },
         "kit_assembly": {
-          "fingers": [
-            "index",
-            "middle",
-            "ring",
-            "thumb"
-          ],
-          "first_time": 1.32,
-          "last_time": 1.75,
-          "samples": 44
-        },
-        "perturb_recovery": {
           "fingers": [
             "index",
             "little",
@@ -780,9 +931,20 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.88,
-          "last_time": 1.31,
-          "samples": 44
+          "first_time": 5.8,
+          "last_time": 7.68,
+          "samples": 48
+        },
+        "perturb_recovery": {
+          "fingers": [
+            "index",
+            "little",
+            "middle",
+            "ring"
+          ],
+          "first_time": 3.88,
+          "last_time": 5.76,
+          "samples": 48
         },
         "vial_grasp": {
           "fingers": [
@@ -792,21 +954,32 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.0,
-          "last_time": 0.43,
-          "samples": 44
+          "first_time": 0.04,
+          "last_time": 1.92,
+          "samples": 48
         }
       },
-      "dexterity_score": 90.2,
-      "max_placement_error_mm": 8.0,
-      "max_slip_mm": 0.34,
+      "control_mode": "actuator_position_mj_step",
+      "dexterity_score": 92.2,
+      "max_placement_error_mm": 5.48,
+      "max_slip_mm": 0.345,
+      "max_solver_contact_distance_mm": -0.027,
+      "measured_contact_phases": 5,
       "phase_count": 5,
+      "physics_steps": 960,
       "seed": 11,
+      "solver_contact_pairs": 952,
+      "solver_contact_phases": 5,
       "success": true
     },
     {
-      "cap_rotation_deg": 226.0,
+      "cap_rotation_deg": 224.257,
+      "collision_enabled_geoms": 11,
       "completed_phases": 5,
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts_per_phase": {
         "cap_rotation": {
           "fingers": [
@@ -816,30 +989,22 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.44,
-          "last_time": 0.87,
-          "samples": 44
+          "first_time": 1.96,
+          "last_time": 3.84,
+          "samples": 48
         },
         "confirmation_button": {
           "fingers": [
-            "index"
+            "index",
+            "little",
+            "middle",
+            "ring"
           ],
-          "first_time": 1.76,
-          "last_time": 2.19,
-          "samples": 44
+          "first_time": 7.72,
+          "last_time": 9.6,
+          "samples": 48
         },
         "kit_assembly": {
-          "fingers": [
-            "index",
-            "middle",
-            "ring",
-            "thumb"
-          ],
-          "first_time": 1.32,
-          "last_time": 1.75,
-          "samples": 44
-        },
-        "perturb_recovery": {
           "fingers": [
             "index",
             "little",
@@ -847,9 +1012,20 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.88,
-          "last_time": 1.31,
-          "samples": 44
+          "first_time": 5.8,
+          "last_time": 7.68,
+          "samples": 48
+        },
+        "perturb_recovery": {
+          "fingers": [
+            "index",
+            "little",
+            "middle",
+            "ring"
+          ],
+          "first_time": 3.88,
+          "last_time": 5.76,
+          "samples": 48
         },
         "vial_grasp": {
           "fingers": [
@@ -859,21 +1035,32 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.0,
-          "last_time": 0.43,
-          "samples": 44
+          "first_time": 0.04,
+          "last_time": 1.92,
+          "samples": 48
         }
       },
-      "dexterity_score": 90.2,
-      "max_placement_error_mm": 8.0,
-      "max_slip_mm": 0.34,
+      "control_mode": "actuator_position_mj_step",
+      "dexterity_score": 91.1,
+      "max_placement_error_mm": 5.902,
+      "max_slip_mm": 0.421,
+      "max_solver_contact_distance_mm": -0.016,
+      "measured_contact_phases": 5,
       "phase_count": 5,
+      "physics_steps": 960,
       "seed": 12,
+      "solver_contact_pairs": 944,
+      "solver_contact_phases": 5,
       "success": true
     },
     {
-      "cap_rotation_deg": 226.0,
+      "cap_rotation_deg": 229.783,
+      "collision_enabled_geoms": 11,
       "completed_phases": 5,
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts_per_phase": {
         "cap_rotation": {
           "fingers": [
@@ -883,30 +1070,22 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.44,
-          "last_time": 0.87,
-          "samples": 44
+          "first_time": 1.96,
+          "last_time": 3.84,
+          "samples": 48
         },
         "confirmation_button": {
           "fingers": [
-            "index"
+            "index",
+            "little",
+            "middle",
+            "ring"
           ],
-          "first_time": 1.76,
-          "last_time": 2.19,
-          "samples": 44
+          "first_time": 7.72,
+          "last_time": 9.6,
+          "samples": 48
         },
         "kit_assembly": {
-          "fingers": [
-            "index",
-            "middle",
-            "ring",
-            "thumb"
-          ],
-          "first_time": 1.32,
-          "last_time": 1.75,
-          "samples": 44
-        },
-        "perturb_recovery": {
           "fingers": [
             "index",
             "little",
@@ -914,9 +1093,20 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.88,
-          "last_time": 1.31,
-          "samples": 44
+          "first_time": 5.8,
+          "last_time": 7.68,
+          "samples": 48
+        },
+        "perturb_recovery": {
+          "fingers": [
+            "index",
+            "little",
+            "middle",
+            "ring"
+          ],
+          "first_time": 3.88,
+          "last_time": 5.76,
+          "samples": 48
         },
         "vial_grasp": {
           "fingers": [
@@ -926,21 +1116,32 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.0,
-          "last_time": 0.43,
-          "samples": 44
+          "first_time": 0.04,
+          "last_time": 1.92,
+          "samples": 48
         }
       },
-      "dexterity_score": 90.2,
-      "max_placement_error_mm": 8.0,
-      "max_slip_mm": 0.34,
+      "control_mode": "actuator_position_mj_step",
+      "dexterity_score": 91.0,
+      "max_placement_error_mm": 6.132,
+      "max_slip_mm": 0.405,
+      "max_solver_contact_distance_mm": -0.003,
+      "measured_contact_phases": 5,
       "phase_count": 5,
+      "physics_steps": 960,
       "seed": 13,
+      "solver_contact_pairs": 948,
+      "solver_contact_phases": 5,
       "success": true
     },
     {
-      "cap_rotation_deg": 226.0,
+      "cap_rotation_deg": 229.479,
+      "collision_enabled_geoms": 11,
       "completed_phases": 5,
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts_per_phase": {
         "cap_rotation": {
           "fingers": [
@@ -950,30 +1151,22 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.44,
-          "last_time": 0.87,
-          "samples": 44
+          "first_time": 1.96,
+          "last_time": 3.84,
+          "samples": 48
         },
         "confirmation_button": {
           "fingers": [
-            "index"
+            "index",
+            "little",
+            "middle",
+            "ring"
           ],
-          "first_time": 1.76,
-          "last_time": 2.19,
-          "samples": 44
+          "first_time": 7.72,
+          "last_time": 9.6,
+          "samples": 48
         },
         "kit_assembly": {
-          "fingers": [
-            "index",
-            "middle",
-            "ring",
-            "thumb"
-          ],
-          "first_time": 1.32,
-          "last_time": 1.75,
-          "samples": 44
-        },
-        "perturb_recovery": {
           "fingers": [
             "index",
             "little",
@@ -981,9 +1174,20 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.88,
-          "last_time": 1.31,
-          "samples": 44
+          "first_time": 5.8,
+          "last_time": 7.68,
+          "samples": 48
+        },
+        "perturb_recovery": {
+          "fingers": [
+            "index",
+            "little",
+            "middle",
+            "ring"
+          ],
+          "first_time": 3.88,
+          "last_time": 5.76,
+          "samples": 48
         },
         "vial_grasp": {
           "fingers": [
@@ -993,21 +1197,32 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.0,
-          "last_time": 0.43,
-          "samples": 44
+          "first_time": 0.04,
+          "last_time": 1.92,
+          "samples": 48
         }
       },
-      "dexterity_score": 90.2,
-      "max_placement_error_mm": 8.0,
-      "max_slip_mm": 0.34,
+      "control_mode": "actuator_position_mj_step",
+      "dexterity_score": 90.5,
+      "max_placement_error_mm": 7.808,
+      "max_slip_mm": 0.321,
+      "max_solver_contact_distance_mm": -0.021,
+      "measured_contact_phases": 5,
       "phase_count": 5,
+      "physics_steps": 960,
       "seed": 14,
+      "solver_contact_pairs": 949,
+      "solver_contact_phases": 5,
       "success": true
     },
     {
-      "cap_rotation_deg": 226.0,
+      "cap_rotation_deg": 228.235,
+      "collision_enabled_geoms": 11,
       "completed_phases": 5,
+      "contact_sources": [
+        "site_distance",
+        "solver_contact"
+      ],
       "contacts_per_phase": {
         "cap_rotation": {
           "fingers": [
@@ -1017,30 +1232,22 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.44,
-          "last_time": 0.87,
-          "samples": 44
+          "first_time": 1.96,
+          "last_time": 3.84,
+          "samples": 48
         },
         "confirmation_button": {
           "fingers": [
-            "index"
+            "index",
+            "little",
+            "middle",
+            "ring"
           ],
-          "first_time": 1.76,
-          "last_time": 2.19,
-          "samples": 44
+          "first_time": 7.72,
+          "last_time": 9.6,
+          "samples": 48
         },
         "kit_assembly": {
-          "fingers": [
-            "index",
-            "middle",
-            "ring",
-            "thumb"
-          ],
-          "first_time": 1.32,
-          "last_time": 1.75,
-          "samples": 44
-        },
-        "perturb_recovery": {
           "fingers": [
             "index",
             "little",
@@ -1048,9 +1255,20 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.88,
-          "last_time": 1.31,
-          "samples": 44
+          "first_time": 5.8,
+          "last_time": 7.68,
+          "samples": 48
+        },
+        "perturb_recovery": {
+          "fingers": [
+            "index",
+            "little",
+            "middle",
+            "ring"
+          ],
+          "first_time": 3.88,
+          "last_time": 5.76,
+          "samples": 48
         },
         "vial_grasp": {
           "fingers": [
@@ -1060,27 +1278,39 @@
             "ring",
             "thumb"
           ],
-          "first_time": 0.0,
-          "last_time": 0.43,
-          "samples": 44
+          "first_time": 0.04,
+          "last_time": 1.92,
+          "samples": 48
         }
       },
-      "dexterity_score": 90.2,
-      "max_placement_error_mm": 8.0,
-      "max_slip_mm": 0.34,
+      "control_mode": "actuator_position_mj_step",
+      "dexterity_score": 91.6,
+      "max_placement_error_mm": 5.526,
+      "max_slip_mm": 0.398,
+      "max_solver_contact_distance_mm": -0.024,
+      "measured_contact_phases": 5,
       "phase_count": 5,
+      "physics_steps": 960,
       "seed": 15,
+      "solver_contact_pairs": 946,
+      "solver_contact_phases": 5,
       "success": true
     }
   ],
   "summary": {
-    "average_dexterity_score": 90.2,
+    "average_dexterity_score": 91.3,
+    "metric_variance": {
+      "cap_rotation_deg": 6.572863,
+      "dexterity_score": 0.85375,
+      "max_placement_error_mm": 0.779671,
+      "max_slip_mm": 0.002437
+    },
     "requirement": "success_rate >= 0.875, cap_rotation >= 220 deg, peak slip <= 0.5 mm",
     "runs": 16,
     "seed_count": 16,
     "success_rate": 1.0,
     "successes": 16,
-    "worst_placement_error_mm": 8.0,
-    "worst_slip_mm": 0.34
+    "worst_placement_error_mm": 8.056,
+    "worst_slip_mm": 0.428
   }
 }

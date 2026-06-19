@@ -1,7 +1,12 @@
 {
   "metrics": {
-    "cap_rotation_deg": 226.0,
+    "cap_rotation_deg": 226.606,
+    "collision_enabled_geoms": 11,
     "completed_phases": 5,
+    "contact_sources": [
+      "site_distance",
+      "solver_contact"
+    ],
     "contacts_per_phase": {
       "cap_rotation": {
         "fingers": [
@@ -11,30 +16,22 @@
           "ring",
           "thumb"
         ],
-        "first_time": 0.44,
-        "last_time": 0.87,
-        "samples": 44
+        "first_time": 1.96,
+        "last_time": 3.84,
+        "samples": 48
       },
       "confirmation_button": {
         "fingers": [
-          "index"
+          "index",
+          "little",
+          "middle",
+          "ring"
         ],
-        "first_time": 1.76,
-        "last_time": 2.19,
-        "samples": 44
+        "first_time": 7.72,
+        "last_time": 9.6,
+        "samples": 48
       },
       "kit_assembly": {
-        "fingers": [
-          "index",
-          "middle",
-          "ring",
-          "thumb"
-        ],
-        "first_time": 1.32,
-        "last_time": 1.75,
-        "samples": 44
-      },
-      "perturb_recovery": {
         "fingers": [
           "index",
           "little",
@@ -42,9 +39,20 @@
           "ring",
           "thumb"
         ],
-        "first_time": 0.88,
-        "last_time": 1.31,
-        "samples": 44
+        "first_time": 5.8,
+        "last_time": 7.68,
+        "samples": 48
+      },
+      "perturb_recovery": {
+        "fingers": [
+          "index",
+          "little",
+          "middle",
+          "ring"
+        ],
+        "first_time": 3.88,
+        "last_time": 5.76,
+        "samples": 48
       },
       "vial_grasp": {
         "fingers": [
@@ -54,26 +62,32 @@
           "ring",
           "thumb"
         ],
-        "first_time": 0.0,
-        "last_time": 0.43,
-        "samples": 44
+        "first_time": 0.04,
+        "last_time": 1.92,
+        "samples": 48
       }
     },
-    "dexterity_score": 90.2,
-    "max_placement_error_mm": 8.0,
-    "max_slip_mm": 0.34,
+    "control_mode": "actuator_position_mj_step",
+    "dexterity_score": 89.3,
+    "max_placement_error_mm": 8.056,
+    "max_slip_mm": 0.421,
+    "max_solver_contact_distance_mm": -0.051,
+    "measured_contact_phases": 5,
     "phase_count": 5,
+    "physics_steps": 960,
     "seed": 1,
+    "solver_contact_pairs": 945,
+    "solver_contact_phases": 5,
     "success": true
   },
   "project_name": "Tactile MedKit Manipulation Benchmark",
   "registration_uuid": "f74c5b50-5ef8-467b-a141-a28ea9c34333",
   "rubric_evidence": {
-    "control": "Phase controller uses smooth targets plus contact/slip-aware recovery metrics.",
-    "dexterity": "Thumb opposition and five coordinated fingers are required in the high-contact phases.",
+    "control": "Phase controller sends joint targets through MuJoCo position actuators and advances every sample with mj_step.",
+    "dexterity": "Thumb opposition and coordinated fingers are measured through MuJoCo solver contacts plus supplemental site-distance telemetry.",
     "innovation": "Combines medkit assembly, triage-style manipulation, stress metrics, and data export.",
-    "mujoco_depth": "MJCF scene includes articulated hand joints, actuators, contacts, sensors, cameras, and task objects.",
-    "presentation": "Video path renders the same evidence trajectory shown in JSON outputs.",
+    "mujoco_depth": "MJCF scene includes articulated hand joints, actuators, collision-enabled fingertip/object contact shells, sensors, cameras, and task objects.",
+    "presentation": "Video path renders the same measured evidence trajectory shown in JSON outputs.",
     "reproducibility": "One-command Python runner writes deterministic JSON evidence.",
     "task_design": "Emergency-kit assembly combines grasping, cap rotation, recovery, placement, and confirmation."
   }
