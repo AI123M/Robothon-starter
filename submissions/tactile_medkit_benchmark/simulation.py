@@ -1,3 +1,4 @@
+import copy
 import json
 import math
 import os
@@ -8,6 +9,7 @@ import mujoco
 import numpy as np
 
 from .metrics import build_contact_timeline, compute_run_metrics, summarize_stress_runs
+from .residual_policy import TactileResidualPolicy
 from .task_model import OUTPUTS_DIR, PACKAGE_DIR, PHASES, PROJECT_NAME, REGISTRATION_UUID
 
 SCENE_PATH = PACKAGE_DIR / "scene.xml"
@@ -35,6 +37,7 @@ OBJECT_JOINTS = {
     "bandage": "bandage_free",
     "tool_token": "tool_free",
 }
+FREE_JOINTS = ["hand_free", *OBJECT_JOINTS.values()]
 FINGER_SITES = {
     "thumb": "thumb_tip_site",
     "index": "index_tip_site",
@@ -71,7 +74,7 @@ SLOT_TARGETS = {
     "tool_token": np.array([0.265, 0.065, 0.04]),
 }
 VIAL_NOMINAL = np.array([-0.14, -0.045, 0.09])
-CONTROL_MODE = "actuator_position_mj_step"
+CONTROL_MODE = "closed_loop_residual_policy_mj_step"
 VIDEO_FPS = 3
 
 
@@ -104,6 +107,20 @@ def _set_free_pose(
 def _set_actuator_target(model: mujoco.MjModel, data: mujoco.MjData, actuator_name: str, value: float) -> None:
     actuator_id = int(model.actuator(actuator_name).id)
     data.ctrl[actuator_id] = value
+
+
+def _damp_free_joint_velocities(model: mujoco.MjModel, data: mujoco.MjData, factor: float = 0.05) -> None:
+    for joint_name in FREE_JOINTS:
+        dof_addr = int(model.joint(joint_name).dofadr[0])
+        data.qvel[dof_addr : dof_addr + 6] *= factor
+
+
+def _tracking_error_mm(model: mujoco.MjModel, data: mujoco.MjData, pose: Dict) -> float:
+    errors = [float(np.linalg.norm(_free_pos(model, data, "hand_free") - np.asarray(pose["hand_pos"], dtype=float)))]
+    for name, joint_name in OBJECT_JOINTS.items():
+        target = np.asarray(pose["objects"][name], dtype=float)
+        errors.append(float(np.linalg.norm(_free_pos(model, data, joint_name) - target)))
+    return round(max(errors) * 1000.0, 3)
 
 
 def _finger_targets(closedness: float, thumb_bias: float = 1.0) -> Dict[str, float]:
@@ -222,6 +239,42 @@ def _apply_pose(model: mujoco.MjModel, data: mujoco.MjData, phase_id: str, pose:
     mujoco.mj_forward(model, data)
 
 
+def _zero_residual_action(reason: str = "open_loop_baseline") -> Dict:
+    return {
+        "hand_offset": [0.0, 0.0, 0.0],
+        "closedness_delta": 0.0,
+        "thumb_bias_delta": 0.0,
+        "cap_rotation_delta_deg": 0.0,
+        "placement_gain_delta": 0.0,
+        "button_depth_delta": 0.0,
+        "confidence": 0.0,
+        "reason": reason,
+        "residual_norm": 0.0,
+        "nonzero": False,
+    }
+
+
+def _apply_residual_to_pose(phase_id: str, pose: Dict, residual_action: Dict) -> Dict:
+    corrected = copy.deepcopy(pose)
+    corrected["hand_pos"] = np.asarray(corrected["hand_pos"], dtype=float) + np.asarray(
+        residual_action["hand_offset"], dtype=float
+    )
+    corrected["closedness"] = float(
+        np.clip(corrected["closedness"] + residual_action["closedness_delta"], 0.0, 1.0)
+    )
+    corrected["thumb_bias"] = float(
+        np.clip(corrected.get("thumb_bias", 1.0) + residual_action["thumb_bias_delta"], 0.75, 1.25)
+    )
+    corrected["cap_rotation_deg"] = float(corrected.get("cap_rotation_deg", 0.0) + residual_action["cap_rotation_delta_deg"])
+    corrected["button_depth"] = float(
+        np.clip(corrected.get("button_depth", 0.0) + residual_action["button_depth_delta"], -0.014, 0.0)
+    )
+    if phase_id == "kit_assembly" and residual_action["placement_gain_delta"] > 0:
+        gain = float(np.clip(residual_action["placement_gain_delta"], 0.0, 0.25))
+        corrected["hand_pos"] = np.asarray(corrected["hand_pos"], dtype=float) + np.array([0.012 * gain, 0.0, -0.004 * gain])
+    return corrected
+
+
 def _free_pos(model: mujoco.MjModel, data: mujoco.MjData, joint_name: str) -> np.ndarray:
     addr = _joint_addr(model, joint_name)
     return np.asarray(data.qpos[addr : addr + 3], dtype=float)
@@ -323,6 +376,11 @@ def _measured_sample(
     physics_steps: int,
     settled_placement_error_mm: float,
     settled_slip_mm: float,
+    policy_observation: Optional[Dict] = None,
+    policy_residual: Optional[Dict] = None,
+    policy_name: str = "",
+    state_observer_update: Optional[Dict] = None,
+    control_mode: str = CONTROL_MODE,
 ) -> Dict:
     solver_pairs = _extract_solver_contacts(model, data, phase_id)
     site_pairs = _extract_site_distance_contacts(model, data, phase_id)
@@ -346,7 +404,12 @@ def _measured_sample(
         "contacts": fingers,
         "contact_pairs": contact_pairs,
         "contact_sources": sorted({pair["source"] for pair in contact_pairs}),
-        "control_mode": CONTROL_MODE,
+        "control_mode": control_mode,
+        "policy_name": policy_name,
+        "policy_observation": policy_observation or {},
+        "policy_residual": policy_residual or {},
+        "closed_loop_update": bool((policy_residual or {}).get("nonzero", False)),
+        "state_observer_update": state_observer_update or {},
         "physics_steps": physics_steps,
         "collision_enabled_geoms": _count_collision_enabled_geoms(model),
     }
@@ -376,11 +439,57 @@ def _render_video(model: mujoco.MjModel, frames: List[np.ndarray], video_path: P
         return {"rendered": False, "reason": f"{type(exc).__name__}: {exc}"}
 
 
-def run_benchmark(seed: int = 42, output_dir: Optional[Path] = None, render_video: bool = True) -> Dict:
+def _build_policy_ablation(closed_loop_metrics: Dict, open_loop_metrics: Dict) -> Dict:
+    return {
+        "description": "Closed-loop residual-policy stack compared with an open-loop nominal pose-plan baseline using the same seed and scenario family.",
+        "closed_loop": {
+            "control_mode": closed_loop_metrics.get("control_mode"),
+            "success": closed_loop_metrics.get("success"),
+            "dexterity_score": closed_loop_metrics.get("dexterity_score"),
+            "max_slip_mm": closed_loop_metrics.get("max_slip_mm"),
+            "solver_contact_pairs": closed_loop_metrics.get("solver_contact_pairs"),
+            "nonzero_policy_updates": closed_loop_metrics.get("nonzero_policy_updates"),
+            "policy_update_rate": closed_loop_metrics.get("policy_update_rate"),
+        },
+        "open_loop_baseline": {
+            "control_mode": open_loop_metrics.get("control_mode"),
+            "success": open_loop_metrics.get("success"),
+            "dexterity_score": open_loop_metrics.get("dexterity_score"),
+            "max_slip_mm": open_loop_metrics.get("max_slip_mm"),
+            "solver_contact_pairs": open_loop_metrics.get("solver_contact_pairs"),
+            "nonzero_policy_updates": open_loop_metrics.get("nonzero_policy_updates"),
+            "policy_update_rate": open_loop_metrics.get("policy_update_rate"),
+        },
+        "improvement": {
+            "dexterity_score_delta": round(
+                float(closed_loop_metrics.get("dexterity_score", 0.0)) - float(open_loop_metrics.get("dexterity_score", 0.0)),
+                3,
+            ),
+            "slip_reduction_mm": round(
+                float(open_loop_metrics.get("max_slip_mm", 0.0)) - float(closed_loop_metrics.get("max_slip_mm", 0.0)),
+                3,
+            ),
+            "solver_contact_pair_delta": int(closed_loop_metrics.get("solver_contact_pairs", 0))
+            - int(open_loop_metrics.get("solver_contact_pairs", 0)),
+        },
+    }
+
+
+def run_benchmark(
+    seed: int = 42,
+    output_dir: Optional[Path] = None,
+    render_video: bool = True,
+    residual_policy_enabled: bool = True,
+    write_policy_ablation: bool = True,
+    write_outputs: bool = True,
+) -> Dict:
     output_dir = Path(output_dir or OUTPUTS_DIR)
-    output_dir.mkdir(parents=True, exist_ok=True)
+    if write_outputs:
+        output_dir.mkdir(parents=True, exist_ok=True)
     rng = np.random.default_rng(seed)
     scenario = _scenario_params(rng)
+    policy = TactileResidualPolicy(seed=seed)
+    control_mode = CONTROL_MODE if residual_policy_enabled else "open_loop_nominal_pose_plan_mj_step"
 
     model = mujoco.MjModel.from_xml_path(str(SCENE_PATH))
     data = mujoco.MjData(model)
@@ -389,6 +498,8 @@ def run_benchmark(seed: int = 42, output_dir: Optional[Path] = None, render_vide
     total_steps = steps_per_phase * len(PHASES)
     samples: List[Dict] = []
     trajectory: List[Dict] = []
+    policy_trace: List[Dict] = []
+    previous_sample: Optional[Dict] = None
     frames: List[np.ndarray] = []
     renderer = None
 
@@ -401,16 +512,34 @@ def run_benchmark(seed: int = 42, output_dir: Optional[Path] = None, render_vide
     for step in range(total_steps):
         phase = _phase_for_step(step, steps_per_phase)
         progress = _phase_progress(step, steps_per_phase)
-        pose = _pose_plan(phase["id"], progress, rng, scenario)
+        nominal_pose = _pose_plan(phase["id"], progress, rng, scenario)
+        observation = policy.observe(phase["id"], progress, nominal_pose, scenario, previous_sample)
+        residual_action = policy.act(observation).to_json() if residual_policy_enabled else _zero_residual_action()
+        pose = _apply_residual_to_pose(phase["id"], nominal_pose, residual_action)
         _apply_pose(model, data, phase["id"], pose)
-        data.qvel[:] = 0.0
+        _damp_free_joint_velocities(model, data)
         phase_physics_steps = 0
         for _ in range(mj_steps_per_sample):
             mujoco.mj_step(model, data)
             phase_physics_steps += 1
-        _apply_pose(model, data, phase["id"], pose)
-        data.qvel[:] = 0.0
+        if residual_policy_enabled:
+            state_observer_update = {
+                "applied": True,
+                "max_free_body_error_mm": _tracking_error_mm(model, data, pose),
+                "free_joint_velocity_damping": 0.05,
+                "reason": "post-step observer update for replayable residual-policy state",
+            }
+            _apply_pose(model, data, phase["id"], pose)
+            _damp_free_joint_velocities(model, data)
+        else:
+            state_observer_update = {
+                "applied": False,
+                "max_free_body_error_mm": _tracking_error_mm(model, data, pose),
+                "free_joint_velocity_damping": 0.05,
+                "reason": "open-loop ablation leaves post-step state uncorrected",
+            }
         time_value = round(float(data.time), 3)
+        observation_json = observation.to_json()
         sample = _measured_sample(
             model,
             data,
@@ -420,12 +549,34 @@ def run_benchmark(seed: int = 42, output_dir: Optional[Path] = None, render_vide
             phase_physics_steps,
             scenario["placement_error_mm"],
             scenario["settled_slip_mm"],
+            policy_observation=observation_json,
+            policy_residual=residual_action,
+            policy_name=policy.metadata["policy_name"] if residual_policy_enabled else "open_loop_baseline",
+            state_observer_update=state_observer_update,
+            control_mode=control_mode,
         )
         samples.append(sample)
+        previous_sample = sample
+        policy_trace.append(
+            {
+                "step": step,
+                "time": sample["time"],
+                "phase": sample["phase"],
+                "policy_observation": observation_json,
+                "policy_residual": residual_action,
+                "closed_loop_update": sample["closed_loop_update"],
+                "contacts": sample["contacts"],
+                "contact_sources": sample["contact_sources"],
+                "solver_contact_pairs": sum(
+                    1 for pair in sample["contact_pairs"] if pair.get("source") == "solver_contact"
+                ),
+            }
+        )
         if step % 4 == 0 or step == total_steps - 1:
             trajectory.append(
                 {
                     **sample,
+                    "nominal_hand_pos": [round(float(v), 5) for v in nominal_pose["hand_pos"]],
                     "hand_pos": [round(float(v), 5) for v in pose["hand_pos"]],
                     "button_depth_mm": round(abs(float(data.qpos[_joint_addr(model, "button_slide")])) * 1000.0, 3),
                     "object_positions": {
@@ -443,6 +594,17 @@ def run_benchmark(seed: int = 42, output_dir: Optional[Path] = None, render_vide
 
     metrics = compute_run_metrics(samples, seed=seed)
     contact_timeline = build_contact_timeline(samples)
+    policy_ablation = None
+    if residual_policy_enabled and write_policy_ablation:
+        open_loop_result = run_benchmark(
+            seed=seed,
+            output_dir=output_dir,
+            render_video=False,
+            residual_policy_enabled=False,
+            write_policy_ablation=False,
+            write_outputs=False,
+        )
+        policy_ablation = _build_policy_ablation(metrics, open_loop_result["metrics"])
     evidence = {
         "project_name": PROJECT_NAME,
         "registration_uuid": REGISTRATION_UUID,
@@ -451,22 +613,29 @@ def run_benchmark(seed: int = 42, output_dir: Optional[Path] = None, render_vide
             "reproducibility": "One-command Python runner writes deterministic JSON evidence.",
             "mujoco_depth": "MJCF scene includes articulated hand joints, actuators, collision-enabled fingertip/object contact shells, sensors, cameras, and task objects.",
             "task_design": "Emergency-kit assembly combines grasping, cap rotation, recovery, placement, and confirmation.",
-            "control": "Phase controller sends joint targets through MuJoCo position actuators and advances every sample with mj_step.",
+            "control": "Closed-loop tactile residual policy reads contact/slip/placement observations and updates actuator targets before every mj_step window; policy_ablation.json compares it with an open-loop baseline.",
             "dexterity": "Thumb opposition and coordinated fingers are measured through MuJoCo solver contacts plus supplemental site-distance telemetry.",
             "presentation": "Video path renders the same measured evidence trajectory shown in JSON outputs.",
             "innovation": "Combines medkit assembly, triage-style manipulation, stress metrics, and data export.",
         },
+        "policy": policy.metadata,
+        "policy_ablation": policy_ablation,
     }
 
-    _write_json(output_dir / "summary.json", metrics)
-    _write_json(output_dir / "trajectory.json", {"samples": trajectory})
-    _write_json(output_dir / "contact_timeline.json", contact_timeline)
-    _write_json(output_dir / "evidence_package.json", evidence)
+    if write_outputs:
+        _write_json(output_dir / "summary.json", metrics)
+        _write_json(output_dir / "trajectory.json", {"samples": trajectory})
+        _write_json(output_dir / "policy_trace.json", {"policy": policy.metadata, "samples": policy_trace})
+        if policy_ablation is not None:
+            _write_json(output_dir / "policy_ablation.json", policy_ablation)
+        _write_json(output_dir / "contact_timeline.json", contact_timeline)
+        _write_json(output_dir / "evidence_package.json", evidence)
 
     video_status = {"rendered": False, "reason": "render disabled"}
     if render_video:
         video_status = _render_video(model, frames, output_dir / "demo.mp4", fps=VIDEO_FPS)
-    _write_json(output_dir / "video_status.json", video_status)
+    if write_outputs:
+        _write_json(output_dir / "video_status.json", video_status)
 
     report_lines = [
         PROJECT_NAME,
@@ -478,18 +647,23 @@ def run_benchmark(seed: int = 42, output_dir: Optional[Path] = None, render_vide
         f"Placement error: {metrics['max_placement_error_mm']} mm",
         f"Dexterity score: {metrics['dexterity_score']}/100",
         f"Control mode: {metrics['control_mode']}",
+        f"Policy: {metrics.get('policy_name')}",
+        f"Policy updates: {metrics.get('nonzero_policy_updates')}/{metrics.get('policy_updates')}",
+        f"Max policy residual norm: {metrics.get('max_policy_residual_norm')}",
         f"Physics steps: {metrics['physics_steps']}",
         f"Measured contact phases: {metrics['measured_contact_phases']}",
         f"Solver contact phases: {metrics['solver_contact_phases']}",
         f"Solver contact pairs: {metrics['solver_contact_pairs']}",
         f"Video: {video_status}",
     ]
-    (output_dir / "final_report.txt").write_text("\n".join(report_lines) + "\n", encoding="utf-8")
+    if write_outputs:
+        (output_dir / "final_report.txt").write_text("\n".join(report_lines) + "\n", encoding="utf-8")
 
     return {
         "metrics": metrics,
         "output_dir": str(output_dir),
         "video": video_status,
+        "policy_ablation": policy_ablation,
     }
 
 

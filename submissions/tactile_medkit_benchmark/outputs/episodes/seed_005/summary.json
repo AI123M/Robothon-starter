@@ -1,5 +1,5 @@
 {
-  "cap_rotation_deg": 229.245,
+  "cap_rotation_deg": 229.499,
   "collision_enabled_geoms": 11,
   "completed_phases": 5,
   "contact_sources": [
@@ -66,16 +66,33 @@
       "samples": 48
     }
   },
-  "control_mode": "actuator_position_mj_step",
+  "control_mode": "closed_loop_residual_policy_mj_step",
   "dexterity_score": 91.1,
   "max_placement_error_mm": 6.2,
+  "max_policy_residual_norm": 0.268083,
   "max_slip_mm": 0.397,
-  "max_solver_contact_distance_mm": -0.008,
+  "max_solver_contact_distance_mm": -0.005,
   "measured_contact_phases": 5,
+  "nonzero_policy_updates": 218,
   "phase_count": 5,
   "physics_steps": 960,
+  "policy_name": "tactile_residual_policy_v2",
+  "policy_observation_keys": [
+    "active_fingers",
+    "button_error_mm",
+    "cap_error_deg",
+    "contact_deficit",
+    "phase_index",
+    "placement_error_mm",
+    "progress",
+    "slip_error_mm",
+    "solver_contact_pairs"
+  ],
+  "policy_update_rate": 0.908,
+  "policy_updates": 240,
+  "residual_policy_active": true,
   "seed": 5,
-  "solver_contact_pairs": 946,
+  "solver_contact_pairs": 955,
   "solver_contact_phases": 5,
   "success": true
 }

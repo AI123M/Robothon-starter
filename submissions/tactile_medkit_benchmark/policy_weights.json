@@ -1,0 +1,26 @@
+{
+  "policy_name": "tactile_residual_policy_v2",
+  "source": "calibrated residual gains over randomized medkit stress seeds",
+  "observation_keys": [
+    "phase_index",
+    "progress",
+    "active_fingers",
+    "contact_deficit",
+    "solver_contact_pairs",
+    "cap_error_deg",
+    "slip_error_mm",
+    "placement_error_mm",
+    "button_error_mm"
+  ],
+  "gains": {
+    "contact_closedness": 0.055,
+    "slip_closedness": 0.035,
+    "cap_thumb_bias": 0.07,
+    "contact_thumb_bias": 0.035,
+    "slip_y_recenter_m": 0.0022,
+    "contact_lift_m": 0.0012,
+    "cap_rotation_deg": 3.5,
+    "placement_gain": 0.09,
+    "button_depth_m": 0.0035
+  }
+}

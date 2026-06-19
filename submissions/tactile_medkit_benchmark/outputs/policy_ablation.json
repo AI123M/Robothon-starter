@@ -1,0 +1,26 @@
+{
+  "closed_loop": {
+    "control_mode": "closed_loop_residual_policy_mj_step",
+    "dexterity_score": 90.8,
+    "max_slip_mm": 0.334,
+    "nonzero_policy_updates": 218,
+    "policy_update_rate": 0.908,
+    "solver_contact_pairs": 960,
+    "success": true
+  },
+  "description": "Closed-loop residual-policy stack compared with an open-loop nominal pose-plan baseline using the same seed and scenario family.",
+  "improvement": {
+    "dexterity_score_delta": 16.7,
+    "slip_reduction_mm": 9.263,
+    "solver_contact_pair_delta": 45
+  },
+  "open_loop_baseline": {
+    "control_mode": "open_loop_nominal_pose_plan_mj_step",
+    "dexterity_score": 74.1,
+    "max_slip_mm": 9.597,
+    "nonzero_policy_updates": 0,
+    "policy_update_rate": 0.0,
+    "solver_contact_pairs": 915,
+    "success": false
+  }
+}

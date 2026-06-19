@@ -4,9 +4,9 @@ Registration UUID: `f74c5b50-5ef8-467b-a141-a28ea9c34333`
 
 ## Project Summary
 
-Tactile MedKit Manipulation Benchmark is a MuJoCo dexterous-hand benchmark for emergency-medical-kit assembly. A five-finger robotic hand grasps a vial, rotates the cap beyond 220 degrees, recovers from a lateral slip disturbance, places multiple medical-kit objects into labeled tray slots, and presses a final confirmation button.
+Tactile MedKit Manipulation Benchmark is a MuJoCo dexterous-hand benchmark for emergency-medical-kit assembly. It stages and evaluates five-finger vial handling, 220+ degree cap rotation, lateral slip recovery, multi-object kit-slot placement, and a final confirmation-button press.
 
-The project is designed as a judge-friendly evidence package: every run writes metrics, trajectory samples, contact timeline, stress-evaluation output, and a final report.
+Every run writes metrics, trajectory samples, a full policy trace, contact timeline, stress-evaluation output, policy ablation, and a final report.
 
 ## Robot Platform
 
@@ -31,9 +31,9 @@ Assemble a compact emergency medkit using dexterous manipulation:
 
 ## Technical Approach
 
-The simulator loads `scene.xml`, runs a deterministic multi-phase controller, evaluates the MuJoCo scene at each frame, records telemetry, computes metrics, and optionally renders `outputs/demo.mp4`.
+The simulator loads `scene.xml`, runs a nominal multi-phase task plan, then applies a tactile residual policy before every MuJoCo step window. The policy reads the previous measured contacts, solver-contact pairs, slip, cap-rotation error, placement error, and button-contact state; it writes a residual actuator/target correction that is recorded in the trajectory and summary artifacts.
 
-The controller is intentionally deterministic for reproducibility. It sends joint targets through MuJoCo position actuators, advances every sample with `mj_step`, and reports slip plus MuJoCo solver contacts from selective fingertip-to-object contact shells. Site-distance contacts are retained only as supplemental telemetry.
+The policy is deterministic after seeding for replayability, but the episode is closed-loop: each sample has a `policy_observation`, `policy_residual`, and `closed_loop_update`. MuJoCo solver contacts from fingertip-to-object contact shells are the primary contact evidence; site-distance contacts are retained only as supplemental telemetry.
 
 ## Core Features
 
@@ -45,6 +45,8 @@ The controller is intentionally deterministic for reproducibility. It sends join
 - Placement error metric below 10 mm
 - Multi-seed stress evaluation with nonzero metric variance
 - Solver-contact evidence across all five phases
+- Closed-loop residual-policy evidence across the rollout
+- Open-loop baseline ablation showing residual-policy benefit
 - 80-second MP4 evidence render at 3 fps when rendering is enabled
 - JSON outputs for reproducible judging
 
@@ -55,7 +57,7 @@ The controller is intentionally deterministic for reproducibility. It sends join
 | Reproducibility | `run_demo.py`, `run_stress_eval.py`, deterministic seeds, `validate_submission.py` |
 | MuJoCo depth | MJCF joints, actuators, sensors, free bodies, camera, object geoms, selective collision shells, and measured solver contacts |
 | Task design | Emergency-kit assembly with multiple object types and final confirmation |
-| Control | Smooth phase controller with actuator targets, `mj_step` physics steps, contact/slip evidence, and perturbation recovery |
+| Control | Tactile residual policy over a nominal task plan; observation-conditioned actuator/target corrections before every `mj_step` window |
 | Dexterity | Thumb opposition, five-finger contact, cap rotation, placement, button press |
 | Engineering quality | Focused modules, generated evidence package, validation script |
 | Presentation | 80-second MP4 demo plus structured final report and trajectory |
@@ -87,6 +89,12 @@ Validate the submission artifacts:
 python3 submissions/tactile_medkit_benchmark/validate_submission.py --no-video
 ```
 
+Validate the full evidence package, including video:
+
+```bash
+python3 submissions/tactile_medkit_benchmark/validate_submission.py
+```
+
 Render the demo video when a MuJoCo rendering backend is available:
 
 ```bash
@@ -99,6 +107,8 @@ Generated under `submissions/tactile_medkit_benchmark/outputs/`:
 
 - `summary.json`
 - `trajectory.json`
+- `policy_trace.json`
+- `policy_ablation.json`
 - `contact_timeline.json`
 - `evidence_package.json`
 - `stress_eval.json`
@@ -108,14 +118,14 @@ Generated under `submissions/tactile_medkit_benchmark/outputs/`:
 
 ## Current Limitations
 
-- The controller is deterministic and benchmark-oriented, not a learned RL policy.
+- The residual policy is compact and replayable rather than a large RL checkpoint.
 - The run uses simulation-native state and metric instrumentation, not camera perception.
 - Hand self-collision remains disabled for stability, but fingertip pads and task-object contact shells are collision-enabled and validated through MuJoCo solver contacts.
 - The scene is not claimed as real-hardware validated.
 
 ## Future Improvements
 
-- Add learned residual control over the deterministic phase controller.
+- Train a larger residual policy from the exported trajectory and stress-evaluation data.
 - Add camera/depth observations and dataset labels.
 - Expand perturbations, object families, and randomized medkit layouts.
 - Compare against a baseline two-finger gripper to quantify dexterity benefits.

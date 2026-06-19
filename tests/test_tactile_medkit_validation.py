@@ -61,6 +61,23 @@ class TactileMedKitValidationTests(unittest.TestCase):
             self.assertFalse(report["valid"])
             self.assertTrue(any("control mode" in error for error in report["errors"]))
 
+    def test_validate_submission_rejects_missing_policy_evidence(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            output_dir = Path(tmp) / "outputs"
+            run_benchmark(seed=21, output_dir=output_dir, render_video=False)
+            run_stress_eval(seeds=3, output_dir=output_dir)
+            summary_path = output_dir / "summary.json"
+            summary = json.loads(summary_path.read_text())
+            summary["residual_policy_active"] = False
+            summary["nonzero_policy_updates"] = 0
+            summary["policy_observation_keys"] = []
+            summary_path.write_text(json.dumps(summary), encoding="utf-8")
+
+            report = validate_submission(output_dir=output_dir, require_video=False)
+
+            self.assertFalse(report["valid"])
+            self.assertTrue(any("residual policy" in error or "policy observation" in error for error in report["errors"]))
+
     def test_validate_submission_rejects_proxy_only_contact_evidence(self):
         with tempfile.TemporaryDirectory() as tmp:
             output_dir = Path(tmp) / "outputs"

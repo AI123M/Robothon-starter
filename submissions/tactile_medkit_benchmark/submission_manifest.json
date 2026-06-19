@@ -4,12 +4,14 @@
   "main_commands": [
     "python3 submissions/tactile_medkit_benchmark/run_demo.py --no-video --seed 42",
     "python3 submissions/tactile_medkit_benchmark/run_stress_eval.py --seeds 16",
-    "python3 submissions/tactile_medkit_benchmark/validate_submission.py --no-video"
+    "python3 submissions/tactile_medkit_benchmark/validate_submission.py"
   ],
   "optional_video_command": "python3 submissions/tactile_medkit_benchmark/run_demo.py --seed 42",
   "required_outputs": [
     "summary.json",
     "trajectory.json",
+    "policy_trace.json",
+    "policy_ablation.json",
     "contact_timeline.json",
     "evidence_package.json",
     "stress_eval.json",
@@ -21,7 +23,11 @@
     "max_slip_mm": 0.5,
     "max_placement_error_mm": 10.0,
     "stress_success_rate": 0.875,
-    "control_mode": "actuator_position_mj_step",
+    "control_mode": "closed_loop_residual_policy_mj_step",
+    "policy_name": "tactile_residual_policy_v2",
+    "min_nonzero_policy_updates": 48,
+    "min_policy_trace_samples": 200,
+    "min_policy_ablation_score_delta": 5.0,
     "min_measured_contact_phases": 4,
     "min_solver_contact_phases": 4,
     "min_collision_enabled_geoms": 10,

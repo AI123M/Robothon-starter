@@ -1,5 +1,6 @@
 import argparse
 import json
+import subprocess
 import sys
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -20,6 +21,7 @@ REQUIRED_ROOT_FILES = [
     "JUDGE_BRIEF.md",
     "rubric_scorecard.json",
     "submission_manifest.json",
+    "policy_weights.json",
     "scene.xml",
     "run_demo.py",
     "run_stress_eval.py",
@@ -28,6 +30,8 @@ REQUIRED_ROOT_FILES = [
 REQUIRED_OUTPUT_FILES = [
     "summary.json",
     "trajectory.json",
+    "policy_trace.json",
+    "policy_ablation.json",
     "contact_timeline.json",
     "evidence_package.json",
     "stress_eval.json",
@@ -35,7 +39,19 @@ REQUIRED_OUTPUT_FILES = [
     "final_report.txt",
 ]
 
-EXPECTED_CONTROL_MODE = "actuator_position_mj_step"
+EXPECTED_CONTROL_MODE = "closed_loop_residual_policy_mj_step"
+EXPECTED_POLICY_NAME = "tactile_residual_policy_v2"
+MIN_NONZERO_POLICY_UPDATES = 48
+MIN_POLICY_TRACE_SAMPLES = 200
+MIN_POLICY_ABLATION_SCORE_DELTA = 5.0
+REQUIRED_POLICY_OBSERVATION_KEYS = {
+    "active_fingers",
+    "button_error_mm",
+    "cap_error_deg",
+    "contact_deficit",
+    "placement_error_mm",
+    "slip_error_mm",
+}
 MIN_MEASURED_CONTACT_PHASES = 4
 MIN_SOLVER_CONTACT_PHASES = 4
 MIN_COLLISION_ENABLED_GEOMS = 10
@@ -51,6 +67,33 @@ def _check_file(path: Path, errors: List[str]) -> None:
         errors.append(f"missing file: {path}")
     elif path.is_file() and path.stat().st_size == 0:
         errors.append(f"empty file: {path}")
+
+
+def _probe_video_duration(video_path: Path) -> Optional[float]:
+    try:
+        completed = subprocess.run(
+            [
+                "ffprobe",
+                "-v",
+                "error",
+                "-show_entries",
+                "format=duration",
+                "-of",
+                "default=noprint_wrappers=1:nokey=1",
+                str(video_path),
+            ],
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+    except FileNotFoundError:
+        return None
+    if completed.returncode != 0:
+        return None
+    try:
+        return float(completed.stdout.strip())
+    except ValueError:
+        return None
 
 
 def validate_submission(output_dir: Optional[Path] = None, require_video: bool = True) -> Dict:
@@ -69,6 +112,8 @@ def validate_submission(output_dir: Optional[Path] = None, require_video: bool =
     summary = {}
     stress = {}
     video_status = {}
+    policy_trace = {}
+    policy_ablation = {}
     if (PACKAGE_DIR / "registration.json").exists():
         registration = _read_json(PACKAGE_DIR / "registration.json")
     if (PACKAGE_DIR / "submission_manifest.json").exists():
@@ -79,6 +124,10 @@ def validate_submission(output_dir: Optional[Path] = None, require_video: bool =
         stress = _read_json(output_dir / "stress_eval.json")
     if (output_dir / "video_status.json").exists():
         video_status = _read_json(output_dir / "video_status.json")
+    if (output_dir / "policy_trace.json").exists():
+        policy_trace = _read_json(output_dir / "policy_trace.json")
+    if (output_dir / "policy_ablation.json").exists():
+        policy_ablation = _read_json(output_dir / "policy_ablation.json")
 
     uuid = registration.get("uuid")
     project_name = registration.get("project_name")
@@ -102,7 +151,31 @@ def validate_submission(output_dir: Optional[Path] = None, require_video: bool =
         if not summary.get("success"):
             errors.append("summary success flag is false")
         if summary.get("control_mode") != EXPECTED_CONTROL_MODE:
-            errors.append("control mode does not use actuator_position_mj_step")
+            errors.append("control mode does not use closed_loop_residual_policy_mj_step")
+        if summary.get("policy_name") != EXPECTED_POLICY_NAME:
+            errors.append("residual policy name is missing or unexpected")
+        if not summary.get("residual_policy_active"):
+            errors.append("residual policy active flag is false")
+        if int(summary.get("nonzero_policy_updates", 0)) < targets.get(
+            "min_nonzero_policy_updates", MIN_NONZERO_POLICY_UPDATES
+        ):
+            errors.append("nonzero residual policy updates below target")
+        if float(summary.get("max_policy_residual_norm", 0.0)) <= 0.0:
+            errors.append("policy residual norm evidence is missing")
+        missing_policy_keys = REQUIRED_POLICY_OBSERVATION_KEYS - set(summary.get("policy_observation_keys", []))
+        if missing_policy_keys:
+            errors.append(f"policy observation keys missing: {sorted(missing_policy_keys)}")
+        trace_samples = policy_trace.get("samples", []) if policy_trace else []
+        if len(trace_samples) < targets.get("min_policy_trace_samples", MIN_POLICY_TRACE_SAMPLES):
+            errors.append("policy trace sample count below target")
+        nonzero_trace_updates = sum(1 for sample in trace_samples if sample.get("policy_residual", {}).get("nonzero"))
+        if trace_samples and nonzero_trace_updates != int(summary.get("nonzero_policy_updates", -1)):
+            errors.append("policy trace nonzero update count does not match summary")
+        ablation_delta = policy_ablation.get("improvement", {}).get("dexterity_score_delta") if policy_ablation else None
+        if ablation_delta is None or float(ablation_delta) < targets.get(
+            "min_policy_ablation_score_delta", MIN_POLICY_ABLATION_SCORE_DELTA
+        ):
+            errors.append("policy ablation score delta below target")
         if int(summary.get("physics_steps", 0)) <= 0:
             errors.append("physics_steps must be positive")
         if int(summary.get("measured_contact_phases", 0)) < MIN_MEASURED_CONTACT_PHASES:
@@ -140,6 +213,9 @@ def validate_submission(output_dir: Optional[Path] = None, require_video: bool =
             errors.append("video_status rendered flag is false")
         if float(video_status.get("duration_sec", 0.0)) < MIN_VIDEO_DURATION_SEC:
             errors.append("video duration below 60 seconds")
+        probed_duration = _probe_video_duration(output_dir / "demo.mp4")
+        if probed_duration is not None and probed_duration < MIN_VIDEO_DURATION_SEC:
+            errors.append("ffprobe video duration below 60 seconds")
 
     return {
         "valid": not errors,

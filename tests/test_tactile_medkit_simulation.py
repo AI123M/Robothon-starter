@@ -19,12 +19,28 @@ class TactileMedKitSimulationTests(unittest.TestCase):
             self.assertTrue(result["metrics"]["success"])
             self.assertTrue((Path(tmp) / "summary.json").exists())
             self.assertTrue((Path(tmp) / "trajectory.json").exists())
+            self.assertTrue((Path(tmp) / "policy_trace.json").exists())
+            self.assertTrue((Path(tmp) / "policy_ablation.json").exists())
             self.assertTrue((Path(tmp) / "contact_timeline.json").exists())
             self.assertTrue((Path(tmp) / "final_report.txt").exists())
             summary = json.loads((Path(tmp) / "summary.json").read_text())
             self.assertGreaterEqual(summary["cap_rotation_deg"], 220)
             self.assertLessEqual(summary["max_slip_mm"], 0.5)
-            self.assertEqual(summary["control_mode"], "actuator_position_mj_step")
+            self.assertEqual(summary["control_mode"], "closed_loop_residual_policy_mj_step")
+            self.assertEqual(summary["policy_name"], "tactile_residual_policy_v2")
+            self.assertTrue(summary["residual_policy_active"])
+            self.assertGreaterEqual(summary["nonzero_policy_updates"], 48)
+            self.assertGreater(summary["max_policy_residual_norm"], 0.0)
+            self.assertIn("contact_deficit", summary["policy_observation_keys"])
+            self.assertIn("slip_error_mm", summary["policy_observation_keys"])
+            policy_trace = json.loads((Path(tmp) / "policy_trace.json").read_text())
+            self.assertEqual(len(policy_trace["samples"]), summary["policy_updates"])
+            self.assertEqual(
+                sum(1 for sample in policy_trace["samples"] if sample["policy_residual"]["nonzero"]),
+                summary["nonzero_policy_updates"],
+            )
+            policy_ablation = json.loads((Path(tmp) / "policy_ablation.json").read_text())
+            self.assertGreaterEqual(policy_ablation["improvement"]["dexterity_score_delta"], 5.0)
             self.assertGreater(summary["physics_steps"], 0)
             self.assertGreaterEqual(summary["measured_contact_phases"], 4)
             self.assertIn("site_distance", summary["contact_sources"])
@@ -42,6 +58,7 @@ class TactileMedKitSimulationTests(unittest.TestCase):
             self.assertGreaterEqual(summary["success_rate"], 0.75)
             self.assertGreater(summary["metric_variance"]["cap_rotation_deg"], 0.0)
             self.assertGreater(summary["metric_variance"]["max_slip_mm"], 0.0)
+            self.assertGreaterEqual(summary["min_nonzero_policy_updates"], 48)
             self.assertTrue((Path(tmp) / "stress_eval.json").exists())
 
     def test_run_demo_script_executes_from_repository_root(self):

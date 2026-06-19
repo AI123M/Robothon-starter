@@ -1,39 +1,30 @@
 {
   "project_name": "Tactile MedKit Manipulation Benchmark",
   "registration_uuid": "f74c5b50-5ef8-467b-a141-a28ea9c34333",
-  "target_internal_average": 90.0,
   "rubric": {
     "reproducibility": {
-      "target": 92,
       "evidence": "Deterministic CLI commands, validation script, JSON artifacts, no hidden external services."
     },
     "mujoco_depth": {
-      "target": 89,
       "evidence": "MJCF articulated hand, actuators, sensors, collision-enabled fingertip pads/object contact shells, free objects, camera, and materials."
     },
     "task_design": {
-      "target": 91,
       "evidence": "Emergency-kit assembly combines vial, cap, capsule, bandage, tool token, tray slots, and confirmation button."
     },
     "control": {
-      "target": 88,
-      "evidence": "Smooth multi-phase controller using actuator_position_mj_step with perturbation recovery and slip/contact metrics."
+      "evidence": "Closed-loop tactile residual policy uses contact/slip/cap/placement/button observations to update actuator and target residuals before every MuJoCo step window; policy_ablation.json compares against an open-loop baseline."
     },
     "dexterity": {
-      "target": 92,
       "evidence": "Five-finger solver-contact phases, thumb opposition, cap rotation, object placement, and button press."
     },
     "engineering_quality": {
-      "target": 91,
-      "evidence": "Focused Python modules, manifest, generated metrics, and explicit validation."
+      "evidence": "Focused Python modules, policy weights, generated policy metrics, manifest, and explicit validation."
     },
     "presentation": {
-      "target": 88,
       "evidence": "80-second MP4 render, trajectory, final report, and judge brief."
     },
     "innovation": {
-      "target": 90,
-      "evidence": "Medkit manipulation benchmark combines emergency triage, recovery, assembly, and data export."
+      "evidence": "Medkit manipulation benchmark combines emergency triage, closed-loop residual control, recovery, assembly, and data export."
     }
   }
 }

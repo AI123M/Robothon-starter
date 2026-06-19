@@ -44,6 +44,8 @@ TASK_OBJECTS = {
 ARTIFACT_NAMES = [
     "summary.json",
     "trajectory.json",
+    "policy_trace.json",
+    "policy_ablation.json",
     "contact_timeline.json",
     "final_report.txt",
 ]

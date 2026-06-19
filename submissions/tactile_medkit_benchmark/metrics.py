@@ -55,6 +55,13 @@ def compute_run_metrics(samples: List[Dict], seed: int) -> Dict:
             "solver_contact_pairs": 0,
             "max_solver_contact_distance_mm": None,
             "collision_enabled_geoms": 0,
+            "residual_policy_active": False,
+            "policy_name": "",
+            "policy_updates": 0,
+            "nonzero_policy_updates": 0,
+            "policy_update_rate": 0.0,
+            "max_policy_residual_norm": 0.0,
+            "policy_observation_keys": [],
         }
 
     expected_phases = {phase["id"] for phase in PHASES}
@@ -87,6 +94,21 @@ def compute_run_metrics(samples: List[Dict], seed: int) -> Dict:
     ]
     solver_contact_pairs = len(solver_distances)
     collision_enabled_geoms = max((int(sample.get("collision_enabled_geoms", 0)) for sample in samples), default=0)
+    policy_samples = [sample for sample in samples if sample.get("policy_residual")]
+    policy_updates = len(policy_samples)
+    nonzero_policy_updates = sum(1 for sample in policy_samples if sample.get("policy_residual", {}).get("nonzero"))
+    policy_residual_norms = [
+        _number(sample.get("policy_residual", {}), "residual_norm")
+        for sample in policy_samples
+    ]
+    policy_names = sorted({sample.get("policy_name", "") for sample in samples if sample.get("policy_name")})
+    observation_keys = sorted(
+        {
+            key
+            for sample in samples
+            for key in sample.get("policy_observation", {}).get("observation_keys", [])
+        }
+    )
 
     rotation_score = min(cap_rotation_deg / 220.0, 1.0) * 25.0
     slip_score = max(0.0, 1.0 - max_slip_mm / 2.0) * 20.0
@@ -121,6 +143,13 @@ def compute_run_metrics(samples: List[Dict], seed: int) -> Dict:
         "solver_contact_pairs": solver_contact_pairs,
         "max_solver_contact_distance_mm": round(max(solver_distances), 3) if solver_distances else None,
         "collision_enabled_geoms": collision_enabled_geoms,
+        "residual_policy_active": nonzero_policy_updates > 0,
+        "policy_name": policy_names[0] if len(policy_names) == 1 else ",".join(policy_names),
+        "policy_updates": policy_updates,
+        "nonzero_policy_updates": nonzero_policy_updates,
+        "policy_update_rate": round(nonzero_policy_updates / policy_updates, 3) if policy_updates else 0.0,
+        "max_policy_residual_norm": round(max(policy_residual_norms), 6) if policy_residual_norms else 0.0,
+        "policy_observation_keys": observation_keys,
     }
 
 
@@ -130,6 +159,7 @@ def summarize_stress_runs(runs: List[Dict]) -> Dict:
     worst_slip = max((_number(run, "max_slip_mm") for run in runs), default=0.0)
     worst_error = max((_number(run, "max_placement_error_mm") for run in runs), default=0.0)
     average_score = sum(_number(run, "dexterity_score") for run in runs) / total if total else 0.0
+    average_policy_update_rate = sum(_number(run, "policy_update_rate") for run in runs) / total if total else 0.0
     def variance(key: str) -> float:
         if total < 2:
             return 0.0
@@ -144,6 +174,8 @@ def summarize_stress_runs(runs: List[Dict]) -> Dict:
         "worst_slip_mm": round(worst_slip, 3),
         "worst_placement_error_mm": round(worst_error, 3),
         "average_dexterity_score": round(average_score, 2),
+        "average_policy_update_rate": round(average_policy_update_rate, 3),
+        "min_nonzero_policy_updates": min((int(run.get("nonzero_policy_updates", 0)) for run in runs), default=0),
         "metric_variance": {
             "cap_rotation_deg": round(variance("cap_rotation_deg"), 6),
             "max_slip_mm": round(variance("max_slip_mm"), 6),
