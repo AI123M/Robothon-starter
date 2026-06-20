@@ -10,7 +10,7 @@ from submissions.tactile_medkit_benchmark.task_model import OUTPUTS_DIR
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Run the Tactile MedKit benchmark.")
+    parser = argparse.ArgumentParser(description="Run the Reflex MedKit benchmark.")
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--output-dir", type=Path, default=OUTPUTS_DIR)
     parser.add_argument("--no-video", action="store_true", help="Skip MP4 rendering and write JSON evidence only.")

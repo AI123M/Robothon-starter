@@ -20,7 +20,7 @@ class TactileMedKitValidationTests(unittest.TestCase):
 
             self.assertTrue(report["valid"])
             self.assertEqual(report["uuid"], "f74c5b50-5ef8-467b-a141-a28ea9c34333")
-            self.assertEqual(report["project_name"], "Tactile MedKit Manipulation Benchmark")
+            self.assertEqual(report["project_name"], "Reflex MedKit Dexterity Lab")
             self.assertGreaterEqual(report["metrics"]["cap_rotation_deg"], 220)
 
     def test_validate_submission_script_executes_from_repository_root(self):

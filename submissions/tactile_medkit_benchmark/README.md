@@ -1,10 +1,10 @@
-# Tactile MedKit Manipulation Benchmark
+# Reflex MedKit Dexterity Lab
 
 Registration UUID: `f74c5b50-5ef8-467b-a141-a28ea9c34333`
 
 ## Project Summary
 
-Tactile MedKit Manipulation Benchmark is a MuJoCo dexterous-hand benchmark for emergency-medical-kit assembly. It stages and evaluates five-finger vial handling, 220+ degree cap rotation, lateral slip recovery, multi-object kit-slot placement, and a final confirmation-button press.
+Reflex MedKit Dexterity Lab is a MuJoCo dexterous-hand benchmark for emergency-medical-kit assembly. It stages and evaluates five-finger vial handling, 220+ degree cap rotation, lateral slip recovery, multi-object kit-slot placement, and a final confirmation-button press.
 
 Every run writes metrics, trajectory samples, a full policy trace, contact timeline, stress-evaluation output, policy ablation, and a final report.
 

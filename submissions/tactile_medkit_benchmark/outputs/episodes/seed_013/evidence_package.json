@@ -138,7 +138,7 @@
       "success": false
     }
   },
-  "project_name": "Tactile MedKit Manipulation Benchmark",
+  "project_name": "Reflex MedKit Dexterity Lab",
   "registration_uuid": "f74c5b50-5ef8-467b-a141-a28ea9c34333",
   "rubric_evidence": {
     "control": "Closed-loop tactile residual policy reads contact/slip/placement observations and updates actuator targets before every mj_step window; policy_ablation.json compares it with an open-loop baseline.",

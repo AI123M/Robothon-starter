@@ -2,7 +2,7 @@
 
 ## One-Line Summary
 
-Tactile MedKit Manipulation Benchmark is a MuJoCo five-finger hand benchmark for emergency-kit assembly, staging vial handling, 220+ degree cap rotation, slip recovery, multi-object placement, final button press, and structured data export.
+Reflex MedKit Dexterity Lab is a MuJoCo five-finger hand benchmark for emergency-kit assembly, staging vial handling, 220+ degree cap rotation, slip recovery, multi-object placement, final button press, and structured data export.
 
 ## What To Look For
 

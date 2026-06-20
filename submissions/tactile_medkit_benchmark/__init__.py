@@ -1,4 +1,4 @@
-"""Tactile MedKit Manipulation Benchmark submission package."""
+"""Reflex MedKit Dexterity Lab submission package."""
 
 from .task_model import PROJECT_NAME, REGISTRATION_UUID
 

@@ -1,6 +1,6 @@
 from pathlib import Path
 
-PROJECT_NAME = "Tactile MedKit Manipulation Benchmark"
+PROJECT_NAME = "Reflex MedKit Dexterity Lab"
 PARTICIPANT_NAME = "AIFF"
 REGISTRATION_UUID = "f74c5b50-5ef8-467b-a141-a28ea9c34333"
 PACKAGE_DIR = Path(__file__).resolve().parent

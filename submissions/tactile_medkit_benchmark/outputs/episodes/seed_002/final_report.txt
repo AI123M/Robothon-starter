@@ -1,4 +1,4 @@
-Tactile MedKit Manipulation Benchmark
+Reflex MedKit Dexterity Lab
 UUID: f74c5b50-5ef8-467b-a141-a28ea9c34333
 Seed: 2
 Success: True

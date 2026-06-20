@@ -229,7 +229,7 @@ def validate_submission(output_dir: Optional[Path] = None, require_video: bool =
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Validate Tactile MedKit submission artifacts.")
+    parser = argparse.ArgumentParser(description="Validate Reflex MedKit submission artifacts.")
     parser.add_argument("--output-dir", type=Path, default=OUTPUTS_DIR)
     parser.add_argument("--no-video", action="store_true", help="Do not require demo.mp4.")
     args = parser.parse_args()
