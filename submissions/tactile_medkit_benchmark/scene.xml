@@ -122,33 +122,34 @@
 
     <body name="vial" pos="-0.02 -0.08 0.06">
       <freejoint name="vial_free"/>
-      <geom name="vial_glass" type="cylinder" size="0.018 0.052" material="vial_mat"/>
-      <geom name="vial_contact_shell" type="sphere" size="0.075" material="vial_mat" contype="2" conaffinity="1" rgba="0.6 0.9 1.0 0.12"/>
+      <geom name="vial_glass" type="cylinder" size="0.018 0.052" material="vial_mat" contype="2" conaffinity="1"/>
+      <geom name="vial_contact_shell" type="sphere" size="0.026" material="vial_mat" contype="2" conaffinity="1" rgba="0.6 0.9 1.0 0.12"/>
     </body>
     <body name="cap" pos="-0.02 -0.08 0.122">
       <freejoint name="cap_free"/>
-      <geom name="cap_blue" type="cylinder" size="0.020 0.012" material="cap_mat"/>
-      <geom name="cap_contact_shell" type="sphere" size="0.075" material="cap_mat" contype="2" conaffinity="1" rgba="0.05 0.24 0.9 0.12"/>
+      <geom name="cap_blue" type="cylinder" size="0.020 0.012" material="cap_mat" contype="2" conaffinity="1"/>
+      <geom name="cap_contact_shell" type="sphere" size="0.022" material="cap_mat" contype="2" conaffinity="1" rgba="0.05 0.24 0.9 0.12"/>
     </body>
     <body name="capsule" pos="-0.11 0.08 0.035">
       <freejoint name="capsule_free"/>
-      <geom name="capsule_geom" type="capsule" fromto="-0.025 0 0 0.025 0 0" size="0.010" material="capsule_mat"/>
-      <geom name="capsule_contact_shell" type="sphere" size="0.075" material="capsule_mat" contype="2" conaffinity="1" rgba="0.95 0.15 0.15 0.12"/>
+      <geom name="capsule_geom" type="capsule" fromto="-0.025 0 0 0.025 0 0" size="0.010" material="capsule_mat" contype="2" conaffinity="1"/>
+      <geom name="capsule_contact_shell" type="sphere" size="0.020" material="capsule_mat" contype="2" conaffinity="1" rgba="0.95 0.15 0.15 0.12"/>
     </body>
     <body name="bandage" pos="-0.045 0.095 0.038">
       <freejoint name="bandage_free"/>
-      <geom name="bandage_roll" type="cylinder" size="0.025 0.013" material="bandage_mat"/>
-      <geom name="bandage_contact_shell" type="sphere" size="0.075" material="bandage_mat" contype="2" conaffinity="1" rgba="0.98 0.92 0.78 0.12"/>
+      <geom name="bandage_roll" type="cylinder" size="0.025 0.013" material="bandage_mat" contype="2" conaffinity="1"/>
+      <geom name="bandage_contact_shell" type="sphere" size="0.026" material="bandage_mat" contype="2" conaffinity="1" rgba="0.98 0.92 0.78 0.12"/>
     </body>
     <body name="tool_token" pos="0.03 0.09 0.035">
       <freejoint name="tool_free"/>
-      <geom name="tool_body" type="box" size="0.030 0.009 0.007" material="tool_mat"/>
-      <geom name="tool_contact_shell" type="sphere" size="0.075" material="tool_mat" contype="2" conaffinity="1" rgba="0.15 0.75 0.55 0.12"/>
+      <geom name="tool_body" type="box" size="0.030 0.009 0.007" material="tool_mat" contype="2" conaffinity="1"/>
+      <geom name="tool_contact_shell" type="sphere" size="0.020" material="tool_mat" contype="2" conaffinity="1" rgba="0.15 0.75 0.55 0.12"/>
     </body>
     <body name="button" pos="0.31 0.08 0.055">
       <joint name="button_slide" type="slide" axis="0 0 1" range="-0.01 0.008" limited="true" damping="0.2"/>
-      <geom name="button_stem" type="cylinder" size="0.020 0.010" material="button_mat"/>
-      <geom name="button_contact_shell" pos="0 0 0.058" type="sphere" size="0.105" material="button_mat" contype="2" conaffinity="1" rgba="1.0 0.8 0.1 0.12"/>
+      <geom name="button_stem" type="cylinder" size="0.020 0.010" material="button_mat" contype="2" conaffinity="1"/>
+      <geom name="button_head" pos="0 0 0.150" type="sphere" size="0.026" material="button_mat" contype="2" conaffinity="1"/>
+      <geom name="button_contact_shell" pos="0 0 0.150" type="sphere" size="0.050" material="button_mat" contype="2" conaffinity="1" rgba="1.0 0.8 0.1 0.12"/>
     </body>
   </worldbody>
 

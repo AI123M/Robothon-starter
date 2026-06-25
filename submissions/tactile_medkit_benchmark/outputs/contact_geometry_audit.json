@@ -1,0 +1,119 @@
+{
+  "all_visible_object_geoms_collision_enabled": true,
+  "contact_shell_collision_geom_names": [
+    "bandage_contact_shell",
+    "button_contact_shell",
+    "cap_contact_shell",
+    "capsule_contact_shell",
+    "tool_contact_shell",
+    "vial_contact_shell"
+  ],
+  "contact_shell_collision_geoms": 6,
+  "contact_shell_radii_m": {
+    "bandage_contact_shell": 0.026,
+    "button_contact_shell": 0.05,
+    "cap_contact_shell": 0.022,
+    "capsule_contact_shell": 0.02,
+    "tool_contact_shell": 0.02,
+    "vial_contact_shell": 0.026
+  },
+  "contact_shell_solver_contact_pairs": 127,
+  "description": "MuJoCo contact audit for visible task-object geoms and supplemental transparent contact shells.",
+  "max_contact_shell_radius_m": 0.05,
+  "solver_contact_pairs": 203,
+  "top_solver_geom_pairs": [
+    {
+      "count": 47,
+      "geoms": [
+        "little_pad",
+        "cap_contact_shell"
+      ]
+    },
+    {
+      "count": 41,
+      "geoms": [
+        "little_pad",
+        "cap_blue"
+      ]
+    },
+    {
+      "count": 24,
+      "geoms": [
+        "middle_pad",
+        "vial_contact_shell"
+      ]
+    },
+    {
+      "count": 19,
+      "geoms": [
+        "ring_pad",
+        "vial_glass"
+      ]
+    },
+    {
+      "count": 17,
+      "geoms": [
+        "ring_pad",
+        "vial_contact_shell"
+      ]
+    },
+    {
+      "count": 14,
+      "geoms": [
+        "thumb_pad",
+        "cap_contact_shell"
+      ]
+    },
+    {
+      "count": 10,
+      "geoms": [
+        "little_pad",
+        "vial_glass"
+      ]
+    },
+    {
+      "count": 10,
+      "geoms": [
+        "ring_pad",
+        "button_contact_shell"
+      ]
+    },
+    {
+      "count": 9,
+      "geoms": [
+        "little_pad",
+        "vial_contact_shell"
+      ]
+    },
+    {
+      "count": 6,
+      "geoms": [
+        "thumb_pad",
+        "cap_blue"
+      ]
+    },
+    {
+      "count": 6,
+      "geoms": [
+        "little_pad",
+        "button_contact_shell"
+      ]
+    }
+  ],
+  "visible_object_collision_geom_names": [
+    "bandage_roll",
+    "button_head",
+    "button_stem",
+    "cap_blue",
+    "capsule_geom",
+    "tool_body",
+    "vial_glass"
+  ],
+  "visible_object_collision_geoms": 7,
+  "visible_solver_contact_pairs": 76,
+  "visible_solver_contact_phases": [
+    "cap_rotation",
+    "perturb_recovery",
+    "vial_grasp"
+  ]
+}

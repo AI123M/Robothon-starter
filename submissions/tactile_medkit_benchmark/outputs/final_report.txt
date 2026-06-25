@@ -2,16 +2,19 @@ Reflex MedKit Dexterity Lab
 UUID: f74c5b50-5ef8-467b-a141-a28ea9c34333
 Seed: 42
 Success: True
-Cap rotation: 229.219 deg
-Peak slip: 0.334 mm
-Placement error: 7.353 mm
-Dexterity score: 90.8/100
-Control mode: closed_loop_residual_policy_mj_step
-Policy: tactile_residual_policy_v2
-Policy updates: 218/240
-Max policy residual norm: 0.268083
+Cap rotation: 228.552 deg
+Peak slip: 0.257 mm
+Placement error: 1.944 mm
+Dexterity score: 100.0/100
+Control mode: calibrated_tactile_force_policy_mj_step
+Policy: calibrated_tactile_force_policy_v4
+Policy updates: 235/240
+Max policy residual norm: 0.32066
 Physics steps: 960
 Measured contact phases: 5
-Solver contact phases: 5
-Solver contact pairs: 960
+Solver contact phases: 4
+Solver contact pairs: 203
+Visible object collision geoms: 7
+Runtime qpos resets: 0
+Training report: calibrated_tactile_force_policy_v4
 Video: {'rendered': True, 'path': 'demo.mp4', 'frames': 240, 'fps': 3, 'duration_sec': 80.0}

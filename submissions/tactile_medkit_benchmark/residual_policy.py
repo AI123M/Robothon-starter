@@ -10,7 +10,7 @@ from .task_model import PHASES
 
 
 POLICY_WEIGHTS_PATH = Path(__file__).resolve().parent / "policy_weights.json"
-POLICY_NAME = "tactile_residual_policy_v2"
+POLICY_NAME = "calibrated_tactile_force_policy_v4"
 OBSERVATION_KEYS = [
     "phase_index",
     "progress",
@@ -27,13 +27,13 @@ OBSERVATION_KEYS = [
 DEFAULT_WEIGHTS = {
     "policy_name": POLICY_NAME,
     "gains": {
-        "contact_closedness": 0.055,
-        "slip_closedness": 0.035,
-        "cap_thumb_bias": 0.070,
-        "contact_thumb_bias": 0.035,
+        "contact_closedness": 0.105,
+        "slip_closedness": 0.065,
+        "cap_thumb_bias": 0.120,
+        "contact_thumb_bias": 0.060,
         "slip_y_recenter_m": 0.0022,
         "contact_lift_m": 0.0012,
-        "cap_rotation_deg": 3.5,
+        "cap_rotation_deg": 45.0,
         "placement_gain": 0.090,
         "button_depth_m": 0.0035,
     },
@@ -126,7 +126,7 @@ class TactileResidualPolicy:
         return {
             "policy_name": self.weights.get("policy_name", POLICY_NAME),
             "observation_keys": OBSERVATION_KEYS,
-            "weights_source": self.weights.get("source", "calibrated built-in residual gains"),
+            "weights_source": self.weights.get("source", "calibrated built-in force-policy gains"),
         }
 
     def observe(
@@ -153,12 +153,12 @@ class TactileResidualPolicy:
         phase_progress = float(np.clip(progress, 0.0, 1.0))
 
         cap_error = 0.0
-        if phase_id in {"cap_rotation", "perturb_recovery"}:
+        if phase_id in {"cap_rotation", "perturb_recovery", "kit_assembly", "confirmation_button"}:
             cap_error = max(0.0, float(scenario["cap_target_deg"]) - cap_rotation)
 
         slip_target = float(scenario["settled_slip_mm"]) + 0.035
         slip_error = max(0.0, slip_mm - slip_target)
-        placement_error = float(nominal_pose.get("placement_error_mm", 0.0))
+        placement_error = float(previous_sample.get("placement_error_mm", 0.0)) if previous_sample else 0.0
         button_error = 0.0
         if phase_id == "confirmation_button" and phase_progress > 0.35 and "index" not in previous_contacts:
             button_error = 6.0 * phase_progress
@@ -188,11 +188,11 @@ class TactileResidualPolicy:
         button_norm = float(vector[OBSERVATION_KEYS.index("button_error_mm")])
 
         phase_noise = float(self._rng.normal(0.0, 0.00008))
-        closedness_delta = min(0.16, gains["contact_closedness"] * contact_norm + gains["slip_closedness"] * slip_norm)
-        thumb_bias_delta = min(0.13, gains["cap_thumb_bias"] * cap_norm + gains["contact_thumb_bias"] * contact_norm)
+        closedness_delta = min(0.34, gains["contact_closedness"] * contact_norm + gains["slip_closedness"] * slip_norm)
+        thumb_bias_delta = min(0.24, gains["cap_thumb_bias"] * cap_norm + gains["contact_thumb_bias"] * contact_norm)
         hand_offset_y = -observation.perturb_sign * gains["slip_y_recenter_m"] * slip_norm
         hand_offset_z = gains["contact_lift_m"] * contact_norm + phase_noise
-        cap_delta = gains["cap_rotation_deg"] * cap_norm
+        cap_delta = min(float(gains["cap_rotation_deg"]), observation.cap_error_deg)
         placement_delta = gains["placement_gain"] * placement_norm if observation.phase == "kit_assembly" else 0.0
         button_delta = -gains["button_depth_m"] * button_norm
 

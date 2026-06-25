@@ -32,6 +32,9 @@ REQUIRED_OUTPUT_FILES = [
     "trajectory.json",
     "policy_trace.json",
     "policy_ablation.json",
+    "policy_training_report.json",
+    "contact_geometry_audit.json",
+    "physics_rollout_audit.json",
     "contact_timeline.json",
     "evidence_package.json",
     "stress_eval.json",
@@ -39,11 +42,15 @@ REQUIRED_OUTPUT_FILES = [
     "final_report.txt",
 ]
 
-EXPECTED_CONTROL_MODE = "closed_loop_residual_policy_mj_step"
-EXPECTED_POLICY_NAME = "tactile_residual_policy_v2"
+EXPECTED_CONTROL_MODE = "calibrated_tactile_force_policy_mj_step"
+EXPECTED_POLICY_NAME = "calibrated_tactile_force_policy_v4"
+MIN_DEXTERITY_SCORE = 91.0
 MIN_NONZERO_POLICY_UPDATES = 48
 MIN_POLICY_TRACE_SAMPLES = 200
 MIN_POLICY_ABLATION_SCORE_DELTA = 5.0
+MIN_VISIBLE_OBJECT_COLLISION_GEOMS = 6
+MIN_VISIBLE_SOLVER_CONTACT_PAIRS = 12
+MAX_CONTACT_SHELL_RADIUS_M = 0.055
 REQUIRED_POLICY_OBSERVATION_KEYS = {
     "active_fingers",
     "button_error_mm",
@@ -114,6 +121,9 @@ def validate_submission(output_dir: Optional[Path] = None, require_video: bool =
     video_status = {}
     policy_trace = {}
     policy_ablation = {}
+    policy_training_report = {}
+    contact_geometry_audit = {}
+    physics_rollout_audit = {}
     if (PACKAGE_DIR / "registration.json").exists():
         registration = _read_json(PACKAGE_DIR / "registration.json")
     if (PACKAGE_DIR / "submission_manifest.json").exists():
@@ -128,6 +138,12 @@ def validate_submission(output_dir: Optional[Path] = None, require_video: bool =
         policy_trace = _read_json(output_dir / "policy_trace.json")
     if (output_dir / "policy_ablation.json").exists():
         policy_ablation = _read_json(output_dir / "policy_ablation.json")
+    if (output_dir / "policy_training_report.json").exists():
+        policy_training_report = _read_json(output_dir / "policy_training_report.json")
+    if (output_dir / "contact_geometry_audit.json").exists():
+        contact_geometry_audit = _read_json(output_dir / "contact_geometry_audit.json")
+    if (output_dir / "physics_rollout_audit.json").exists():
+        physics_rollout_audit = _read_json(output_dir / "physics_rollout_audit.json")
 
     uuid = registration.get("uuid")
     project_name = registration.get("project_name")
@@ -151,15 +167,17 @@ def validate_submission(output_dir: Optional[Path] = None, require_video: bool =
         if not summary.get("success"):
             errors.append("summary success flag is false")
         if summary.get("control_mode") != EXPECTED_CONTROL_MODE:
-            errors.append("control mode does not use closed_loop_residual_policy_mj_step")
+            errors.append("control mode does not use calibrated tactile force policy")
         if summary.get("policy_name") != EXPECTED_POLICY_NAME:
-            errors.append("residual policy name is missing or unexpected")
+            errors.append("force policy name is missing or unexpected")
+        if float(summary.get("dexterity_score", 0.0)) < targets.get("min_dexterity_score", MIN_DEXTERITY_SCORE):
+            errors.append("dexterity score below 91+ target")
         if not summary.get("residual_policy_active"):
-            errors.append("residual policy active flag is false")
+            errors.append("force policy active flag is false")
         if int(summary.get("nonzero_policy_updates", 0)) < targets.get(
             "min_nonzero_policy_updates", MIN_NONZERO_POLICY_UPDATES
         ):
-            errors.append("nonzero residual policy updates below target")
+            errors.append("nonzero force policy updates below target")
         if float(summary.get("max_policy_residual_norm", 0.0)) <= 0.0:
             errors.append("policy residual norm evidence is missing")
         missing_policy_keys = REQUIRED_POLICY_OBSERVATION_KEYS - set(summary.get("policy_observation_keys", []))
@@ -176,6 +194,13 @@ def validate_submission(output_dir: Optional[Path] = None, require_video: bool =
             "min_policy_ablation_score_delta", MIN_POLICY_ABLATION_SCORE_DELTA
         ):
             errors.append("policy ablation score delta below target")
+        if policy_training_report.get("selected_policy") != EXPECTED_POLICY_NAME:
+            errors.append("policy training report does not identify the selected v4 policy")
+        report_delta = policy_training_report.get("ablation_validation", {}).get("dexterity_score_delta")
+        if report_delta is None or float(report_delta) < targets.get(
+            "min_policy_ablation_score_delta", MIN_POLICY_ABLATION_SCORE_DELTA
+        ):
+            errors.append("policy training report ablation evidence below target")
         if int(summary.get("physics_steps", 0)) <= 0:
             errors.append("physics_steps must be positive")
         if int(summary.get("measured_contact_phases", 0)) < MIN_MEASURED_CONTACT_PHASES:
@@ -190,6 +215,26 @@ def validate_submission(output_dir: Optional[Path] = None, require_video: bool =
             errors.append("solver contact pair count is zero")
         if int(summary.get("collision_enabled_geoms", 0)) < targets.get("min_collision_enabled_geoms", MIN_COLLISION_ENABLED_GEOMS):
             errors.append("collision-enabled geom count below target")
+        if not contact_geometry_audit.get("all_visible_object_geoms_collision_enabled"):
+            errors.append("visible object geoms are not all collision-enabled")
+        if int(contact_geometry_audit.get("visible_object_collision_geoms", 0)) < targets.get(
+            "min_visible_object_collision_geoms", MIN_VISIBLE_OBJECT_COLLISION_GEOMS
+        ):
+            errors.append("visible object collision geom count below target")
+        if int(contact_geometry_audit.get("visible_solver_contact_pairs", 0)) < targets.get(
+            "min_visible_solver_contact_pairs", MIN_VISIBLE_SOLVER_CONTACT_PAIRS
+        ):
+            errors.append("visible solver contact pair count below target")
+        if float(contact_geometry_audit.get("max_contact_shell_radius_m", 999.0)) > targets.get(
+            "max_contact_shell_radius_m", MAX_CONTACT_SHELL_RADIUS_M
+        ):
+            errors.append("contact shell radius exceeds physical-evidence target")
+        if int(physics_rollout_audit.get("runtime_freejoint_qpos_resets", -1)) != 0:
+            errors.append("runtime free-joint qpos reset audit is not zero")
+        if int(physics_rollout_audit.get("post_step_observer_resets", -1)) != 0:
+            errors.append("post-step observer reset audit is not zero")
+        if "freejoint_velocity_servo" not in physics_rollout_audit.get("controller_modes", []):
+            errors.append("physics rollout audit does not report the velocity-servo controller")
         confirmation_contacts = (
             summary.get("contacts_per_phase", {})
             .get("confirmation_button", {})

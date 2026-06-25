@@ -35,10 +35,10 @@ PHASES = [
 ]
 
 TASK_OBJECTS = {
-    "vial": {"slot": "slot_a", "target_error_mm": 7.0},
-    "capsule": {"slot": "slot_b", "target_error_mm": 6.5},
-    "bandage": {"slot": "slot_c", "target_error_mm": 8.0},
-    "tool_token": {"slot": "slot_d", "target_error_mm": 6.0},
+    "vial": {"slot": "slot_a", "target_error_mm": 5.5},
+    "capsule": {"slot": "slot_b", "target_error_mm": 5.5},
+    "bandage": {"slot": "slot_c", "target_error_mm": 5.9},
+    "tool_token": {"slot": "slot_d", "target_error_mm": 5.5},
 }
 
 ARTIFACT_NAMES = [
@@ -46,6 +46,9 @@ ARTIFACT_NAMES = [
     "trajectory.json",
     "policy_trace.json",
     "policy_ablation.json",
+    "policy_training_report.json",
+    "contact_geometry_audit.json",
+    "physics_rollout_audit.json",
     "contact_timeline.json",
     "final_report.txt",
 ]

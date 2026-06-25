@@ -1,7 +1,126 @@
 {
+  "contact_geometry_audit": {
+    "all_visible_object_geoms_collision_enabled": true,
+    "contact_shell_collision_geom_names": [
+      "bandage_contact_shell",
+      "button_contact_shell",
+      "cap_contact_shell",
+      "capsule_contact_shell",
+      "tool_contact_shell",
+      "vial_contact_shell"
+    ],
+    "contact_shell_collision_geoms": 6,
+    "contact_shell_radii_m": {
+      "bandage_contact_shell": 0.026,
+      "button_contact_shell": 0.05,
+      "cap_contact_shell": 0.022,
+      "capsule_contact_shell": 0.02,
+      "tool_contact_shell": 0.02,
+      "vial_contact_shell": 0.026
+    },
+    "contact_shell_solver_contact_pairs": 129,
+    "description": "MuJoCo contact audit for visible task-object geoms and supplemental transparent contact shells.",
+    "max_contact_shell_radius_m": 0.05,
+    "solver_contact_pairs": 189,
+    "top_solver_geom_pairs": [
+      {
+        "count": 47,
+        "geoms": [
+          "little_pad",
+          "cap_contact_shell"
+        ]
+      },
+      {
+        "count": 30,
+        "geoms": [
+          "little_pad",
+          "cap_blue"
+        ]
+      },
+      {
+        "count": 23,
+        "geoms": [
+          "ring_pad",
+          "vial_contact_shell"
+        ]
+      },
+      {
+        "count": 19,
+        "geoms": [
+          "middle_pad",
+          "vial_contact_shell"
+        ]
+      },
+      {
+        "count": 14,
+        "geoms": [
+          "thumb_pad",
+          "cap_contact_shell"
+        ]
+      },
+      {
+        "count": 13,
+        "geoms": [
+          "ring_pad",
+          "vial_glass"
+        ]
+      },
+      {
+        "count": 10,
+        "geoms": [
+          "little_pad",
+          "vial_glass"
+        ]
+      },
+      {
+        "count": 10,
+        "geoms": [
+          "ring_pad",
+          "button_contact_shell"
+        ]
+      },
+      {
+        "count": 9,
+        "geoms": [
+          "little_pad",
+          "vial_contact_shell"
+        ]
+      },
+      {
+        "count": 7,
+        "geoms": [
+          "thumb_pad",
+          "cap_blue"
+        ]
+      },
+      {
+        "count": 7,
+        "geoms": [
+          "little_pad",
+          "button_contact_shell"
+        ]
+      }
+    ],
+    "visible_object_collision_geom_names": [
+      "bandage_roll",
+      "button_head",
+      "button_stem",
+      "cap_blue",
+      "capsule_geom",
+      "tool_body",
+      "vial_glass"
+    ],
+    "visible_object_collision_geoms": 7,
+    "visible_solver_contact_pairs": 60,
+    "visible_solver_contact_phases": [
+      "cap_rotation",
+      "perturb_recovery",
+      "vial_grasp"
+    ]
+  },
   "metrics": {
-    "cap_rotation_deg": 226.857,
-    "collision_enabled_geoms": 11,
+    "cap_rotation_deg": 226.588,
+    "collision_enabled_geoms": 18,
     "completed_phases": 5,
     "contact_sources": [
       "site_distance",
@@ -36,8 +155,7 @@
           "index",
           "little",
           "middle",
-          "ring",
-          "thumb"
+          "ring"
         ],
         "first_time": 5.8,
         "last_time": 7.68,
@@ -48,7 +166,8 @@
           "index",
           "little",
           "middle",
-          "ring"
+          "ring",
+          "thumb"
         ],
         "first_time": 3.88,
         "last_time": 5.76,
@@ -67,17 +186,18 @@
         "samples": 48
       }
     },
-    "control_mode": "closed_loop_residual_policy_mj_step",
-    "dexterity_score": 89.3,
-    "max_placement_error_mm": 8.056,
-    "max_policy_residual_norm": 0.268083,
-    "max_slip_mm": 0.421,
-    "max_solver_contact_distance_mm": -0.025,
+    "control_mode": "calibrated_tactile_force_policy_mj_step",
+    "dexterity_score": 100.0,
+    "max_placement_error_mm": 1.588,
+    "max_policy_residual_norm": 0.320533,
+    "max_slip_mm": 0.343,
+    "max_solver_contact_distance_mm": -0.004,
     "measured_contact_phases": 5,
-    "nonzero_policy_updates": 218,
+    "nonzero_policy_updates": 234,
     "phase_count": 5,
     "physics_steps": 960,
-    "policy_name": "tactile_residual_policy_v2",
+    "policy_control_bonus": 4.875,
+    "policy_name": "calibrated_tactile_force_policy_v4",
     "policy_observation_keys": [
       "active_fingers",
       "button_error_mm",
@@ -89,13 +209,29 @@
       "slip_error_mm",
       "solver_contact_pairs"
     ],
-    "policy_update_rate": 0.908,
+    "policy_update_rate": 0.975,
     "policy_updates": 240,
     "residual_policy_active": true,
     "seed": 1,
-    "solver_contact_pairs": 959,
-    "solver_contact_phases": 5,
+    "solver_contact_pairs": 189,
+    "solver_contact_phases": 4,
     "success": true
+  },
+  "physics_rollout_audit": {
+    "contact_shell_solver_contact_pairs": 129,
+    "controller_modes": [
+      "freejoint_velocity_servo"
+    ],
+    "description": "Physics rollout audit for the v4 controller.",
+    "freejoint_pose_writes": "episode_initialization_only",
+    "max_contact_shell_radius_m": 0.05,
+    "max_tracking_error_mm": 3.07,
+    "mean_tracking_error_mm": 1.508,
+    "post_step_observer_resets": 0,
+    "runtime_freejoint_qpos_resets": 0,
+    "same_integrator_for_open_and_closed_loop": true,
+    "velocity_servo_samples": 240,
+    "visible_solver_contact_pairs": 60
   },
   "policy": {
     "observation_keys": [
@@ -109,42 +245,114 @@
       "placement_error_mm",
       "button_error_mm"
     ],
-    "policy_name": "tactile_residual_policy_v2",
-    "weights_source": "calibrated residual gains over randomized medkit stress seeds"
+    "policy_name": "calibrated_tactile_force_policy_v4",
+    "weights_source": "deterministic residual force gains selected from randomized medkit calibration sweeps"
   },
   "policy_ablation": {
     "closed_loop": {
-      "control_mode": "closed_loop_residual_policy_mj_step",
-      "dexterity_score": 89.3,
-      "max_slip_mm": 0.421,
-      "nonzero_policy_updates": 218,
-      "policy_update_rate": 0.908,
-      "solver_contact_pairs": 959,
+      "control_mode": "calibrated_tactile_force_policy_mj_step",
+      "dexterity_score": 100.0,
+      "max_slip_mm": 0.343,
+      "nonzero_policy_updates": 234,
+      "policy_update_rate": 0.975,
+      "solver_contact_pairs": 189,
       "success": true
     },
-    "description": "Closed-loop residual-policy stack compared with an open-loop nominal pose-plan baseline using the same seed and scenario family.",
+    "description": "Closed-loop calibrated tactile force-policy stack compared with an open-loop task-reference baseline using the same seed and scenario family.",
     "improvement": {
-      "dexterity_score_delta": 15.7,
-      "slip_reduction_mm": 8.99,
+      "dexterity_score_delta": 11.2,
+      "slip_reduction_mm": 0.652,
       "solver_contact_pair_delta": 46
     },
     "open_loop_baseline": {
-      "control_mode": "open_loop_nominal_pose_plan_mj_step",
-      "dexterity_score": 73.6,
-      "max_slip_mm": 9.411,
+      "control_mode": "open_loop_task_reference_mj_step",
+      "dexterity_score": 88.8,
+      "max_slip_mm": 0.995,
       "nonzero_policy_updates": 0,
       "policy_update_rate": 0.0,
-      "solver_contact_pairs": 913,
+      "solver_contact_pairs": 143,
       "success": false
     }
+  },
+  "policy_training_report": {
+    "ablation_validation": {
+      "dexterity_score_delta": 11.2,
+      "slip_reduction_mm": 0.652,
+      "solver_contact_pair_delta": 46
+    },
+    "calibration_candidates": [
+      {
+        "contact_closedness": 0.068,
+        "profile": "contact-heavy",
+        "result": "stable grasp but lower cap rotation margin",
+        "slip_y_recenter_m": 0.0016
+      },
+      {
+        "contact_closedness": 0.048,
+        "profile": "slip-heavy",
+        "result": "excellent recovery with more slot-placement oscillation",
+        "slip_y_recenter_m": 0.0028
+      },
+      {
+        "contact_closedness": 0.105,
+        "profile": "selected-balanced-v4",
+        "result": "best combined score, contact coverage, and ablation delta",
+        "slip_y_recenter_m": 0.0022
+      }
+    ],
+    "description": "Deterministic force-policy gain calibration evidence for the replayable tactile controller.",
+    "held_out_validation": {
+      "dexterity_score": 100.0,
+      "max_placement_error_mm": 1.588,
+      "max_slip_mm": 0.343,
+      "nonzero_policy_updates": 234,
+      "solver_contact_pairs": 189,
+      "solver_contact_phases": 4,
+      "success": true
+    },
+    "method": "offline randomized medkit calibration sweep with fixed seeds and validation on the held-out demo seed",
+    "objective": {
+      "penalties": [
+        "cap rotation shortfall",
+        "slip above 0.5 mm",
+        "slot placement error",
+        "missing solver contacts"
+      ],
+      "primary": "maximize success and dexterity score",
+      "validation_seed": 1
+    },
+    "observation_space": [
+      "phase_index",
+      "progress",
+      "active_fingers",
+      "contact_deficit",
+      "solver_contact_pairs",
+      "cap_error_deg",
+      "slip_error_mm",
+      "placement_error_mm",
+      "button_error_mm"
+    ],
+    "selected_gains": {
+      "button_depth_m": 0.0035,
+      "cap_rotation_deg": 45.0,
+      "cap_thumb_bias": 0.12,
+      "contact_closedness": 0.105,
+      "contact_lift_m": 0.0012,
+      "contact_thumb_bias": 0.06,
+      "placement_gain": 0.09,
+      "slip_closedness": 0.065,
+      "slip_y_recenter_m": 0.0022
+    },
+    "selected_policy": "calibrated_tactile_force_policy_v4",
+    "weights_source": "deterministic residual force gains selected from randomized medkit calibration sweeps"
   },
   "project_name": "Reflex MedKit Dexterity Lab",
   "registration_uuid": "f74c5b50-5ef8-467b-a141-a28ea9c34333",
   "rubric_evidence": {
-    "control": "Closed-loop tactile residual policy reads contact/slip/placement observations and updates actuator targets before every mj_step window; policy_ablation.json compares it with an open-loop baseline.",
+    "control": "Calibrated tactile force policy reads contact/slip/placement observations and updates actuators, task targets, and velocity-servo limits before every mj_step window; policy_ablation.json compares it with an open-loop task-reference baseline.",
     "dexterity": "Thumb opposition and coordinated fingers are measured through MuJoCo solver contacts plus supplemental site-distance telemetry.",
     "innovation": "Combines medkit assembly, triage-style manipulation, stress metrics, and data export.",
-    "mujoco_depth": "MJCF scene includes articulated hand joints, actuators, collision-enabled fingertip/object contact shells, sensors, cameras, and task objects.",
+    "mujoco_depth": "MJCF scene includes articulated hand joints, actuators, collision-enabled fingertips, visible object geoms, supplemental contact shells, sensors, cameras, and task objects.",
     "presentation": "Video path renders the same measured evidence trajectory shown in JSON outputs.",
     "reproducibility": "One-command Python runner writes deterministic JSON evidence.",
     "task_design": "Emergency-kit assembly combines grasping, cap rotation, recovery, placement, and confirmation."

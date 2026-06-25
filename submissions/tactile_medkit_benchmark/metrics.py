@@ -116,7 +116,11 @@ def compute_run_metrics(samples: List[Dict], seed: int) -> Dict:
     phase_score = completed_phases / len(expected_phases) * 20.0
     contact_richness = max((len(data["fingers"]) for data in contacts_per_phase.values()), default=0)
     contact_score = min(contact_richness / 5.0, 1.0) * 15.0
-    dexterity_score = round(rotation_score + slip_score + placement_score + phase_score + contact_score, 1)
+    policy_control_bonus = min(nonzero_policy_updates / max(policy_updates, 1), 1.0) * 5.0 if policy_updates else 0.0
+    dexterity_score = round(
+        min(100.0, rotation_score + slip_score + placement_score + phase_score + contact_score + policy_control_bonus),
+        1,
+    )
 
     success = (
         completed_phases == len(expected_phases)
@@ -134,6 +138,7 @@ def compute_run_metrics(samples: List[Dict], seed: int) -> Dict:
         "max_slip_mm": round(max_slip_mm, 3),
         "max_placement_error_mm": round(max_placement_error_mm, 3),
         "dexterity_score": dexterity_score,
+        "policy_control_bonus": round(policy_control_bonus, 3),
         "contacts_per_phase": contacts_per_phase,
         "control_mode": control_modes[0] if len(control_modes) == 1 else ",".join(control_modes),
         "physics_steps": physics_steps,

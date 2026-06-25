@@ -76,7 +76,7 @@ class TactileMedKitValidationTests(unittest.TestCase):
             report = validate_submission(output_dir=output_dir, require_video=False)
 
             self.assertFalse(report["valid"])
-            self.assertTrue(any("residual policy" in error or "policy observation" in error for error in report["errors"]))
+            self.assertTrue(any("force policy" in error or "policy observation" in error for error in report["errors"]))
 
     def test_validate_submission_rejects_proxy_only_contact_evidence(self):
         with tempfile.TemporaryDirectory() as tmp:

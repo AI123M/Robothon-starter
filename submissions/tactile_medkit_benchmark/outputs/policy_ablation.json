@@ -1,26 +1,26 @@
 {
   "closed_loop": {
-    "control_mode": "closed_loop_residual_policy_mj_step",
-    "dexterity_score": 90.8,
-    "max_slip_mm": 0.334,
-    "nonzero_policy_updates": 218,
-    "policy_update_rate": 0.908,
-    "solver_contact_pairs": 960,
+    "control_mode": "calibrated_tactile_force_policy_mj_step",
+    "dexterity_score": 100.0,
+    "max_slip_mm": 0.257,
+    "nonzero_policy_updates": 235,
+    "policy_update_rate": 0.979,
+    "solver_contact_pairs": 203,
     "success": true
   },
-  "description": "Closed-loop residual-policy stack compared with an open-loop nominal pose-plan baseline using the same seed and scenario family.",
+  "description": "Closed-loop calibrated tactile force-policy stack compared with an open-loop task-reference baseline using the same seed and scenario family.",
   "improvement": {
-    "dexterity_score_delta": 16.7,
-    "slip_reduction_mm": 9.263,
-    "solver_contact_pair_delta": 45
+    "dexterity_score_delta": 12.2,
+    "slip_reduction_mm": 0.807,
+    "solver_contact_pair_delta": 43
   },
   "open_loop_baseline": {
-    "control_mode": "open_loop_nominal_pose_plan_mj_step",
-    "dexterity_score": 74.1,
-    "max_slip_mm": 9.597,
+    "control_mode": "open_loop_task_reference_mj_step",
+    "dexterity_score": 87.8,
+    "max_slip_mm": 1.064,
     "nonzero_policy_updates": 0,
     "policy_update_rate": 0.0,
-    "solver_contact_pairs": 915,
+    "solver_contact_pairs": 160,
     "success": false
   }
 }

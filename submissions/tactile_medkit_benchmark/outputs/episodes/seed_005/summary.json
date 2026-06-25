@@ -1,6 +1,6 @@
 {
-  "cap_rotation_deg": 229.499,
-  "collision_enabled_geoms": 11,
+  "cap_rotation_deg": 229.389,
+  "collision_enabled_geoms": 18,
   "completed_phases": 5,
   "contact_sources": [
     "site_distance",
@@ -35,8 +35,7 @@
         "index",
         "little",
         "middle",
-        "ring",
-        "thumb"
+        "ring"
       ],
       "first_time": 5.8,
       "last_time": 7.68,
@@ -47,7 +46,8 @@
         "index",
         "little",
         "middle",
-        "ring"
+        "ring",
+        "thumb"
       ],
       "first_time": 3.88,
       "last_time": 5.76,
@@ -66,17 +66,18 @@
       "samples": 48
     }
   },
-  "control_mode": "closed_loop_residual_policy_mj_step",
-  "dexterity_score": 91.1,
-  "max_placement_error_mm": 6.2,
-  "max_policy_residual_norm": 0.268083,
-  "max_slip_mm": 0.397,
-  "max_solver_contact_distance_mm": -0.005,
+  "control_mode": "calibrated_tactile_force_policy_mj_step",
+  "dexterity_score": 100.0,
+  "max_placement_error_mm": 1.321,
+  "max_policy_residual_norm": 0.320502,
+  "max_slip_mm": 0.288,
+  "max_solver_contact_distance_mm": -0.015,
   "measured_contact_phases": 5,
-  "nonzero_policy_updates": 218,
+  "nonzero_policy_updates": 235,
   "phase_count": 5,
   "physics_steps": 960,
-  "policy_name": "tactile_residual_policy_v2",
+  "policy_control_bonus": 4.896,
+  "policy_name": "calibrated_tactile_force_policy_v4",
   "policy_observation_keys": [
     "active_fingers",
     "button_error_mm",
@@ -88,11 +89,11 @@
     "slip_error_mm",
     "solver_contact_pairs"
   ],
-  "policy_update_rate": 0.908,
+  "policy_update_rate": 0.979,
   "policy_updates": 240,
   "residual_policy_active": true,
   "seed": 5,
-  "solver_contact_pairs": 955,
-  "solver_contact_phases": 5,
+  "solver_contact_pairs": 196,
+  "solver_contact_phases": 4,
   "success": true
 }
