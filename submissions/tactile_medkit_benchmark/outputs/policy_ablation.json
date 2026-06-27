@@ -2,25 +2,25 @@
   "closed_loop": {
     "control_mode": "calibrated_tactile_force_policy_mj_step",
     "dexterity_score": 100.0,
-    "max_slip_mm": 0.257,
-    "nonzero_policy_updates": 235,
-    "policy_update_rate": 0.979,
-    "solver_contact_pairs": 203,
+    "max_slip_mm": 0.217,
+    "nonzero_policy_updates": 233,
+    "policy_update_rate": 0.971,
+    "solver_contact_pairs": 206,
     "success": true
   },
   "description": "Closed-loop calibrated tactile force-policy stack compared with an open-loop task-reference baseline using the same seed and scenario family.",
   "improvement": {
-    "dexterity_score_delta": 12.2,
-    "slip_reduction_mm": 0.807,
-    "solver_contact_pair_delta": 43
+    "dexterity_score_delta": 40.0,
+    "slip_reduction_mm": 5.129,
+    "solver_contact_pair_delta": -115
   },
   "open_loop_baseline": {
     "control_mode": "open_loop_task_reference_mj_step",
-    "dexterity_score": 87.8,
-    "max_slip_mm": 1.064,
+    "dexterity_score": 60.0,
+    "max_slip_mm": 5.346,
     "nonzero_policy_updates": 0,
     "policy_update_rate": 0.0,
-    "solver_contact_pairs": 160,
+    "solver_contact_pairs": 321,
     "success": false
   }
 }

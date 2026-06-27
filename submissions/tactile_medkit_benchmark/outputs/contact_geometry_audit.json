@@ -17,10 +17,10 @@
     "tool_contact_shell": 0.02,
     "vial_contact_shell": 0.026
   },
-  "contact_shell_solver_contact_pairs": 127,
+  "contact_shell_solver_contact_pairs": 125,
   "description": "MuJoCo contact audit for visible task-object geoms and supplemental transparent contact shells.",
   "max_contact_shell_radius_m": 0.05,
-  "solver_contact_pairs": 203,
+  "solver_contact_pairs": 206,
   "top_solver_geom_pairs": [
     {
       "count": 47,
@@ -30,24 +30,24 @@
       ]
     },
     {
-      "count": 41,
+      "count": 38,
       "geoms": [
         "little_pad",
         "cap_blue"
       ]
     },
     {
-      "count": 24,
-      "geoms": [
-        "middle_pad",
-        "vial_contact_shell"
-      ]
-    },
-    {
-      "count": 19,
+      "count": 27,
       "geoms": [
         "ring_pad",
         "vial_glass"
+      ]
+    },
+    {
+      "count": 21,
+      "geoms": [
+        "middle_pad",
+        "vial_contact_shell"
       ]
     },
     {
@@ -65,10 +65,17 @@
       ]
     },
     {
-      "count": 10,
+      "count": 11,
       "geoms": [
         "little_pad",
         "vial_glass"
+      ]
+    },
+    {
+      "count": 10,
+      "geoms": [
+        "little_pad",
+        "vial_contact_shell"
       ]
     },
     {
@@ -79,24 +86,17 @@
       ]
     },
     {
-      "count": 9,
-      "geoms": [
-        "little_pad",
-        "vial_contact_shell"
-      ]
-    },
-    {
-      "count": 6,
-      "geoms": [
-        "thumb_pad",
-        "cap_blue"
-      ]
-    },
-    {
       "count": 6,
       "geoms": [
         "little_pad",
         "button_contact_shell"
+      ]
+    },
+    {
+      "count": 5,
+      "geoms": [
+        "thumb_pad",
+        "cap_blue"
       ]
     }
   ],
@@ -110,7 +110,7 @@
     "vial_glass"
   ],
   "visible_object_collision_geoms": 7,
-  "visible_solver_contact_pairs": 76,
+  "visible_solver_contact_pairs": 81,
   "visible_solver_contact_phases": [
     "cap_rotation",
     "perturb_recovery",

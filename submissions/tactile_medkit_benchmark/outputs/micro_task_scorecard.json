@@ -1,0 +1,146 @@
+{
+  "checks": [
+    {
+      "evidence": "5/5 phases completed",
+      "id": "phase_chain_complete",
+      "label": "All five medkit phases completed",
+      "passed": true
+    },
+    {
+      "evidence": "fingers=['index', 'little', 'middle', 'ring', 'thumb']",
+      "id": "five_finger_vial_grasp",
+      "label": "Five-finger vial grasp",
+      "passed": true
+    },
+    {
+      "evidence": "fingers=['index', 'little', 'middle', 'ring', 'thumb']",
+      "id": "five_finger_cap_rotation",
+      "label": "Five-finger cap rotation contact",
+      "passed": true
+    },
+    {
+      "evidence": "fingers=['index', 'little', 'middle', 'ring', 'thumb']",
+      "id": "five_finger_slip_recovery",
+      "label": "Five-finger slip recovery contact",
+      "passed": true
+    },
+    {
+      "evidence": "cap_rotation_deg=228.716",
+      "id": "cap_rotation_60_deg",
+      "label": "Cap rotation reaches 60 degrees",
+      "passed": true
+    },
+    {
+      "evidence": "cap_rotation_deg=228.716",
+      "id": "cap_rotation_120_deg",
+      "label": "Cap rotation reaches 120 degrees",
+      "passed": true
+    },
+    {
+      "evidence": "cap_rotation_deg=228.716",
+      "id": "cap_rotation_180_deg",
+      "label": "Cap rotation reaches 180 degrees",
+      "passed": true
+    },
+    {
+      "evidence": "cap_rotation_deg=228.716",
+      "id": "cap_rotation_220_deg",
+      "label": "Cap rotation reaches 220 degrees",
+      "passed": true
+    },
+    {
+      "evidence": "margin_deg=8.716",
+      "id": "cap_rotation_margin",
+      "label": "Cap rotation keeps at least 4 degree margin over target",
+      "passed": true
+    },
+    {
+      "evidence": "max_slip_mm=0.217",
+      "id": "slip_below_half_mm",
+      "label": "Peak slip below 0.5 mm",
+      "passed": true
+    },
+    {
+      "evidence": "max_placement_error_mm=1.881",
+      "id": "placement_max_below_5mm",
+      "label": "Final placement error below 5 mm",
+      "passed": true
+    },
+    {
+      "evidence": "slot_error_mm=1.466",
+      "id": "vial_slot_under_5mm",
+      "label": "Vial slot placement below 5 mm",
+      "passed": true
+    },
+    {
+      "evidence": "slot_error_mm=1.559",
+      "id": "cap_slot_under_5mm",
+      "label": "Cap slot placement below 5 mm",
+      "passed": true
+    },
+    {
+      "evidence": "slot_error_mm=1.672",
+      "id": "capsule_slot_under_5mm",
+      "label": "Capsule slot placement below 5 mm",
+      "passed": true
+    },
+    {
+      "evidence": "slot_error_mm=1.776",
+      "id": "bandage_slot_under_5mm",
+      "label": "Bandage slot placement below 5 mm",
+      "passed": true
+    },
+    {
+      "evidence": "slot_error_mm=1.881",
+      "id": "tool_token_slot_under_5mm",
+      "label": "Tool Token slot placement below 5 mm",
+      "passed": true
+    },
+    {
+      "evidence": "fingers=['index', 'little', 'middle', 'ring']",
+      "id": "index_button_confirmation",
+      "label": "Index finger confirmation button contact",
+      "passed": true
+    },
+    {
+      "evidence": "nonzero_policy_updates=233/240",
+      "id": "policy_trace_200_updates",
+      "label": "Closed-loop policy trace has at least 200 samples",
+      "passed": true
+    },
+    {
+      "evidence": "policy_update_rate=0.971",
+      "id": "policy_update_rate_95",
+      "label": "Policy updates are active in at least 95% of samples",
+      "passed": true
+    },
+    {
+      "evidence": "dexterity_score_delta=40.000",
+      "id": "policy_ablation_delta_4",
+      "label": "Closed-loop policy beats open-loop baseline by at least 4 points",
+      "passed": true
+    },
+    {
+      "evidence": "solver_contact_pairs=206, visible_solver_contact_pairs=81",
+      "id": "solver_contact_density",
+      "label": "MuJoCo solver-contact evidence is dense",
+      "passed": true
+    },
+    {
+      "evidence": "video_rendered=True, policy_updates=240",
+      "id": "video_or_json_evidence",
+      "label": "Evidence package includes video or complete JSON replay",
+      "passed": true
+    }
+  ],
+  "headline": "22/22 closed-loop medkit verification checks passed",
+  "summary": {
+    "closed_loop_policy": "calibrated_tactile_force_policy_v4",
+    "controller_modes": [
+      "freejoint_velocity_servo"
+    ],
+    "pass_rate": 1.0,
+    "passed_checks": 22,
+    "total_checks": 22
+  }
+}

@@ -49,6 +49,8 @@ ARTIFACT_NAMES = [
     "policy_training_report.json",
     "contact_geometry_audit.json",
     "physics_rollout_audit.json",
+    "micro_task_scorecard.json",
+    "hardware_readiness_audit.json",
     "contact_timeline.json",
     "final_report.txt",
 ]

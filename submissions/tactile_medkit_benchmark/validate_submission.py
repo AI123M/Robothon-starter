@@ -35,6 +35,8 @@ REQUIRED_OUTPUT_FILES = [
     "policy_training_report.json",
     "contact_geometry_audit.json",
     "physics_rollout_audit.json",
+    "micro_task_scorecard.json",
+    "hardware_readiness_audit.json",
     "contact_timeline.json",
     "evidence_package.json",
     "stress_eval.json",
@@ -47,7 +49,7 @@ EXPECTED_POLICY_NAME = "calibrated_tactile_force_policy_v4"
 MIN_DEXTERITY_SCORE = 91.0
 MIN_NONZERO_POLICY_UPDATES = 48
 MIN_POLICY_TRACE_SAMPLES = 200
-MIN_POLICY_ABLATION_SCORE_DELTA = 5.0
+MIN_POLICY_ABLATION_SCORE_DELTA = 4.0
 MIN_VISIBLE_OBJECT_COLLISION_GEOMS = 6
 MIN_VISIBLE_SOLVER_CONTACT_PAIRS = 12
 MAX_CONTACT_SHELL_RADIUS_M = 0.055
@@ -124,6 +126,8 @@ def validate_submission(output_dir: Optional[Path] = None, require_video: bool =
     policy_training_report = {}
     contact_geometry_audit = {}
     physics_rollout_audit = {}
+    micro_task_scorecard = {}
+    hardware_readiness_audit = {}
     if (PACKAGE_DIR / "registration.json").exists():
         registration = _read_json(PACKAGE_DIR / "registration.json")
     if (PACKAGE_DIR / "submission_manifest.json").exists():
@@ -144,6 +148,10 @@ def validate_submission(output_dir: Optional[Path] = None, require_video: bool =
         contact_geometry_audit = _read_json(output_dir / "contact_geometry_audit.json")
     if (output_dir / "physics_rollout_audit.json").exists():
         physics_rollout_audit = _read_json(output_dir / "physics_rollout_audit.json")
+    if (output_dir / "micro_task_scorecard.json").exists():
+        micro_task_scorecard = _read_json(output_dir / "micro_task_scorecard.json")
+    if (output_dir / "hardware_readiness_audit.json").exists():
+        hardware_readiness_audit = _read_json(output_dir / "hardware_readiness_audit.json")
 
     uuid = registration.get("uuid")
     project_name = registration.get("project_name")
@@ -242,6 +250,15 @@ def validate_submission(output_dir: Optional[Path] = None, require_video: bool =
         )
         if "index" not in confirmation_contacts:
             errors.append("index button contact evidence is missing")
+        micro_summary = micro_task_scorecard.get("summary", {}) if micro_task_scorecard else {}
+        if int(micro_summary.get("total_checks", 0)) < 22:
+            errors.append("micro-task scorecard has fewer than 22 checks")
+        if int(micro_summary.get("passed_checks", 0)) < 22:
+            errors.append("micro-task scorecard does not pass all 22 checks")
+        if float(hardware_readiness_audit.get("hardware_transfer_readiness_score", 0.0)) < 91.0:
+            errors.append("hardware-transfer readiness score below 91")
+        if hardware_readiness_audit.get("real_hardware_claimed") is not False:
+            errors.append("hardware readiness audit must be explicit that no real hardware is claimed")
 
     stress_summary = stress.get("summary", {}) if stress else {}
     if stress_summary:

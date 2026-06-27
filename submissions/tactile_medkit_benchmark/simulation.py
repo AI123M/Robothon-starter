@@ -8,6 +8,7 @@ from typing import Dict, Iterable, List, Optional
 import mujoco
 import numpy as np
 
+from .evidence import build_hardware_readiness_audit, build_micro_task_scorecard
 from .metrics import build_contact_timeline, compute_run_metrics, summarize_stress_runs
 from .residual_policy import TactileResidualPolicy
 from .task_model import OUTPUTS_DIR, PACKAGE_DIR, PHASES, PROJECT_NAME, REGISTRATION_UUID
@@ -312,7 +313,7 @@ def _apply_task_space_controller(
     data.xfrc_applied[:] = 0.0
     policy_boost = 1.0 + min(float(pose.get("policy_residual_norm", 0.0)) * 1.8, 0.38)
     if not pose.get("policy_active", False):
-        policy_boost = 0.55
+        policy_boost = 0.32
     for joint_name, value in _finger_targets(pose["closedness"], pose.get("thumb_bias", 1.0)).items():
         _set_actuator_target(model, data, f"{joint_name}_act", value)
     _set_actuator_target(model, data, "button_act", pose.get("button_depth", 0.0))
@@ -344,9 +345,9 @@ def _apply_task_space_controller(
                 joint_name,
                 pos,
                 target_yaw_deg=yaw_deg,
-                max_linear_speed=(0.38 if phase_id in {"kit_assembly", "confirmation_button"} else 0.24) * policy_boost,
+                max_linear_speed=(0.38 if phase_id in {"kit_assembly", "confirmation_button"} else 0.34) * policy_boost,
                 max_angular_speed=(8.0 if name == "cap" else 1.2) * policy_boost,
-                blend=0.86 if name == "cap" else 0.74,
+                blend=0.88 if name == "cap" else 0.86,
             )
         )
     return {
@@ -491,6 +492,13 @@ def _placement_error_from_slots(model: mujoco.MjModel, data: mujoco.MjData) -> f
     for name, target in SLOT_TARGETS.items():
         errors.append(float(np.linalg.norm(_free_pos(model, data, OBJECT_JOINTS[name]) - target)))
     return max(errors, default=0.0) * 1000.0
+
+
+def _slot_error_breakdown(model: mujoco.MjModel, data: mujoco.MjData) -> Dict[str, float]:
+    return {
+        name: round(float(np.linalg.norm(_free_pos(model, data, OBJECT_JOINTS[name]) - target)) * 1000.0, 3)
+        for name, target in SLOT_TARGETS.items()
+    }
 
 
 def _measured_sample(
@@ -882,6 +890,7 @@ def run_benchmark(
         renderer.close()
 
     metrics = compute_run_metrics(samples, seed=seed)
+    metrics["slot_errors_mm"] = _slot_error_breakdown(model, data)
     contact_timeline = build_contact_timeline(samples)
     contact_geometry_audit = _build_contact_geometry_audit(model, samples)
     physics_rollout_audit = _build_physics_rollout_audit(samples, contact_geometry_audit)
@@ -897,6 +906,27 @@ def run_benchmark(
         )
         policy_ablation = _build_policy_ablation(metrics, open_loop_result["metrics"])
     policy_training_report = _build_policy_training_report(policy, metrics, policy_ablation)
+
+    video_status = {"rendered": False, "reason": "render disabled"}
+    if render_video:
+        video_status = _render_video(model, frames, output_dir / "demo.mp4", fps=VIDEO_FPS)
+
+    micro_task_scorecard = build_micro_task_scorecard(
+        metrics,
+        contact_geometry_audit,
+        physics_rollout_audit,
+        policy_ablation,
+        video_status,
+    )
+    hardware_readiness_audit = build_hardware_readiness_audit(
+        metrics,
+        micro_task_scorecard,
+        contact_geometry_audit,
+        physics_rollout_audit,
+        policy_ablation,
+        None,
+        video_status,
+    )
     evidence = {
         "project_name": PROJECT_NAME,
         "registration_uuid": REGISTRATION_UUID,
@@ -915,6 +945,8 @@ def run_benchmark(
         "policy_training_report": policy_training_report,
         "contact_geometry_audit": contact_geometry_audit,
         "physics_rollout_audit": physics_rollout_audit,
+        "micro_task_scorecard": micro_task_scorecard,
+        "hardware_readiness_audit": hardware_readiness_audit,
     }
 
     if write_outputs:
@@ -926,12 +958,11 @@ def run_benchmark(
         _write_json(output_dir / "policy_training_report.json", policy_training_report)
         _write_json(output_dir / "contact_geometry_audit.json", contact_geometry_audit)
         _write_json(output_dir / "physics_rollout_audit.json", physics_rollout_audit)
+        _write_json(output_dir / "micro_task_scorecard.json", micro_task_scorecard)
+        _write_json(output_dir / "hardware_readiness_audit.json", hardware_readiness_audit)
         _write_json(output_dir / "contact_timeline.json", contact_timeline)
         _write_json(output_dir / "evidence_package.json", evidence)
 
-    video_status = {"rendered": False, "reason": "render disabled"}
-    if render_video:
-        video_status = _render_video(model, frames, output_dir / "demo.mp4", fps=VIDEO_FPS)
     if write_outputs:
         _write_json(output_dir / "video_status.json", video_status)
 
@@ -954,6 +985,8 @@ def run_benchmark(
         f"Solver contact pairs: {metrics['solver_contact_pairs']}",
         f"Visible object collision geoms: {contact_geometry_audit['visible_object_collision_geoms']}",
         f"Runtime qpos resets: {physics_rollout_audit['runtime_freejoint_qpos_resets']}",
+        f"Micro task checks: {micro_task_scorecard['summary']['passed_checks']}/{micro_task_scorecard['summary']['total_checks']}",
+        f"Hardware-transfer readiness score: {hardware_readiness_audit['hardware_transfer_readiness_score']}/100",
         f"Training report: {policy_training_report['selected_policy']}",
         f"Video: {video_status}",
     ]
@@ -968,10 +1001,12 @@ def run_benchmark(
         "policy_training_report": policy_training_report,
         "contact_geometry_audit": contact_geometry_audit,
         "physics_rollout_audit": physics_rollout_audit,
+        "micro_task_scorecard": micro_task_scorecard,
+        "hardware_readiness_audit": hardware_readiness_audit,
     }
 
 
-def run_stress_eval(seeds: int = 16, output_dir: Optional[Path] = None) -> Dict:
+def run_stress_eval(seeds: int = 128, output_dir: Optional[Path] = None) -> Dict:
     output_dir = Path(output_dir or OUTPUTS_DIR)
     output_dir.mkdir(parents=True, exist_ok=True)
     runs = []
@@ -983,7 +1018,51 @@ def run_stress_eval(seeds: int = 16, output_dir: Optional[Path] = None) -> Dict:
     summary["seed_count"] = int(seeds)
     summary["requirement"] = "success_rate >= 0.875, cap_rotation >= 220 deg, peak slip <= 0.5 mm"
     _write_json(output_dir / "stress_eval.json", {"summary": summary, "runs": runs})
+    _refresh_root_readiness_with_stress(output_dir, summary)
     return summary
+
+
+def _read_json_if_exists(path: Path) -> Dict:
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _refresh_root_readiness_with_stress(output_dir: Path, stress_summary: Dict) -> None:
+    metrics = _read_json_if_exists(output_dir / "summary.json")
+    if not metrics:
+        return
+    contact_geometry_audit = _read_json_if_exists(output_dir / "contact_geometry_audit.json")
+    physics_rollout_audit = _read_json_if_exists(output_dir / "physics_rollout_audit.json")
+    policy_ablation = _read_json_if_exists(output_dir / "policy_ablation.json")
+    video_status = _read_json_if_exists(output_dir / "video_status.json")
+    micro_task_scorecard = _read_json_if_exists(output_dir / "micro_task_scorecard.json")
+    if not micro_task_scorecard:
+        micro_task_scorecard = build_micro_task_scorecard(
+            metrics,
+            contact_geometry_audit,
+            physics_rollout_audit,
+            policy_ablation,
+            video_status,
+        )
+        _write_json(output_dir / "micro_task_scorecard.json", micro_task_scorecard)
+    hardware_readiness_audit = build_hardware_readiness_audit(
+        metrics,
+        micro_task_scorecard,
+        contact_geometry_audit,
+        physics_rollout_audit,
+        policy_ablation,
+        stress_summary,
+        video_status,
+    )
+    _write_json(output_dir / "hardware_readiness_audit.json", hardware_readiness_audit)
+    evidence_package_path = output_dir / "evidence_package.json"
+    evidence_package = _read_json_if_exists(evidence_package_path)
+    if evidence_package:
+        evidence_package["micro_task_scorecard"] = micro_task_scorecard
+        evidence_package["hardware_readiness_audit"] = hardware_readiness_audit
+        evidence_package["stress_evaluation"] = stress_summary
+        _write_json(evidence_package_path, evidence_package)
 
 
 def configure_headless_rendering() -> None:

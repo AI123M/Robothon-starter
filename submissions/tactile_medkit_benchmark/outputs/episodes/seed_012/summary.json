@@ -1,5 +1,5 @@
 {
-  "cap_rotation_deg": 224.079,
+  "cap_rotation_deg": 224.298,
   "collision_enabled_geoms": 18,
   "completed_phases": 5,
   "contact_sources": [
@@ -69,15 +69,15 @@
   },
   "control_mode": "calibrated_tactile_force_policy_mj_step",
   "dexterity_score": 100.0,
-  "max_placement_error_mm": 1.562,
-  "max_policy_residual_norm": 0.320542,
-  "max_slip_mm": 0.343,
-  "max_solver_contact_distance_mm": -0.027,
+  "max_placement_error_mm": 1.43,
+  "max_policy_residual_norm": 0.320481,
+  "max_slip_mm": 0.272,
+  "max_solver_contact_distance_mm": -0.038,
   "measured_contact_phases": 5,
-  "nonzero_policy_updates": 234,
+  "nonzero_policy_updates": 233,
   "phase_count": 5,
   "physics_steps": 960,
-  "policy_control_bonus": 4.875,
+  "policy_control_bonus": 4.854,
   "policy_name": "calibrated_tactile_force_policy_v4",
   "policy_observation_keys": [
     "active_fingers",
@@ -90,11 +90,18 @@
     "slip_error_mm",
     "solver_contact_pairs"
   ],
-  "policy_update_rate": 0.975,
+  "policy_update_rate": 0.971,
   "policy_updates": 240,
   "residual_policy_active": true,
   "seed": 12,
-  "solver_contact_pairs": 178,
+  "slot_errors_mm": {
+    "bandage": 1.339,
+    "cap": 1.143,
+    "capsule": 1.25,
+    "tool_token": 1.43,
+    "vial": 1.079
+  },
+  "solver_contact_pairs": 179,
   "solver_contact_phases": 4,
   "success": true
 }

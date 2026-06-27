@@ -1,0 +1,44 @@
+{
+  "claim": "Simulation hardware-transfer proxy for real-world emergency triage, not a real-hardware execution claim.",
+  "closed_loop_evidence": {
+    "micro_task_pass_rate": 1.0,
+    "nonzero_policy_updates": 233,
+    "policy_ablation_score_delta": 40.0,
+    "policy_update_rate": 0.971,
+    "slip_reduction_mm": 5.129
+  },
+  "contact_evidence": {
+    "contact_shell_solver_contact_pairs": 125,
+    "solver_contact_pairs": 206,
+    "solver_contact_phases": 4,
+    "visible_solver_contact_pairs": 81
+  },
+  "field_readiness_level": "MuJoCo hardware-transfer proxy validated with force-limited control, contact audit, ablation, and stress runs.",
+  "hardware_mapping_notes": [
+    "The controller writes velocity-servo targets before mj_step instead of runtime qpos teleports.",
+    "The force policy uses contact deficit, solver contacts, cap error, slip error, placement error, and button error.",
+    "The exported trajectory and policy trace can seed teleoperation replay or robot-learning data collection.",
+    "The medkit scenario maps to emergency triage: vial handling, cap operation, object sorting, and confirmation."
+  ],
+  "hardware_transfer_readiness_score": 99.7,
+  "limitations": [
+    "No physical robot was run for this submission.",
+    "Camera/depth perception is future work; current observations are simulation telemetry."
+  ],
+  "real_hardware_claimed": false,
+  "safety_margins": {
+    "cap_rotation_margin_deg": 8.716,
+    "max_contact_shell_radius_m": 0.05,
+    "max_tracking_error_mm": 7.135,
+    "placement_margin_mm": 8.119,
+    "slip_margin_mm": 0.283
+  },
+  "stress_evaluation": {
+    "average_dexterity_score": 99.99,
+    "runs": 128,
+    "success_rate": 1.0,
+    "successes": 128,
+    "worst_placement_error_mm": 2.749,
+    "worst_slip_mm": 0.463
+  }
+}

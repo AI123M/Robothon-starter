@@ -11,7 +11,7 @@ from submissions.tactile_medkit_benchmark.task_model import OUTPUTS_DIR
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run multi-seed stress evaluation.")
-    parser.add_argument("--seeds", type=int, default=16)
+    parser.add_argument("--seeds", type=int, default=128)
     parser.add_argument("--output-dir", type=Path, default=OUTPUTS_DIR)
     args = parser.parse_args()
 

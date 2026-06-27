@@ -1,16 +1,16 @@
 {
-  "contact_shell_solver_contact_pairs": 127,
+  "contact_shell_solver_contact_pairs": 125,
   "controller_modes": [
     "freejoint_velocity_servo"
   ],
   "description": "Physics rollout audit for the v4 controller.",
   "freejoint_pose_writes": "episode_initialization_only",
   "max_contact_shell_radius_m": 0.05,
-  "max_tracking_error_mm": 3.07,
-  "mean_tracking_error_mm": 1.529,
+  "max_tracking_error_mm": 7.135,
+  "mean_tracking_error_mm": 1.595,
   "post_step_observer_resets": 0,
   "runtime_freejoint_qpos_resets": 0,
   "same_integrator_for_open_and_closed_loop": true,
   "velocity_servo_samples": 240,
-  "visible_solver_contact_pairs": 76
+  "visible_solver_contact_pairs": 81
 }

@@ -31,7 +31,7 @@ DEFAULT_WEIGHTS = {
         "slip_closedness": 0.065,
         "cap_thumb_bias": 0.120,
         "contact_thumb_bias": 0.060,
-        "slip_y_recenter_m": 0.0022,
+        "slip_y_recenter_m": 0.0008,
         "contact_lift_m": 0.0012,
         "cap_rotation_deg": 45.0,
         "placement_gain": 0.090,

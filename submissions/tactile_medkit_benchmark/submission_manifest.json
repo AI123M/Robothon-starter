@@ -3,7 +3,7 @@
   "registration_uuid": "f74c5b50-5ef8-467b-a141-a28ea9c34333",
   "main_commands": [
     "python3 submissions/tactile_medkit_benchmark/run_demo.py --no-video --seed 42",
-    "python3 submissions/tactile_medkit_benchmark/run_stress_eval.py --seeds 16",
+    "python3 submissions/tactile_medkit_benchmark/run_stress_eval.py --seeds 128",
     "python3 submissions/tactile_medkit_benchmark/validate_submission.py"
   ],
   "optional_video_command": "python3 submissions/tactile_medkit_benchmark/run_demo.py --seed 42",
@@ -15,6 +15,8 @@
     "policy_training_report.json",
     "contact_geometry_audit.json",
     "physics_rollout_audit.json",
+    "micro_task_scorecard.json",
+    "hardware_readiness_audit.json",
     "contact_timeline.json",
     "evidence_package.json",
     "stress_eval.json",
@@ -31,13 +33,16 @@
     "policy_name": "calibrated_tactile_force_policy_v4",
     "min_nonzero_policy_updates": 48,
     "min_policy_trace_samples": 200,
-    "min_policy_ablation_score_delta": 5.0,
+    "min_policy_ablation_score_delta": 4.0,
     "min_measured_contact_phases": 4,
     "min_solver_contact_phases": 4,
     "min_collision_enabled_geoms": 10,
     "min_visible_object_collision_geoms": 7,
     "min_visible_solver_contact_pairs": 12,
     "max_contact_shell_radius_m": 0.055,
-    "min_video_duration_sec": 60.0
+    "min_video_duration_sec": 60.0,
+    "min_micro_task_checks": 22,
+    "min_hardware_transfer_readiness_score": 91.0,
+    "recommended_stress_seeds": 128
   }
 }

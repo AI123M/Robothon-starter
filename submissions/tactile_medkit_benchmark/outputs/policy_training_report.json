@@ -1,8 +1,8 @@
 {
   "ablation_validation": {
-    "dexterity_score_delta": 12.2,
-    "slip_reduction_mm": 0.807,
-    "solver_contact_pair_delta": 43
+    "dexterity_score_delta": 40.0,
+    "slip_reduction_mm": 5.129,
+    "solver_contact_pair_delta": -115
   },
   "calibration_candidates": [
     {
@@ -21,16 +21,16 @@
       "contact_closedness": 0.105,
       "profile": "selected-balanced-v4",
       "result": "best combined score, contact coverage, and ablation delta",
-      "slip_y_recenter_m": 0.0022
+      "slip_y_recenter_m": 0.0008
     }
   ],
   "description": "Deterministic force-policy gain calibration evidence for the replayable tactile controller.",
   "held_out_validation": {
     "dexterity_score": 100.0,
-    "max_placement_error_mm": 1.944,
-    "max_slip_mm": 0.257,
-    "nonzero_policy_updates": 235,
-    "solver_contact_pairs": 203,
+    "max_placement_error_mm": 1.881,
+    "max_slip_mm": 0.217,
+    "nonzero_policy_updates": 233,
+    "solver_contact_pairs": 206,
     "solver_contact_phases": 4,
     "success": true
   },
@@ -65,7 +65,7 @@
     "contact_thumb_bias": 0.06,
     "placement_gain": 0.09,
     "slip_closedness": 0.065,
-    "slip_y_recenter_m": 0.0022
+    "slip_y_recenter_m": 0.0008
   },
   "selected_policy": "calibrated_tactile_force_policy_v4",
   "weights_source": "deterministic residual force gains selected from randomized medkit calibration sweeps"

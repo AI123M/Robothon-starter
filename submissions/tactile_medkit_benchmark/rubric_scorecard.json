@@ -18,13 +18,16 @@
       "evidence": "Five-finger solver-contact phases, thumb opposition, cap rotation, object placement, and button press."
     },
     "engineering_quality": {
-      "evidence": "Focused Python modules, policy weights, generated policy metrics, geometry audit, calibration report, manifest, and explicit 91+ validation."
+      "evidence": "Focused Python modules, policy weights, generated policy metrics, geometry audit, calibration report, 22-check micro-task scorecard, hardware-transfer readiness audit, manifest, and explicit 91+ validation."
     },
     "presentation": {
       "evidence": "80-second MP4 render, trajectory, final report, and judge brief."
     },
     "innovation": {
-      "evidence": "Medkit manipulation benchmark combines emergency triage, closed-loop tactile force control, recovery, assembly, and data export."
+      "evidence": "Medkit manipulation benchmark combines emergency triage, closed-loop tactile force control, recovery, assembly, hardware-transfer proxy validation, and data export."
+    },
+    "real_world_readiness": {
+      "evidence": "hardware_readiness_audit.json reports force-limited velocity-servo control, zero runtime pose teleports, solver-contact density, safety margins, stress evaluation, and an explicit no-real-hardware-claim limitation."
     }
   }
 }
