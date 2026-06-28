@@ -239,3 +239,221 @@ def build_hardware_readiness_audit(
             "Camera/depth perception is future work; current observations are simulation telemetry.",
         ],
     }
+
+
+def build_hardware_transfer_protocol(
+    metrics: Dict,
+    micro_task_scorecard: Dict,
+    hardware_readiness_audit: Dict,
+    physics_rollout_audit: Dict,
+    stress_summary: Optional[Dict],
+) -> Dict:
+    """Build a concrete bench protocol for the judges' real-hardware feedback."""
+    stress_summary = stress_summary or {}
+    micro_summary = micro_task_scorecard.get("summary", {})
+    readiness_score = float(hardware_readiness_audit.get("hardware_transfer_readiness_score", 0.0))
+    cap_rotation = float(metrics.get("cap_rotation_deg", 0.0))
+    max_slip = float(metrics.get("max_slip_mm", 999.0))
+    max_placement = float(metrics.get("max_placement_error_mm", 999.0))
+
+    telemetry_schema = [
+        {
+            "field": "timestamp_s",
+            "unit": "s",
+            "rate_hz": 100,
+            "purpose": "Align robot commands, contact samples, and pass/fail events.",
+        },
+        {
+            "field": "joint_position_rad",
+            "unit": "rad",
+            "rate_hz": 100,
+            "purpose": "Verify MCP/PIP/DIP-like finger motion follows the exported trajectory envelope.",
+        },
+        {
+            "field": "joint_velocity_rad_s",
+            "unit": "rad/s",
+            "rate_hz": 100,
+            "purpose": "Enforce velocity limits during cap rotation, recovery, and button press.",
+        },
+        {
+            "field": "actuator_command_norm",
+            "unit": "normalized",
+            "rate_hz": 100,
+            "purpose": "Replay calibrated tactile residuals without direct pose teleports.",
+        },
+        {
+            "field": "fingertip_contact_n",
+            "unit": "N",
+            "rate_hz": 100,
+            "purpose": "Confirm thumb, index, middle, ring, and little-finger contact on the vial and cap.",
+        },
+        {
+            "field": "object_pose_m_quat",
+            "unit": "m + quaternion",
+            "rate_hz": 60,
+            "purpose": "Measure vial, cap, capsule, bandage, and tool-token placement.",
+        },
+        {
+            "field": "cap_rotation_deg",
+            "unit": "deg",
+            "rate_hz": 60,
+            "purpose": "Score the 220 degree cap-rotation objective on hardware.",
+        },
+        {
+            "field": "slip_mm",
+            "unit": "mm",
+            "rate_hz": 60,
+            "purpose": "Detect perturbation recovery failures before the object leaves the safe fixture.",
+        },
+        {
+            "field": "placement_error_mm",
+            "unit": "mm",
+            "rate_hz": 60,
+            "purpose": "Score final medkit tray placement against slot markers.",
+        },
+        {
+            "field": "emergency_stop_state",
+            "unit": "boolean",
+            "rate_hz": 100,
+            "purpose": "Record every software or operator safety stop.",
+        },
+    ]
+
+    bench_test_protocol = [
+        {
+            "stage": "bench_00_sensor_zeroing",
+            "goal": "Calibrate joint, fingertip force, object-pose, and button sensors before contact.",
+            "procedure": "Run the seed-42 no-object pose envelope for 10 seconds with motors torque-limited.",
+            "required_logs": ["joint_position_rad", "joint_velocity_rad_s", "emergency_stop_state"],
+            "pass_fail": "No emergency stop, no joint-limit violation, and timestamp gaps below 20 ms.",
+        },
+        {
+            "stage": "bench_01_no_object_dry_run",
+            "goal": "Confirm the velocity-servo controller can replay the five-phase trajectory safely.",
+            "procedure": "Replay the exported policy trace with the vial fixture removed and a soft palm stop installed.",
+            "required_logs": ["joint_position_rad", "actuator_command_norm", "emergency_stop_state"],
+            "pass_fail": "Controller completes all five phases with zero runtime pose teleports.",
+        },
+        {
+            "stage": "bench_02_compliant_vial_grasp",
+            "goal": "Validate five-finger contact on a foam or capped dummy vial before torque loading.",
+            "procedure": "Run vial-grasp phase only, then hold for 3 seconds under low fingertip force.",
+            "required_logs": ["fingertip_contact_n", "object_pose_m_quat", "slip_mm"],
+            "pass_fail": "All five fingertips contact the vial and measured slip stays below 0.5 mm.",
+        },
+        {
+            "stage": "bench_03_capped_vial_rotation",
+            "goal": "Transfer the 220 degree cap-rotation task to a torque-limited real vial fixture.",
+            "procedure": "Use a breakaway cap or torque proxy, ramp command speed, and stop at the first slip alarm.",
+            "required_logs": ["cap_rotation_deg", "fingertip_contact_n", "joint_velocity_rad_s"],
+            "pass_fail": "Cap rotation reaches at least 220 degrees with no contact-force or velocity-limit fault.",
+        },
+        {
+            "stage": "bench_04_perturbation_recovery",
+            "goal": "Check recovery after a controlled lateral tap on the vial during grasp.",
+            "procedure": "Apply a repeatable 2 mm fixture perturbation and replay the recovery phase.",
+            "required_logs": ["slip_mm", "fingertip_contact_n", "object_pose_m_quat"],
+            "pass_fail": "Peak slip remains at or below 0.5 mm and the vial returns to the grasp corridor.",
+        },
+        {
+            "stage": "bench_05_medkit_slot_placement",
+            "goal": "Verify vial, cap, capsule, bandage, and tool token can be staged into labeled slots.",
+            "procedure": "Use AprilTag or fixture-frame object tracking and run the placement phase at half speed.",
+            "required_logs": ["object_pose_m_quat", "placement_error_mm", "joint_position_rad"],
+            "pass_fail": "Every final slot error is 10 mm or lower, with a preferred 5 mm judge target.",
+        },
+        {
+            "stage": "bench_06_confirmation_and_abort_drill",
+            "goal": "Validate final index-button confirmation and the operator abort path.",
+            "procedure": "Press the confirmation button once, then deliberately trip the E-stop on a separate dry run.",
+            "required_logs": ["emergency_stop_state", "fingertip_contact_n", "joint_velocity_rad_s"],
+            "pass_fail": "Index button press is recorded, and E-stop latency is below 100 ms in the dry-run drill.",
+        },
+    ]
+
+    return {
+        "claim": (
+            "Hardware-transfer protocol responding to judge feedback; this is a real-robot bench plan "
+            "generated from simulation evidence, not a completed physical experiment."
+        ),
+        "real_hardware_claimed": False,
+        "field_trial_status": "not_run_physical_hardware",
+        "judge_feedback_addressed": [
+            "Add real hardware experiments",
+            "Add real hardware testing",
+            "Add real hardware validation",
+        ],
+        "protocol_readiness_score": min(round(readiness_score, 1), 100.0),
+        "target_platform": {
+            "embodiment": "five-finger dexterous hand with thumb opposition and MCP/PIP/DIP-like joints",
+            "control_interface": "velocity-servo or low-level joint command interface with force/current limits",
+            "minimum_sensing": [
+                "joint encoders",
+                "fingertip force or tactile proxy",
+                "object pose tracker",
+                "operator emergency stop",
+            ],
+        },
+        "actuator_command_schema": {
+            "mode": "force-limited velocity servo",
+            "runtime_pose_teleports_allowed": False,
+            "max_joint_velocity_rad_s": 0.8,
+            "max_fingertip_contact_n": 8.0,
+            "max_cap_rotation_speed_deg_s": 45.0,
+            "source_artifacts": ["policy_trace.json", "trajectory.json", "physics_rollout_audit.json"],
+        },
+        "telemetry_schema": telemetry_schema,
+        "bench_test_protocol": bench_test_protocol,
+        "safety_interlocks": [
+            "Stop if any fingertip force exceeds 8 N for more than 100 ms.",
+            "Stop if measured slip exceeds 3 mm before the recovery phase is active.",
+            "Stop if cap torque proxy or motor current exceeds the configured hardware limit.",
+            "Stop if object pose leaves the tray fixture corridor by more than 25 mm.",
+            "Stop immediately on operator E-stop or missing telemetry for more than 100 ms.",
+        ],
+        "acceptance_criteria": {
+            "cap_rotation_deg_min": 220.0,
+            "max_slip_mm_max": 0.5,
+            "max_placement_error_mm_max": 10.0,
+            "preferred_slot_error_mm_max": 5.0,
+            "micro_task_checks_min": 22,
+            "stress_success_rate_min": 0.875,
+            "stress_seed_count_min": 128,
+            "runtime_freejoint_qpos_resets": 0,
+            "operator_abort_false": True,
+        },
+        "simulation_baseline": {
+            "cap_rotation_deg": round(cap_rotation, 3),
+            "max_slip_mm": round(max_slip, 3),
+            "max_placement_error_mm": round(max_placement, 3),
+            "micro_task_checks": (
+                f"{micro_summary.get('passed_checks', 0)}/{micro_summary.get('total_checks', 0)}"
+            ),
+            "hardware_transfer_readiness_score": readiness_score,
+            "stress_runs": int(stress_summary.get("runs", 0)),
+            "stress_success_rate": stress_summary.get("success_rate"),
+        },
+        "data_collection_plan": {
+            "minimum_real_trials_before_claiming_hardware_validation": 30,
+            "required_successes_before_public_hardware_claim": 27,
+            "log_files": [
+                "hardware_trial_summary.json",
+                "hardware_trial_trajectory.parquet",
+                "hardware_trial_video.mp4",
+            ],
+            "metadata": ["robot_serial", "fixture_id", "cap_torque_proxy", "operator_abort", "ambient_notes"],
+        },
+        "hardware_validation_gaps": [
+            "Physical robot execution is still pending.",
+            "Camera/depth perception is still simulated or fixture-based in the current package.",
+            "Force limits must be calibrated on the target hand before any live cap-rotation trial.",
+        ],
+        "generated_from": {
+            "summary": "summary.json",
+            "micro_task_scorecard": "micro_task_scorecard.json",
+            "hardware_readiness_audit": "hardware_readiness_audit.json",
+            "physics_rollout_audit": "physics_rollout_audit.json",
+            "stress_eval": "stress_eval.json",
+        },
+        "physics_controller_modes": physics_rollout_audit.get("controller_modes", []),
+    }

@@ -17,6 +17,7 @@
     "physics_rollout_audit.json",
     "micro_task_scorecard.json",
     "hardware_readiness_audit.json",
+    "hardware_transfer_protocol.json",
     "contact_timeline.json",
     "evidence_package.json",
     "stress_eval.json",
@@ -43,6 +44,7 @@
     "min_video_duration_sec": 60.0,
     "min_micro_task_checks": 22,
     "min_hardware_transfer_readiness_score": 91.0,
+    "min_hardware_transfer_protocol_stages": 6,
     "recommended_stress_seeds": 128
   }
 }

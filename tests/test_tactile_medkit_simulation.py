@@ -9,6 +9,7 @@ import numpy as np
 
 from submissions.tactile_medkit_benchmark.evidence import (
     build_hardware_readiness_audit,
+    build_hardware_transfer_protocol,
     build_micro_task_scorecard,
 )
 from submissions.tactile_medkit_benchmark.simulation import _render_video
@@ -30,6 +31,7 @@ class TactileMedKitSimulationTests(unittest.TestCase):
             self.assertTrue((Path(tmp) / "physics_rollout_audit.json").exists())
             self.assertTrue((Path(tmp) / "micro_task_scorecard.json").exists())
             self.assertTrue((Path(tmp) / "hardware_readiness_audit.json").exists())
+            self.assertTrue((Path(tmp) / "hardware_transfer_protocol.json").exists())
             self.assertTrue((Path(tmp) / "contact_timeline.json").exists())
             self.assertTrue((Path(tmp) / "final_report.txt").exists())
             summary = json.loads((Path(tmp) / "summary.json").read_text())
@@ -67,6 +69,23 @@ class TactileMedKitSimulationTests(unittest.TestCase):
             hardware_readiness = json.loads((Path(tmp) / "hardware_readiness_audit.json").read_text())
             self.assertFalse(hardware_readiness["real_hardware_claimed"])
             self.assertGreaterEqual(hardware_readiness["hardware_transfer_readiness_score"], 91.0)
+            hardware_protocol = json.loads((Path(tmp) / "hardware_transfer_protocol.json").read_text())
+            self.assertFalse(hardware_protocol["real_hardware_claimed"])
+            self.assertGreaterEqual(len(hardware_protocol["bench_test_protocol"]), 6)
+            telemetry_fields = {item["field"] for item in hardware_protocol["telemetry_schema"]}
+            self.assertTrue(
+                {
+                    "joint_position_rad",
+                    "joint_velocity_rad_s",
+                    "fingertip_contact_n",
+                    "emergency_stop_state",
+                }.issubset(telemetry_fields)
+            )
+            criteria = hardware_protocol["acceptance_criteria"]
+            self.assertGreaterEqual(criteria["cap_rotation_deg_min"], 220.0)
+            self.assertLessEqual(criteria["max_slip_mm_max"], 0.5)
+            self.assertLessEqual(criteria["max_placement_error_mm_max"], 10.0)
+            self.assertGreaterEqual(criteria["micro_task_checks_min"], 22)
             self.assertGreater(summary["physics_steps"], 0)
             self.assertGreaterEqual(summary["measured_contact_phases"], 4)
             self.assertIn("site_distance", summary["contact_sources"])
@@ -174,6 +193,7 @@ class TactileMedKitSimulationTests(unittest.TestCase):
 
         scorecard = build_micro_task_scorecard(metrics, contact_audit, physics_audit, ablation, video)
         readiness = build_hardware_readiness_audit(metrics, scorecard, contact_audit, physics_audit, ablation, stress, video)
+        protocol = build_hardware_transfer_protocol(metrics, scorecard, readiness, physics_audit, stress)
 
         self.assertEqual(scorecard["summary"]["total_checks"], 22)
         self.assertEqual(scorecard["summary"]["passed_checks"], 22)
@@ -181,6 +201,9 @@ class TactileMedKitSimulationTests(unittest.TestCase):
         self.assertGreaterEqual(readiness["hardware_transfer_readiness_score"], 91.0)
         self.assertFalse(readiness["real_hardware_claimed"])
         self.assertEqual(readiness["stress_evaluation"]["runs"], 64)
+        self.assertFalse(protocol["real_hardware_claimed"])
+        self.assertGreaterEqual(len(protocol["bench_test_protocol"]), 6)
+        self.assertIn("operator_abort_false", protocol["acceptance_criteria"])
 
 
 if __name__ == "__main__":

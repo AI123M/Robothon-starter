@@ -110,6 +110,23 @@ class TactileMedKitValidationTests(unittest.TestCase):
             self.assertFalse(report["valid"])
             self.assertTrue(any("index button" in error for error in report["errors"]))
 
+    def test_validate_submission_rejects_incomplete_hardware_protocol(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            output_dir = Path(tmp) / "outputs"
+            run_benchmark(seed=22, output_dir=output_dir, render_video=False)
+            run_stress_eval(seeds=3, output_dir=output_dir)
+            protocol_path = output_dir / "hardware_transfer_protocol.json"
+            protocol = json.loads(protocol_path.read_text())
+            protocol["real_hardware_claimed"] = True
+            protocol["bench_test_protocol"] = protocol["bench_test_protocol"][:2]
+            protocol["telemetry_schema"] = []
+            protocol_path.write_text(json.dumps(protocol), encoding="utf-8")
+
+            report = validate_submission(output_dir=output_dir, require_video=False)
+
+            self.assertFalse(report["valid"])
+            self.assertTrue(any("hardware transfer protocol" in error for error in report["errors"]))
+
     def test_validate_submission_rejects_short_video_evidence(self):
         with tempfile.TemporaryDirectory() as tmp:
             output_dir = Path(tmp) / "outputs"

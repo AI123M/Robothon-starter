@@ -8,7 +8,11 @@ from typing import Dict, Iterable, List, Optional
 import mujoco
 import numpy as np
 
-from .evidence import build_hardware_readiness_audit, build_micro_task_scorecard
+from .evidence import (
+    build_hardware_readiness_audit,
+    build_hardware_transfer_protocol,
+    build_micro_task_scorecard,
+)
 from .metrics import build_contact_timeline, compute_run_metrics, summarize_stress_runs
 from .residual_policy import TactileResidualPolicy
 from .task_model import OUTPUTS_DIR, PACKAGE_DIR, PHASES, PROJECT_NAME, REGISTRATION_UUID
@@ -927,6 +931,13 @@ def run_benchmark(
         None,
         video_status,
     )
+    hardware_transfer_protocol = build_hardware_transfer_protocol(
+        metrics,
+        micro_task_scorecard,
+        hardware_readiness_audit,
+        physics_rollout_audit,
+        None,
+    )
     evidence = {
         "project_name": PROJECT_NAME,
         "registration_uuid": REGISTRATION_UUID,
@@ -947,6 +958,7 @@ def run_benchmark(
         "physics_rollout_audit": physics_rollout_audit,
         "micro_task_scorecard": micro_task_scorecard,
         "hardware_readiness_audit": hardware_readiness_audit,
+        "hardware_transfer_protocol": hardware_transfer_protocol,
     }
 
     if write_outputs:
@@ -960,6 +972,7 @@ def run_benchmark(
         _write_json(output_dir / "physics_rollout_audit.json", physics_rollout_audit)
         _write_json(output_dir / "micro_task_scorecard.json", micro_task_scorecard)
         _write_json(output_dir / "hardware_readiness_audit.json", hardware_readiness_audit)
+        _write_json(output_dir / "hardware_transfer_protocol.json", hardware_transfer_protocol)
         _write_json(output_dir / "contact_timeline.json", contact_timeline)
         _write_json(output_dir / "evidence_package.json", evidence)
 
@@ -987,6 +1000,7 @@ def run_benchmark(
         f"Runtime qpos resets: {physics_rollout_audit['runtime_freejoint_qpos_resets']}",
         f"Micro task checks: {micro_task_scorecard['summary']['passed_checks']}/{micro_task_scorecard['summary']['total_checks']}",
         f"Hardware-transfer readiness score: {hardware_readiness_audit['hardware_transfer_readiness_score']}/100",
+        f"Hardware-transfer protocol stages: {len(hardware_transfer_protocol['bench_test_protocol'])}",
         f"Training report: {policy_training_report['selected_policy']}",
         f"Video: {video_status}",
     ]
@@ -1003,6 +1017,7 @@ def run_benchmark(
         "physics_rollout_audit": physics_rollout_audit,
         "micro_task_scorecard": micro_task_scorecard,
         "hardware_readiness_audit": hardware_readiness_audit,
+        "hardware_transfer_protocol": hardware_transfer_protocol,
     }
 
 
@@ -1056,11 +1071,20 @@ def _refresh_root_readiness_with_stress(output_dir: Path, stress_summary: Dict) 
         video_status,
     )
     _write_json(output_dir / "hardware_readiness_audit.json", hardware_readiness_audit)
+    hardware_transfer_protocol = build_hardware_transfer_protocol(
+        metrics,
+        micro_task_scorecard,
+        hardware_readiness_audit,
+        physics_rollout_audit,
+        stress_summary,
+    )
+    _write_json(output_dir / "hardware_transfer_protocol.json", hardware_transfer_protocol)
     evidence_package_path = output_dir / "evidence_package.json"
     evidence_package = _read_json_if_exists(evidence_package_path)
     if evidence_package:
         evidence_package["micro_task_scorecard"] = micro_task_scorecard
         evidence_package["hardware_readiness_audit"] = hardware_readiness_audit
+        evidence_package["hardware_transfer_protocol"] = hardware_transfer_protocol
         evidence_package["stress_evaluation"] = stress_summary
         _write_json(evidence_package_path, evidence_package)
 

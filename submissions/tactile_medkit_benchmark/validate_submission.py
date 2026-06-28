@@ -19,6 +19,7 @@ REQUIRED_ROOT_FILES = [
     "registration.json",
     "README.md",
     "JUDGE_BRIEF.md",
+    "HARDWARE_TRANSFER_PROTOCOL.md",
     "rubric_scorecard.json",
     "submission_manifest.json",
     "policy_weights.json",
@@ -37,6 +38,7 @@ REQUIRED_OUTPUT_FILES = [
     "physics_rollout_audit.json",
     "micro_task_scorecard.json",
     "hardware_readiness_audit.json",
+    "hardware_transfer_protocol.json",
     "contact_timeline.json",
     "evidence_package.json",
     "stress_eval.json",
@@ -65,6 +67,13 @@ MIN_MEASURED_CONTACT_PHASES = 4
 MIN_SOLVER_CONTACT_PHASES = 4
 MIN_COLLISION_ENABLED_GEOMS = 10
 MIN_VIDEO_DURATION_SEC = 60.0
+MIN_HARDWARE_PROTOCOL_STAGES = 6
+REQUIRED_HARDWARE_TELEMETRY_FIELDS = {
+    "joint_position_rad",
+    "joint_velocity_rad_s",
+    "fingertip_contact_n",
+    "emergency_stop_state",
+}
 
 
 def _read_json(path: Path) -> Dict:
@@ -128,6 +137,7 @@ def validate_submission(output_dir: Optional[Path] = None, require_video: bool =
     physics_rollout_audit = {}
     micro_task_scorecard = {}
     hardware_readiness_audit = {}
+    hardware_transfer_protocol = {}
     if (PACKAGE_DIR / "registration.json").exists():
         registration = _read_json(PACKAGE_DIR / "registration.json")
     if (PACKAGE_DIR / "submission_manifest.json").exists():
@@ -152,6 +162,8 @@ def validate_submission(output_dir: Optional[Path] = None, require_video: bool =
         micro_task_scorecard = _read_json(output_dir / "micro_task_scorecard.json")
     if (output_dir / "hardware_readiness_audit.json").exists():
         hardware_readiness_audit = _read_json(output_dir / "hardware_readiness_audit.json")
+    if (output_dir / "hardware_transfer_protocol.json").exists():
+        hardware_transfer_protocol = _read_json(output_dir / "hardware_transfer_protocol.json")
 
     uuid = registration.get("uuid")
     project_name = registration.get("project_name")
@@ -259,6 +271,31 @@ def validate_submission(output_dir: Optional[Path] = None, require_video: bool =
             errors.append("hardware-transfer readiness score below 91")
         if hardware_readiness_audit.get("real_hardware_claimed") is not False:
             errors.append("hardware readiness audit must be explicit that no real hardware is claimed")
+        if hardware_transfer_protocol.get("real_hardware_claimed") is not False:
+            errors.append("hardware transfer protocol must be explicit that no real hardware is claimed")
+        protocol_stages = hardware_transfer_protocol.get("bench_test_protocol", [])
+        if len(protocol_stages) < MIN_HARDWARE_PROTOCOL_STAGES:
+            errors.append("hardware transfer protocol has fewer than six bench-test stages")
+        telemetry_fields = {item.get("field") for item in hardware_transfer_protocol.get("telemetry_schema", [])}
+        missing_hardware_fields = REQUIRED_HARDWARE_TELEMETRY_FIELDS - telemetry_fields
+        if missing_hardware_fields:
+            errors.append(f"hardware transfer protocol telemetry fields missing: {sorted(missing_hardware_fields)}")
+        criteria = hardware_transfer_protocol.get("acceptance_criteria", {})
+        if float(criteria.get("cap_rotation_deg_min", 0.0)) < targets.get("cap_rotation_deg", 220.0):
+            errors.append("hardware transfer protocol cap-rotation acceptance is below target")
+        if float(criteria.get("max_slip_mm_max", 999.0)) > targets.get("max_slip_mm", 0.5):
+            errors.append("hardware transfer protocol slip acceptance is looser than target")
+        if float(criteria.get("max_placement_error_mm_max", 999.0)) > targets.get("max_placement_error_mm", 10.0):
+            errors.append("hardware transfer protocol placement acceptance is looser than target")
+        if int(criteria.get("micro_task_checks_min", 0)) < targets.get("min_micro_task_checks", 22):
+            errors.append("hardware transfer protocol micro-task acceptance is below target")
+        if criteria.get("operator_abort_false") is not True:
+            errors.append("hardware transfer protocol must require operator_abort_false")
+        actuator_schema = hardware_transfer_protocol.get("actuator_command_schema", {})
+        if actuator_schema.get("runtime_pose_teleports_allowed") is not False:
+            errors.append("hardware transfer protocol must forbid runtime pose teleports")
+        if len(hardware_transfer_protocol.get("safety_interlocks", [])) < 4:
+            errors.append("hardware transfer protocol must include safety interlocks")
 
     stress_summary = stress.get("summary", {}) if stress else {}
     if stress_summary:

@@ -18,5 +18,6 @@ Visible object collision geoms: 7
 Runtime qpos resets: 0
 Micro task checks: 22/22
 Hardware-transfer readiness score: 97.5/100
+Hardware-transfer protocol stages: 7
 Training report: calibrated_tactile_force_policy_v4
 Video: {'rendered': False, 'reason': 'render disabled'}
